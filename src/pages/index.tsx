@@ -1,17 +1,17 @@
-import Feature from "../components/Feature";
-import Hero from "../components/Hero";
-import Layout from "../components/Layout/Layout";
-import Pricing from "../components/Pricing";
 import SeoHead from "../components/SeoHead";
+import Layout from "../components/Layout/Layout";
+import Gallary from "../components/Gallary";
+import Planes from "../components/Planes";
+import Hero from "../components/Hero";
 
 export default function Home() {
   return (
     <>
-      <SeoHead title="LaslesVPN Landing Page" />
+      <SeoHead title="Iranian commuity" />
       <Layout>
-        <Hero />
-        <Feature />
-        <Pricing />
+        <Hero/>
+        <Gallary/>
+        <Planes/>
       </Layout>
     </>
   );
