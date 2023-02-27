@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react'
+import React, {useState} from "react";
 
 const Tabs = () => {
 
-  const tabs = ["About Us","Vision and Mission","Our History"]
-  const [currentTab, setCurrentTab] = useState("About Us")
+  const tabs = ["About Us","Vision and Mission","Our History"];
+  const [currentTab, setCurrentTab] = useState("About Us");
 
   return (
     <div className="mx-auto w-full max-w-5xl sm:border-b-2  border-gray-100">
@@ -28,12 +28,14 @@ const Tabs = () => {
           <ul className="flex flex-wrap justify-start space-x-5">
             {tabs.map(tab => {              
               return(
-                <li key={tab} className={`flex border-b-2 text-base ${tab === currentTab ? "border-orange-500 text-orange-500" : "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"}`}>
+                <li 
+                  key={tab} 
+                  className={`flex border-b-2 text-base ${tab === currentTab ? "border-orange-500 text-orange-500" : "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"}`}>
                   <button type="button" className="px-2 pb-5 inline-flex items-center font-semibold" onClick={() => setCurrentTab(tab)}>                    
                     {tab}
                   </button>
                 </li>
-              )
+              );
             })
             }
           </ul>
@@ -41,7 +43,7 @@ const Tabs = () => {
       </div>
 
     </div>
-  )
-}
+  );
+};
 
-export default Tabs
+export default Tabs;

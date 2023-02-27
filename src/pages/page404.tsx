@@ -1,7 +1,7 @@
 
-import React from 'react'
+import React from "react";
 import Image from "next/image";
-import ButtonPrimary from '@/components/misc/ButtonPrimary'
+import ButtonPrimary from "@/components/misc/ButtonPrimary";
 
 const Page404 = () => {
   return (
@@ -20,19 +20,19 @@ const Page404 = () => {
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-            <Image                    
-                src="/assets/page404.png"
-                alt="404Page"
-                quality={100}
-                width={100}
-                height={100}
-                layout="responsive"
-            />
+          <Image                    
+            src="/assets/page404.png"
+            alt="404Page"
+            quality={100}
+            width={100}
+            height={100}
+            layout="responsive"
+          />
         </div>          
 
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page404
+export default Page404;

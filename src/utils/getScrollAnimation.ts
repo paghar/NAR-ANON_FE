@@ -1,5 +1,5 @@
 export default function getScrollAnimation() {
-	return ({
+  return ({
     offscreen: {
       y: 150,
       opacity: 0,
@@ -8,9 +8,9 @@ export default function getScrollAnimation() {
       y: 0,
       opacity: 1,
       transition: {
-      type: "spring",
-      duration,
+        type: "spring",
+        duration,
       }
     })
-  })
+  });
 }
