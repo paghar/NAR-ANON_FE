@@ -5,7 +5,7 @@ import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import ButtonOutline from "./misc/ButtonOutline";
 import Image from "next/image";
 
-const Gallary = () => {
+const Gallary = () => {  
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (

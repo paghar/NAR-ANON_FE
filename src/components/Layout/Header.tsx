@@ -4,7 +4,11 @@ import {Link as LinkScroll} from "react-scroll";
 import ButtonOutline from "../misc/ButtonOutline";
 import LogoVPN from "../../../public/assets/Logo.svg";
 
-const Header = () => {  
+interface IProps{
+  menuItems:string[];   
+}
+
+const Header = ({menuItems}:IProps) => {  
 
   const [activeLink, setActiveLink] = useState("");
   const [scrollActive, setScrollActive] = useState(false);
@@ -15,7 +19,6 @@ const Header = () => {
     });
   }, []);
 
-  const menuItems=["About","Gallary","Project","Event","Contact Us"];
   const renderMenuItems = ( style:string, activeLinkStyle:string, linkStyle:string ) =>{   
     return menuItems.map((item,index)=>(
       <LinkScroll

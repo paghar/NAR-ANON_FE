@@ -5,20 +5,39 @@ import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import ButtonPrimary from "./misc/ButtonPrimary";
 import Event from "./Event/Event";
 import Project from "./Project";
+import {IEventItem, IProjectItem} from "@/data/interface";
 
+interface IProps{
+  eventTitle:string,
+  eventDescription:string,
+  eventItems:IEventItem[],
+  projectTitle:string,
+  projectDescription:string,
+  projectItems:IProjectItem[]
+}
 
-const Planes = () => {
+const Planes = ({
+  eventTitle,
+  eventDescription,
+  eventItems,
+  projectTitle,
+  projectDescription,
+  projectItems
+}:IProps) => {
+
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div
-      className="bg-gradient-to-b from-white-300 to-white-500 w-full py-14"
-      id="Planes"
-    >
-      <div className="max-w-screen-xl  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">         
-        <Project/>
-        <div className="flex flex-col w-full my-16" id="testimoni">
-          <Event/> 
+    <div className="bg-gradient-to-b from-white-300 to-white-500 w-full py-14">
+      <div className="max-w-screen-xl  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center" id="Project">   
+        
+        {/* Projects */}
+        <Project projectTitle={projectTitle} projectDescription={projectDescription}  projectItems={projectItems}/>
+
+        <div className="flex flex-col w-full my-16" id="Event">
+          
+          {/* Events */}
+          <Event eventTitle={eventTitle} eventDescription={eventDescription} eventItems={eventItems}/> 
 
           {/* subscribe */}
           <ScrollAnimationWrapper className="relative w-full mt-16">
@@ -28,7 +47,7 @@ const Planes = () => {
                   <h5 className="text-black-600 text-xl sm:text-2xl lg:text-3xl leading-relaxed font-medium">
                     Subscribe Now for <br /> Get Special Features!
                   </h5>
-                  <p>Let's subscribe with us and find the fun.</p>
+                  <p>Let s subscribe with us and find the fun.</p>
                 </div>
                 <ButtonPrimary>MemberShip</ButtonPrimary>
               </div>

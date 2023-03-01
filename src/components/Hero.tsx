@@ -4,32 +4,21 @@ import {motion} from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import Tabs from "./misc/Tabs";
+import {IMember,ITab} from "@/data/interface";
 
-const Hero = ({
-  listUser = [
-    {
-      name: "Users",
-      number: "390",
-      icon: "/assets/Icon/heroicons_sm-user.svg",
-    },
-    {
-      name: "Locations",
-      number: "20",
-      icon: "/assets/Icon/gridicons_location.svg",
-    },
-    {
-      name: "Server",
-      number: "50",
-      icon: "/assets/Icon/bx_bxs-server.svg",
-    },       
-  ],
-}) => {
+
+interface IProps{
+  members:IMember[]
+  tabs:ITab[]
+}
+
+const Hero = ({members,tabs}:IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-
+ 
   return (
     <div
       className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto"
-      id="about"
+      id="About"
     >
      
       {/* First Part */}
@@ -43,9 +32,9 @@ const Hero = ({
               <strong>Iranischer Kulturverein Sachsen e.V.</strong>.
             </h1>
             <p className="text-black-500 mt-4 mb-6">
-              <span>Geschäftstelle: Lingneralle 3, 01069 Dresden</span>
-              <span>Tel.: 0351-83383495 </span>
-              <span>E-Mail: semino@t-online.de </span>                      
+              <span className="block">Geschäftstelle: Lingneralle 3, 01069 Dresden</span>
+              <span className="block">Tel.: 0351-83383495 </span>
+              <span className="block">E-Mail: semino@t-online.de </span>                      
             </p>              
           </div>
             
@@ -69,18 +58,17 @@ const Hero = ({
       <ScrollAnimationWrapper>
         <motion.div>
           <div className="h-64 ">
-            <Tabs/>
+            <Tabs tabs={tabs}/>
           </div>      
         </motion.div>
       </ScrollAnimationWrapper>
-       
 
 
       {/* Member */}
       <div className="relative w-full h-full flex">
         <ScrollAnimationWrapper
           className="rounded-lg w-full grid grid-flow-row sm:grid-flow-row grid-cols-1 sm:grid-cols-3 py-9 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-gray-100 bg-white-500 z-10">
-          {listUser.map((listUsers, index) => (
+          {members?.map((member, index) => (
             <motion.div
               className="flex items-center justify-start sm:justify-center py-4 sm:py-6 w-8/12 px-4 sm:w-auto mx-auto sm:mx-0"
               key={index}
@@ -91,13 +79,13 @@ const Hero = ({
               <div className="bg-white font-semibold text-center rounded-3xl border border-gray-100 shadow-lg p-10 max-w-xs">
                 <img 
                   className="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" 
-                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" 
+                  src={member.imageURL}
                   alt="product designer"/>
-                <h1 className="text-lg text-gray-700"> John Doe </h1>
-                <h3 className="text-sm text-gray-400 "> Creative Director </h3>
+                <h1 className="text-lg text-gray-700"> {member.name} </h1>
+                <h3 className="text-sm text-gray-400 "> {member.postion} </h3>
                 <p 
                   className="text-xs text-gray-400 mt-4"> 
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  {member.description}
                 </p>                
               </div>
 

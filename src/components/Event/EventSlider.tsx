@@ -4,46 +4,19 @@ import Slider from "react-slick";
 import ArrowBack from "../../../public/assets/Icon/eva_arrow-back-fill.svg";
 import ArrowNext from "../../../public/assets/Icon/eva_arrow-next-fill.svg";
 import ButtonOutline from "../misc/ButtonOutline";
+import {IEventItem} from "@/data/interface";
+import {settings} from "../../data/constants/sliderSettings";
 
-const EventSlider = ({eventItems}:any) => {
+interface IProps{
+  eventItems:IEventItem[]
+} 
 
-  const settings = {
-    dots: true,
-    customPaging: function () {
-      return (
-        <a className="">
-          <span className="mx-2 rounded-l-full rounded-r-full h-4 w-4 block cursor-pointer transition-all "></span>
-        </a>
-      );
-    },
-    dotsClass: "slick-dots w-max absolute mt-20  ",
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 2,
-    responsive: [
-      {
-        breakpoint: 770,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+const EventSlider = ({eventItems}:IProps) => {
 
-  const [sliderRef, setSliderRef] = useState();
+  const [sliderRef, setSliderRef] = useState<any>();
 
   return (
-    <>
+    <>  
       <Slider
         {...settings}
         arrows={false}
@@ -69,6 +42,7 @@ const EventSlider = ({eventItems}:any) => {
 
         ))}
       </Slider>
+
       <div className="flex w-full items-center justify-end">
         <div className="flex flex-none justify-between w-auto mt-14">
           <div
@@ -80,7 +54,8 @@ const EventSlider = ({eventItems}:any) => {
             <ArrowBack className="h-6 w-6 " />
           </div>
           <div
-            className="flex items-center justify-center h-14 w-14 rounded-full bg-white border-orange-500 border hover:bg-orange-500 hover:text-white-500 transition-all text-orange-500 cursor-pointer"
+            className="flex items-center justify-center h-14 w-14 rounded-full bg-white
+             border-orange-500 border hover:bg-orange-500 hover:text-white-500 transition-all text-orange-500 cursor-pointer"
             onClick={sliderRef?.slickNext}
           >
             <ArrowNext className="h-6 w-6" />

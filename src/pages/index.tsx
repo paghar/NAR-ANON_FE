@@ -1,13 +1,13 @@
 import Gallary from "../components/Gallary";
-import Planes from "../components/Planes";
-import Hero from "../components/Hero";
+import PlanesContainer from "../container/Planes";
+import Hero from "../container/Hero";
 
 export default function Home() {
   return (
     <>    
       <Hero/>
       <Gallary/>
-      <Planes/>     
+      <PlanesContainer/>     
     </>
   );
 }

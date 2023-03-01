@@ -1,10 +1,15 @@
 import Footer from "./Footer";
 import Header from "./Header";
 
-const Layout = ({children}: any) => {
+interface IProps{
+  menuItems:string[];  
+  children:any
+}
+
+const Layout = ({menuItems,children}: IProps) => {
   return (
     <>
-      <Header />
+      <Header menuItems={menuItems} />
       {children}
       <Footer />
     </>
