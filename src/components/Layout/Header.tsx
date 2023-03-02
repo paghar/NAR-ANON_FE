@@ -5,10 +5,11 @@ import ButtonOutline from "../misc/ButtonOutline";
 import LogoVPN from "../../../public/assets/Logo.svg";
 
 interface IProps{
-  menuItems:string[];   
+  menuItems:string[];  
+  subscribeClick:()=>void 
 }
 
-const Header = ({menuItems}:IProps) => {  
+const Header = ({menuItems,subscribeClick}:IProps) => {  
 
   const [activeLink, setActiveLink] = useState("");
   const [scrollActive, setScrollActive] = useState(false);
@@ -64,7 +65,12 @@ const Header = ({menuItems}:IProps) => {
                 Farsi
               </span>
             </Link>
-            <ButtonOutline>MemberShip</ButtonOutline>
+            <ButtonOutline
+              type="button"
+              onClick={subscribeClick}
+            >
+              MemberShip
+            </ButtonOutline>
           </div>
 
         </nav>

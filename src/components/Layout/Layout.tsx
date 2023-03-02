@@ -2,14 +2,15 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 interface IProps{
-  menuItems:string[];  
+  menuItems:string[] 
   children:any
+  subscribeClick:()=>void
 }
 
-const Layout = ({menuItems,children}: IProps) => {
+const Layout = ({menuItems,children,subscribeClick}: IProps) => {
   return (
     <>
-      <Header menuItems={menuItems} />
+      <Header menuItems={menuItems} subscribeClick={subscribeClick} />
       {children}
       <Footer />
     </>
