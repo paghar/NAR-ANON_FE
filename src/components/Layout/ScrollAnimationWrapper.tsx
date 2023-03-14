@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 export default function ScrollAnimationWrapper({
   children,
@@ -9,7 +9,7 @@ export default function ScrollAnimationWrapper({
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{once: true, amount: 0.8}}
       className={className}
       {...props}
     >
