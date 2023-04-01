@@ -1,0 +1,11 @@
+{
+    "site-name":"جامعه ایرانیان",
+    "navbar":{
+        "about":"درباره ما",
+        "gallery":"گالری ",
+        "project":"پروژه",
+        "event":" رویداد",
+        "contact-us":"تماس با ما ",
+        "membership":"عضویت"
+    }
+}
