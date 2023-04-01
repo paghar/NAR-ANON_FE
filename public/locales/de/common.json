@@ -1,0 +1,11 @@
+{
+    "site-name":"Iranischer Kulturverein",
+    "navbar":{
+        "about":"about",
+        "gallery":"gallery ",
+        "project":"Project",
+        "event":"Event",
+        "contact-us":"Contact Us",
+        "membership":"Mitgliedschaft"
+    }
+}

@@ -1,45 +1,33 @@
-import {useState} from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import ArrowBack from "../../../public/assets/Icon/eva_arrow-back-fill.svg";
 import ArrowNext from "../../../public/assets/Icon/eva_arrow-next-fill.svg";
 import ButtonOutline from "../misc/ButtonOutline";
-import {IEventItem} from "@/data/interface";
-import {settings} from "../../data/constants/sliderSettings";
+import { IEventItem } from "@/data/interface";
+import { settings } from "../../data/constants/sliderSettings";
 
-interface IProps{
-  eventItems:IEventItem[]
-} 
+interface IProps {
+  eventItems: IEventItem[];
+}
 
-const EventSlider = ({eventItems}:IProps) => {
-
+const EventSlider = ({ eventItems }: IProps) => {
   const [sliderRef, setSliderRef] = useState<any>();
 
   return (
-    <>  
-      <Slider
-        {...settings}
-        arrows={false}
-        ref={setSliderRef}
-        className="flex items-stretch justify-items-stretch"
-      >
-        {eventItems?.map((item:any, index:number) => (
-
+    <>
+      <Slider {...settings} arrows={false} ref={setSliderRef} className="flex items-stretch justify-items-stretch">
+        {eventItems?.map((item: any, index: number) => (
           <div className="px-3 flex items-stretch" key={index}>
-            <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col">        
-              <Image
-                className="items-center"
-                src={item.image}
-                height={200}
-                width={200}
-                alt="Icon People"
-              /> 
-              <h1 className="mt-5 text-left">{item.title}</h1>    
+            <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col">
+              <Image className="items-center" src={item.image} height={200} width={200} alt="Icon People" />
+              <h1 className="mt-5 text-left">{item.title}</h1>
               <p className="mt-5 text-left">“{item.description}”.</p>
-              <ButtonOutline>Read More</ButtonOutline>
-            </div>            
+              <ButtonOutline type="button" onClick={() => null}>
+                Read More
+              </ButtonOutline>
+            </div>
           </div>
-
         ))}
       </Slider>
 
