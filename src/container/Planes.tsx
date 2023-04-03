@@ -1,24 +1,26 @@
 import Planes from "@/components/Planes";
-import { projectItems } from "../data/constants/projectItems";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { getEvents } from "@/services/apis";
-import { IEventItem } from "@/data/interface";
+import { getPlans } from "@/services/apis";
+import { IPlan } from "@/data/interface";
 
 const PlanesContainer = () => {
-  const [events, setEvents] = useState<IEventItem[]>([]);
-  const router = useRouter();
+  const [events, setEvents] = useState<IPlan[]>([]);
+  const [projects, setProjects] = useState<IPlan[]>([]);
+  const { locale, push } = useRouter();
 
   const subscribeClick = () => {
-    router.push("/subscribe");
+    push("/subscribe");
   };
 
   useEffect(() => {
-    getEvents().then((data) => {
+    getPlans(locale, "event").then((data) => {
       setEvents(data);
     });
+    getPlans(locale, "project").then((data) => {
+      setProjects(data);
+    });
   }, []);
-  console.log(events);
 
   return (
     <Planes
@@ -29,7 +31,7 @@ const PlanesContainer = () => {
       projectTitle="Project list"
       projectDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                           Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"
-      projectItems={projectItems}
+      projectItems={projects}
       subscribeClick={subscribeClick}
     />
   );

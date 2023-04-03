@@ -22,18 +22,18 @@ const EventSlider = ({ eventItems }: IProps) => {
         ref={setSliderRef}
         className="flex items-stretch justify-items-stretch"
       >
-        {eventItems?.map((item) => (
-          <div className="px-3 flex items-stretch" key={item.id}>
+        {eventItems?.map(({ id, attributes }) => (
+          <div className="px-3 flex items-stretch" key={id}>
             <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col">
               <Image
                 className="items-center"
-                src={item.attributes.thumbnail}
+                src={attributes.thumbnail}
                 height={200}
                 width={200}
                 alt="Icon People"
               />
-              <h1 className="mt-5 text-left">{item.attributes.title}</h1>
-              <p className="mt-5 text-left">“{item.attributes.description}”.</p>
+              <h1 className="mt-5 text-left">{attributes.title}</h1>
+              <p className="mt-5 text-left">“{attributes.description}”.</p>
               <ButtonOutline type="button" onClick={() => null}>
                 Read More
               </ButtonOutline>

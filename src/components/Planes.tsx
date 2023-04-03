@@ -5,15 +5,15 @@ import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import ButtonPrimary from "./misc/ButtonPrimary";
 import Event from "./Event/Event";
 import Project from "./Project";
-import { IEventItem, IProjectItem } from "@/data/interface";
+import { IPlan } from "@/data/interface";
 
 interface IProps {
   eventTitle: string;
   eventDescription: string;
-  eventItems: any[];
+  eventItems: IPlan[];
   projectTitle: string;
   projectDescription: string;
-  projectItems: IProjectItem[];
+  projectItems: IPlan[];
   subscribeClick: () => void;
 }
 
