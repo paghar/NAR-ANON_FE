@@ -6,9 +6,9 @@ import ButtonPrimary from "../misc/ButtonPrimary";
 
 const Footer = () => {
   return (
-    <div className="bg-white-300 pt-44 pb-24">
+    <div className="bg-white-300 pt-32 pb-20">
       <div className="container my-24 px-6 mx-auto">
-        <section className="mb-32 text-gray-800">
+        <section className="text-gray-800">
           <div className="flex flex-wrap">
             <div className="grow-0 shrink-0 basis-auto mb-6 md:mb-0 w-full md:w-6/12 px-3 lg:px-6">
               <h2 className="text-3xl text-black-600 font-bold mb-6">Contact us</h2>

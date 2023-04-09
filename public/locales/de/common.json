@@ -7,5 +7,21 @@
         "event":"Event",
         "contact-us":"Contact Us",
         "membership":"Mitgliedschaft"
-    }
+    },
+    "language":{
+        "deutsch":"Deutsch",
+        "farsi" : "Farsi"
+    },
+    "community":{
+        "title":"Iranischer Kulturverein Sachsen e.V..",
+        "address":"address: Lingneralle 3, 01069 Dresden",
+        "phone":"Tel.: 0351-83383495",
+        "email":"E-Mail: semino@t-online.de",
+        "about-us-title":"About Us",
+        "about-us-context":"About Us Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! ",
+        "vision-mission-title":"Vision Mission",
+        "vision-mission":"Vision and Mission Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!",
+        "history-title":"History",
+        "history":"Our History Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"     
+    }   
 }

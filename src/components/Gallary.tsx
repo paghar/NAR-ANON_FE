@@ -9,7 +9,7 @@ const Gallary = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center my-10">
       <div className="xl:w-1/2 w-11/12">
         <h1 role="heading" className="text-6xl font-bold 2xl:leading-10 leading-0 text-center text-gray-800">
           Gallary
