@@ -83,7 +83,7 @@ const Header = ({ menuItems, subscribeClick }: IProps) => {
               </span>
             </Link>
             <ButtonOutline type="button" onClick={subscribeClick}>
-              { t("navbar.membership")}
+              { t("membership.membership")}
             </ButtonOutline>
           </div>
 

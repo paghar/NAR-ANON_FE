@@ -5,8 +5,7 @@
         "gallery":"gallery ",
         "project":"Project",
         "event":"Event",
-        "contact-us":"Contact Us",
-        "membership":"Mitgliedschaft"
+        "contact-us":"Contact Us"       
     },
     "language":{
         "deutsch":"Deutsch",
@@ -23,5 +22,30 @@
         "vision-mission":"Vision and Mission Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!",
         "history-title":"History",
         "history":"Our History Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"     
-    }   
+    },
+    "gallary":{
+        "gallary-title":"Gallary",
+        "gallary-des":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"        
+    },
+    "plan":{
+        "project-title":"Project List",
+        "project-des":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!",
+        "event-title":"Event List",
+        "event-des":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"        
+    },
+    "membership":{
+        "membership":"Mitgliedschaft",
+        "membership-des":"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    "button":{
+        "more-picture":"More Picture",
+        "send":"send"
+    },
+    "contactUs":{
+        "contactUs":"Contact Us",
+        "contactUs-dec":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!",
+        "contactUs-name":"Name",
+        "contactUs-email":"E-mail",
+        "contactUs-message":"Message"
+    }
 }

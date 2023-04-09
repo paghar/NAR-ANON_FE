@@ -3,11 +3,15 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getPlans } from "@/services/apis";
 import { IPlan } from "@/data/interface";
+import { useTranslation } from "next-i18next";
+
 
 const PlanesContainer = () => {
   const [events, setEvents] = useState<IPlan[]>([]);
   const [projects, setProjects] = useState<IPlan[]>([]);
   const { locale, push } = useRouter();
+
+  const { t } = useTranslation("common");
 
   const subscribeClick = () => {
     push("/subscribe");
@@ -24,13 +28,11 @@ const PlanesContainer = () => {
 
   return (
     <Planes
-      eventTitle="Evnet List"
-      eventDescription="These are the stories of our customers who have joined us with great
-                        pleasure when using this crazy feature."
+      eventTitle={t("plan.event-title")}
+      eventDescription={t("plan.project-des")}
       eventItems={events}
-      projectTitle="Project list"
-      projectDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                          Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"
+      projectTitle={t("plan.event-title")}
+      projectDescription={t("plan.event-des")}
       projectItems={projects}
       subscribeClick={subscribeClick}
     />

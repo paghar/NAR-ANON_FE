@@ -4,18 +4,20 @@ import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import ButtonOutline from "./misc/ButtonOutline";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
 const Gallary = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+  const { t } = useTranslation("common");
 
   return (
     <div className="flex flex-col justify-center items-center my-10">
       <div className="xl:w-1/2 w-11/12">
         <h1 role="heading" className="text-6xl font-bold 2xl:leading-10 leading-0 text-center text-gray-800">
-          Gallary
+         {t("gallary.gallary-title")}
         </h1>
         <h2 role="contentinfo" className="text-base leading-normal text-center text-gray-600 mt-5">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        {t("gallary.gallary-des")}
         </h2>
       </div>
       <div className="2xl:px-20 lg:px-12 px-4 flex flex-wrap items-start mt-4">
@@ -102,7 +104,7 @@ const Gallary = () => {
       </div>
 
       <ButtonOutline type="button" onClick={() => null}>
-        More Picture
+        {t("button.more-picture")}
       </ButtonOutline>
     </div>
   );
