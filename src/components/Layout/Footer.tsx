@@ -10,7 +10,7 @@ const Footer = () => {
   const {t} = useTranslation("common");
 
   return (
-    <div className="bg-white-300 pt-32 pb-20">
+    <div className="bg-white-300 pt-32 pb-20" id="Contact">
       <div className="container my-24 px-6 mx-auto">
         <section className="text-gray-800">
           <div className="flex flex-wrap">

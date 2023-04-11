@@ -6,13 +6,13 @@ const LayoutContainer = ({children}: any) => {
   const {t} = useTranslation("common");
 
   const menuItems = [
-    t("navbar.about"),
-    t("navbar.gallery"),
-    t("navbar.project"),
-    t("navbar.event"),
-    t("navbar.contact-us")
+    {text:t("navbar.about"),hrefText:"About"},
+    {text:t("navbar.gallery"),hrefText:"Gallery"},
+    {text:t("navbar.project"),hrefText:"Project"},
+    {text: t("navbar.event"),hrefText:"Event"},
+    {text: t("navbar.contact-us"),hrefText:"Contact"},  
   ];
-  
+
   const router = useRouter();
 
   const subscribeClick = () => {

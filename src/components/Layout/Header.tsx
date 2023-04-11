@@ -5,9 +5,10 @@ import ButtonOutline from "../misc/ButtonOutline";
 import LogoVPN from "../../../public/assets/Logo.svg";
 import {useRouter} from "next/router";
 import {useTranslation} from "next-i18next";
+import {IMenuItem} from "../../data/interface";
 
 interface IProps {
-  menuItems: string[];
+  menuItems: IMenuItem[];
   subscribeClick: () => void;
 }
 
@@ -33,18 +34,19 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
       <LinkScroll
         key={`${item}${index}`}
         activeClass="active"
-        to={item}
+        to={item.hrefText}       
         spy={true}
+        offset={-100}
         smooth={true}
         duration={1000}
         onSetActive={() => {
-          setActiveLink(item);
+          setActiveLink(item.hrefText);
         }}
         className={`${style} ${
-          activeLink === item ? activeLinkStyle : linkStyle
+          activeLink === item.hrefText ? activeLinkStyle : linkStyle
         }`}
       >
-        {item}
+        {item.text}
       </LinkScroll>
     ));
   };
@@ -59,7 +61,9 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
         <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
 
           <div className="col-start-1 col-end-2 flex items-center">
-            <LogoVPN className="w-12 h-12" />
+            <Link href="/">
+              <LogoVPN className="w-12 h-12" />
+            </Link>           
           </div>
 
           <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500  items-center">

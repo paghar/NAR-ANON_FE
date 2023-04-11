@@ -9,7 +9,7 @@ interface IProps {
 
 const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center"  id="Project">
       {/* :TITLE CONTAINER */}
       <div className="max-w-2xl text-center">
         <h2 className="text-2xl sm:text-4xl  tracking-wide">
