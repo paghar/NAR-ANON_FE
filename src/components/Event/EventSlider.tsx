@@ -1,17 +1,17 @@
-import { useState } from "react";
+import {useState} from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import ArrowBack from "../../../public/assets/Icon/eva_arrow-back-fill.svg";
 import ArrowNext from "../../../public/assets/Icon/eva_arrow-next-fill.svg";
 import ButtonOutline from "../misc/ButtonOutline";
-import { IEventItem } from "@/data/interface";
-import { settings } from "../../data/constants/sliderSettings";
+import {IEventItem} from "@/data/interface";
+import {settings} from "../../data/constants/sliderSettings";
 
 interface IProps {
   eventItems: IEventItem[];
 }
 
-const EventSlider = ({ eventItems }: IProps) => {
+const EventSlider = ({eventItems}: IProps) => {
   const [sliderRef, setSliderRef] = useState<any>();
 
   return (
@@ -22,7 +22,7 @@ const EventSlider = ({ eventItems }: IProps) => {
         ref={setSliderRef}
         className="flex items-stretch justify-items-stretch"
       >
-        {eventItems?.map(({ id, attributes }) => (
+        {eventItems?.map(({id, attributes}) => (
           <div className="px-3 flex items-stretch" key={id}>
             <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col">
               <Image

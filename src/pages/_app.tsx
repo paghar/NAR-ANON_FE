@@ -1,17 +1,17 @@
-import { AppProps } from "next/app";
-import { appWithTranslation, useTranslation } from "next-i18next";
+import {AppProps} from "next/app";
+import {appWithTranslation, useTranslation} from "next-i18next";
 
 import Layout from "../container/Layout";
 import SeoHead from "@/components/SeoHead";
 
 import "@/styles/globals.css";
 import "@/styles/slick.css";
-import { useEffect } from "react";
+import {useEffect} from "react";
 
-function App({ Component, pageProps }: AppProps) {
+function App({Component, pageProps}: AppProps) {
   const {
     t,
-    i18n: { dir, language }
+    i18n: {dir, language}
   } = useTranslation("common");
 
   useEffect(() => {

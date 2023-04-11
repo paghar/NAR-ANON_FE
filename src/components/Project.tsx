@@ -1,5 +1,5 @@
 import React from "react";
-import { IPlan } from "../data/interface";
+import {IPlan} from "../data/interface";
 
 interface IProps {
   projectTitle: string;
@@ -7,7 +7,7 @@ interface IProps {
   projectItems: IPlan[];
 }
 
-const Project = ({ projectTitle, projectDescription, projectItems }: IProps) => {
+const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
   return (
     <div className="flex flex-col items-center">
       {/* :TITLE CONTAINER */}
@@ -21,7 +21,7 @@ const Project = ({ projectTitle, projectDescription, projectItems }: IProps) => 
       {/* :SCHEDULE */}
       <div className="mt-10 max-w-screen-xl  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full ">
         <ul className="flex flex-col space-y-5" aria-label="schedule events">
-          {projectItems.map(({ id, attributes }) => (
+          {projectItems.map(({id, attributes}) => (
             <li
               key={id}
               className="group w-full block py-3 px-4 border-2 border-gray-100 rounded-md overflow-hidden hover:border-orange-500"

@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 import ButtonPrimary from "@/components/misc/ButtonPrimary";
 import TextBox from "@/components/misc/TextBox";
 import ScrollAnimationWrapper from "@/components/Layout/ScrollAnimationWrapper";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";

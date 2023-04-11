@@ -1,17 +1,17 @@
 import Planes from "@/components/Planes";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { getPlans } from "@/services/apis";
-import { IPlan } from "@/data/interface";
-import { useTranslation } from "next-i18next";
+import {useRouter} from "next/router";
+import {useEffect, useState} from "react";
+import {getPlans} from "@/services/apis";
+import {IPlan} from "@/data/interface";
+import {useTranslation} from "next-i18next";
 
 
 const PlanesContainer = () => {
   const [events, setEvents] = useState<IPlan[]>([]);
   const [projects, setProjects] = useState<IPlan[]>([]);
-  const { locale, push } = useRouter();
+  const {locale, push} = useRouter();
 
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
 
   const subscribeClick = () => {
     push("/subscribe");
