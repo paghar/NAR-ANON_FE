@@ -1,9 +1,9 @@
 import Layout from "@/components/Layout/Layout";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
+import {useRouter} from "next/router";
+import {useTranslation} from "next-i18next";
 
-const LayoutContainer = ({ children }: any) => {
-  const { t } = useTranslation("common");
+const LayoutContainer = ({children}: any) => {
+  const {t} = useTranslation("common");
 
   const menuItems = [
     t("navbar.about"),

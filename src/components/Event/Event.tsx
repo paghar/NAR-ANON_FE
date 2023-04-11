@@ -1,9 +1,9 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 import EventSlider from "./EventSlider";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-import { IEventItem } from "@/data/interface";
+import {IEventItem} from "@/data/interface";
 
 interface IProps {
   eventTitle: string;
@@ -11,7 +11,7 @@ interface IProps {
   eventItems: IEventItem[];
 }
 
-const Event = ({ eventTitle, eventDescription, eventItems }: IProps) => {
+const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (

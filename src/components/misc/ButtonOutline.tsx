@@ -7,7 +7,7 @@ interface IBtnProps {
   children?: React.ReactNode;
 }
 
-const ButtonOutline = ({ id, type, onClick, children }: IBtnProps) => {
+const ButtonOutline = ({id, type, onClick, children}: IBtnProps) => {
   return (
     <button
       id={id}
