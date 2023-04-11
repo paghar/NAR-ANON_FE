@@ -12,6 +12,7 @@ const LayoutContainer = ({ children }: any) => {
     t("navbar.event"),
     t("navbar.contact-us")
   ];
+  
   const router = useRouter();
 
   const subscribeClick = () => {

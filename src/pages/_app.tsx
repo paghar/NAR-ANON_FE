@@ -17,6 +17,7 @@ function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     document.dir = dir();
   }, [language]);
+  
   return (
     <>
       <SeoHead title={t("site-name")} />

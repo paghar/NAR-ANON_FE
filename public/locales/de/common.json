@@ -1,8 +1,8 @@
 {
     "site-name":"Iranischer Kulturverein",
     "navbar":{
-        "about":"about",
-        "gallery":"gallery ",
+        "about":"About",
+        "gallery":"Gallery ",
         "project":"Project",
         "event":"Event",
         "contact-us":"Contact Us"       
@@ -35,7 +35,18 @@
     },
     "membership":{
         "membership":"Mitgliedschaft",
-        "membership-des":"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        "membership-des":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "name":"Name",
+        "family":"Last Name",
+        "brithday":"Brithday",
+        "job":"Job",
+        "address":"Address",
+        "postal-code":"Postal Code",
+        "phone":"Phone",
+        "email-address":"Email Address",
+        "request-reason":"Request Reason",
+        "condition-title":"I agree with the terms and conditions.",
+        "condition-context":"Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
     "button":{
         "more-picture":"More Picture",
