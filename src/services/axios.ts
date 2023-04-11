@@ -1,4 +1,4 @@
-import axios, { AxiosError, InternalAxiosRequestConfig, AxiosResponse } from "axios";
+import axios, {AxiosError, InternalAxiosRequestConfig, AxiosResponse} from "axios";
 
 const baseURL = "http://localhost:1337/api/";
 

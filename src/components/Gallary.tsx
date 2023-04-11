@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import { motion } from "framer-motion";
+import React, {useMemo} from "react";
+import {motion} from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import ButtonOutline from "./misc/ButtonOutline";

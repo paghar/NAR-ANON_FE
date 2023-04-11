@@ -1,13 +1,13 @@
 import Planes from "@/components/Planes";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { getPlans } from "@/services/apis";
-import { IPlan } from "@/data/interface";
+import {useRouter} from "next/router";
+import {useEffect, useState} from "react";
+import {getPlans} from "@/services/apis";
+import {IPlan} from "@/data/interface";
 
 const PlanesContainer = () => {
   const [events, setEvents] = useState<IPlan[]>([]);
   const [projects, setProjects] = useState<IPlan[]>([]);
-  const { locale, push } = useRouter();
+  const {locale, push} = useRouter();
 
   const subscribeClick = () => {
     push("/subscribe");

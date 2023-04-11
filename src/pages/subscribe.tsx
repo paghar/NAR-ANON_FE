@@ -1,7 +1,7 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 import ButtonPrimary from "@/components/misc/ButtonPrimary";
 import ScrollAnimationWrapper from "@/components/Layout/ScrollAnimationWrapper";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 import LogoVPN from "../../public/assets/Logo.svg";
 

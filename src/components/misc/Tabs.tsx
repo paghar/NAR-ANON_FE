@@ -1,11 +1,11 @@
-import { ITab } from "@/data/interface";
-import React, { useState } from "react";
+import {ITab} from "@/data/interface";
+import React, {useState} from "react";
 
 interface IProps {
   tabs: ITab[];
 }
 
-const Tabs = ({ tabs }: IProps) => {
+const Tabs = ({tabs}: IProps) => {
   const [currentTab, setCurrentTab] = useState(tabs[0]);
 
   return (
@@ -46,10 +46,10 @@ const Tabs = ({ tabs }: IProps) => {
                     key={tab.title}
                     className={`flex border-b-2 text-base 
                       ${
-                        tab.title === currentTab.title
-                          ? "border-orange-500 text-orange-500"
-                          : "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"
-                      }`}
+                  tab.title === currentTab.title
+                    ? "border-orange-500 text-orange-500"
+                    : "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"
+                  }`}
                   >
                     <button
                       type="button"
