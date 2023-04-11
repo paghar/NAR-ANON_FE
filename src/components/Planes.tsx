@@ -27,7 +27,7 @@ const Planes = ({
   subscribeClick
 }: IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
 
   return (
     <div className="bg-gradient-to-b from-white-300 to-white-500 w-full py-14">

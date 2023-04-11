@@ -5,7 +5,7 @@ import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import Tabs from "./misc/Tabs";
 import {IMember,ITab} from "@/data/interface";
-import { useTranslation } from "next-i18next";
+import {useTranslation} from "next-i18next";
 
 
 interface IProps{
@@ -15,7 +15,7 @@ interface IProps{
 
 const Hero = ({members,tabs}:IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
  
   return (
     <div

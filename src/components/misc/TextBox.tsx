@@ -9,17 +9,17 @@ interface ITextBoxProps {
   onChange: (event: any) => void;   
 }
 
-const TextBox = ({ id,type,rows,placeholder,value,onChange }: ITextBoxProps) => {
+const TextBox = ({id,type,rows,placeholder,value,onChange}: ITextBoxProps) => {
 
-   const renderElement = type === "input" 
-   ?
-   <input
-     id={id}
-     type="text"
-     value={value}
-     placeholder={placeholder}
-     onChange={onChange}
-     className="form-control block
+  const renderElement = type === "input" 
+    ?
+    <input
+      id={id}
+      type="text"
+      value={value}
+      placeholder={placeholder}
+      onChange={onChange}
+      className="form-control block
        w-full
        px-3
        py-1.5
@@ -36,13 +36,13 @@ const TextBox = ({ id,type,rows,placeholder,value,onChange }: ITextBoxProps) => 
        focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"         
     />
     : type === "textarea" ? 
-    <textarea
-     id="reasonText"
-     rows={rows}
-     placeholder={placeholder}
-     value={value}
-     onChange={onChange}
-     className="
+      <textarea
+        id="reasonText"
+        rows={rows}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        className="
        form-control
        block
        w-full
@@ -58,8 +58,8 @@ const TextBox = ({ id,type,rows,placeholder,value,onChange }: ITextBoxProps) => 
        ease-in-out
        m-0                  
        focus:text-gray-400 focus:bg-white focus:border-orange-500 focus:outline-none"
-    />
-  : null;
+      />
+      : null;
 
   return (renderElement);
 

@@ -3,11 +3,11 @@ import Facebook from "../../../public/assets/Icon/facebook.svg";
 import Twitter from "../../../public/assets/Icon/twitter.svg";
 import Instagram from "../../../public/assets/Icon/instagram.svg";
 import ButtonPrimary from "../misc/ButtonPrimary";
-import { useTranslation } from "next-i18next";
+import {useTranslation} from "next-i18next";
 
 const Footer = () => {
 
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
 
   return (
     <div className="bg-white-300 pt-32 pb-20">

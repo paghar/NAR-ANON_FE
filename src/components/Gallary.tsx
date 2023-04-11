@@ -1,23 +1,18 @@
-import React, {useMemo} from "react";
-import {motion} from "framer-motion";
-import getScrollAnimation from "../utils/getScrollAnimation";
-import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import React from "react";
 import ButtonOutline from "./misc/ButtonOutline";
-import Image from "next/image";
-import { useTranslation } from "next-i18next";
+import {useTranslation} from "next-i18next";
 
 const Gallary = () => {
-  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
 
   return (
     <div className="flex flex-col justify-center items-center my-10">
       <div className="xl:w-1/2 w-11/12">
         <h1 role="heading" className="text-6xl font-bold 2xl:leading-10 leading-0 text-center text-gray-800">
-         {t("gallary.gallary-title")}
+          {t("gallary.gallary-title")}
         </h1>
         <h2 role="contentinfo" className="text-base leading-normal text-center text-gray-600 mt-5">
-        {t("gallary.gallary-des")}
+          {t("gallary.gallary-des")}
         </h2>
       </div>
       <div className="2xl:px-20 lg:px-12 px-4 flex flex-wrap items-start mt-4">

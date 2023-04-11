@@ -4,9 +4,9 @@ import TextBox from "@/components/misc/TextBox";
 import ScrollAnimationWrapper from "@/components/Layout/ScrollAnimationWrapper";
 import {motion} from "framer-motion";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetStaticPropsContext } from "next";
-import { useTranslation } from "next-i18next";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {GetStaticPropsContext} from "next";
+import {useTranslation} from "next-i18next";
 
 const subscribe = () => {
 
@@ -89,24 +89,24 @@ const subscribe = () => {
             </div>
 
             <div className="form-group mb-6 mx-6">
-            <TextBox 
+              <TextBox 
                 id="reasonText"
                 type="textarea"
                 placeholder={t("membership.request-reason")??"Anfragegrund"}
                 value="" 
                 rows={5}
                 onChange={()=>null} 
-             />                
+              />                
             </div>
 
             <div className="flex my-4 mx-6">
               <div className="flex items-center h-5">
-                  <input 
-                    id="helper-checkbox" 
-                    aria-describedby="helper-checkbox-text" 
-                    type="checkbox" 
-                    value="" 
-                    className="
+                <input 
+                  id="helper-checkbox" 
+                  aria-describedby="helper-checkbox-text" 
+                  type="checkbox" 
+                  value="" 
+                  className="
                       w-4 h-4 
                       m-2
                       text-blue-600 
@@ -119,17 +119,17 @@ const subscribe = () => {
                       focus:ring-2 
                       dark:bg-gray-700 
                       dark:border-gray-600"
-                  />
+                />
               </div>
               <div className="ml-2 text-sm">
-                  <label  className="font-medium text-gray-900 dark:text-gray-300">
-                    {t("membership.condition-title")}
-                  </label>
-                  <p 
-                    id="helper-checkbox-text" 
-                    className="text-xs font-normal text-gray-300 dark:text-gray-300">
-                      {t("membership.condition-context")}
-                  </p>
+                <label  className="font-medium text-gray-900 dark:text-gray-300">
+                  {t("membership.condition-title")}
+                </label>
+                <p 
+                  id="helper-checkbox-text" 
+                  className="text-xs font-normal text-gray-300 dark:text-gray-300">
+                  {t("membership.condition-context")}
+                </p>
               </div>
             </div>
 
@@ -148,7 +148,7 @@ const subscribe = () => {
   );
 };
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getStaticProps({locale}: GetStaticPropsContext) {
   return {
     props: {
       ...(await serverSideTranslations(locale ?? "de", ["common"]))      
