@@ -1,240 +1,151 @@
 import React, {useMemo} from "react";
+import {GetStaticPropsContext} from "next";
+
 import ButtonPrimary from "@/components/misc/ButtonPrimary";
+import TextBox from "@/components/misc/TextBox";
+import CheckBox from "@/components/misc/CheckBox";
+
 import ScrollAnimationWrapper from "@/components/Layout/ScrollAnimationWrapper";
 import {motion} from "framer-motion";
 import getScrollAnimation from "@/utils/getScrollAnimation";
-import LogoVPN from "../../public/assets/Logo.svg";
+
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useTranslation} from "next-i18next";
+
 
 const subscribe = () => {
+
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+  const {t} = useTranslation("common");
 
   return (
-    <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto">
-      {/* Header */}
+    <div className="max-w-screen-xl mt-36 mb-4 px-8 xl:px-16 mx-auto"> 
       <ScrollAnimationWrapper>
         <motion.div className="" variants={scrollAnimation}>
-          <div className=" flex flex-col justify-center items-start row-start-2 sm:row-start-1">
-            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-black-600 leading-normal">
-              <strong>Iranischer Kulturverein Sachsen e.V.</strong>.
-            </h1>
-            <p className="text-black-500 mt-4 mb-6">
-              <span className="block">Geschäftstelle: Lingneralle 3, 01069 Dresden</span>
-              <span className="block">Tel.: 0351-83383495 </span>
-              <span className="block">E-Mail: semino@t-online.de </span>
-            </p>
-          </div>
-
-          <div className="flex w-full">
-            <motion.div className="h-full w-full" variants={scrollAnimation}>
-              <LogoVPN className="w-32 h-32" />
-            </motion.div>
-          </div>
-        </motion.div>
-      </ScrollAnimationWrapper>
-
-      <ScrollAnimationWrapper>
-        <motion.div className="" variants={scrollAnimation}>
-          <div className=" flex flex-col justify-center items-start row-start-2 sm:row-start-1">
-            <p className="text-black-500 mt-4 mb-6">
-              We regularly hold free information seminars on the subject of applications. In about an hour we provide
-              information about the possibilities and challenges in the search for the right job. We regularly hold free
-              information seminars on the subject of applications. In about an hour we provide information about the
-              possibilities and challenges in the search for the right job.
-            </p>
-          </div>
-        </motion.div>
-      </ScrollAnimationWrapper>
-
-      {/* Header */}
-      <ScrollAnimationWrapper>
-        <motion.div className="" variants={scrollAnimation}>
+          
           <form>
-            <div className="form-group mb-6">
-              <input
-                type="text"
-                className="form-control block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-400
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-400
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"
-                id="exampleInput7"
-                placeholder="Name"
+
+            <div className="flex form-group">
+              <TextBox 
+                id="name" 
+                type="input"
+                placeholder={t("membership.name")??"Name"}
+                value="" 
+                onChange={()=>null} 
               />
+              <TextBox 
+                id="family"  
+                type="input"
+                placeholder={t("membership.family")??"Familie"} 
+                value="" 
+                onChange={()=>null} 
+              />             
             </div>
 
-            <div className="form-group mb-6">
-              <input
-                type="text"
-                className="form-control block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-400
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-400
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"
-                id="exampleInput7"
-                placeholder="BrithDay"
+            <div className="flex form-group">
+              <TextBox 
+                id="brithday"
+                type="input"
+                placeholder={t("membership.brithday")??"Geburtstag"}
+                value="" 
+                onChange={()=>null} 
               />
+              <TextBox 
+                id="job"
+                type="input"
+                placeholder={t("membership.job")??"Arbeit"}
+                value="" 
+                onChange={()=>null} 
+              />               
+            </div>         
+
+            <div className="flex form-group">
+              <TextBox 
+                id="address"
+                type="input"
+                placeholder={t("membership.address")??"Adresse"}
+                value="" 
+                onChange={()=>null} 
+              />
+              <TextBox 
+                id="postalCode"
+                type="input"
+                placeholder={t("membership.postal-code")??"Postleitzahl"}
+                value="" 
+                onChange={()=>null} 
+              />              
+            </div>   
+
+            <div className="flex form-group">
+              <TextBox 
+                id="telephon"
+                type="input"
+                placeholder={t("membership.phone")??"Telefon"}
+                value="" 
+                onChange={()=>null} 
+              />
+              <TextBox 
+                id="email"
+                type="input"
+                placeholder={t("membership.email-address")??"E-Mail-Addresse"}
+                value="" 
+                onChange={()=>null} 
+              />           
             </div>
 
-            <div className="form-group mb-6">
-              <input
-                type="text"
-                className="form-control block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-400
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-400
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"
-                id="exampleInput7"
-                placeholder="Job"
-              />
+            <div className="form-group mb-6 mx-6">
+              <TextBox 
+                id="reasonText"
+                type="textarea"
+                placeholder={t("membership.request-reason")??"Anfragegrund"}
+                value="" 
+                rows={5}
+                onChange={()=>null} 
+              />                
             </div>
 
-            <div className="form-group mb-6">
-              <input
-                type="text"
-                className="form-control block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-400
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-400
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"
-                id="exampleInput7"
-                placeholder="Adress"
-              />
+            <div className="flex my-4 mx-6">
+              <div className="flex items-center h-5">
+                <CheckBox
+                  value="" 
+                  id="condition"
+                  onChange={()=>null} 
+                />
+              </div>
+              <div className="ml-2 text-sm">
+                <label  className="font-medium text-gray-900 dark:text-gray-300">
+                  {t("membership.condition-title")}
+                </label>
+                <p 
+                  id="helper-checkbox-text" 
+                  className="text-xs font-normal text-gray-300 dark:text-gray-300">
+                  {t("membership.condition-context")}
+                </p>
+              </div>
             </div>
 
-            <div className="form-group mb-6">
-              <input
-                type="text"
-                className="form-control block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-400
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-400
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"
-                id="exampleInput7"
-                placeholder="Postal code"
-              />
-            </div>
+            <div className="flex justify-end mx-6">
+              <ButtonPrimary type="button" onClick={() => null}>
+                {t("button.send")??"Schicken"}
+              </ButtonPrimary>
+            </div>           
 
-            <div className="form-group mb-6">
-              <input
-                type="text"
-                className="form-control block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-400
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-400
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"
-                id="exampleInput7"
-                placeholder="Telephon"
-              />
-            </div>
-
-            <div className="form-group mb-6">
-              <input
-                type="email"
-                className="form-control block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-400
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-400
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"
-                id="exampleInput8"
-                placeholder="Email address"
-              />
-            </div>
-            <div className="form-group mb-6">
-              <textarea
-                className="
-                  form-control
-                  block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-400
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-400
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-400 focus:bg-white focus:border-orange-500 focus:outline-none
-                "
-                id="exampleFormControlTextarea13"
-                rows={3}
-                placeholder="Reguest Reason"
-              ></textarea>
-            </div>
-
-            <ButtonPrimary type="button" onClick={() => null}>
-              MemberShip
-            </ButtonPrimary>
           </form>
+          
         </motion.div>
       </ScrollAnimationWrapper>
+
     </div>
   );
 };
 
+export async function getStaticProps({locale}: GetStaticPropsContext) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "de", ["common"]))      
+    }
+  };
+}
+
 export default subscribe;
+

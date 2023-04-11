@@ -46,3 +46,8 @@ export interface ITab {
   title?: string;
   context?: string;
 }
+
+export interface IMenuItem {
+  text:string,
+  hrefText:string,
+}

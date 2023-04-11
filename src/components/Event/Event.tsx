@@ -15,7 +15,7 @@ const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className="max-w-screen-xl  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">
+    <div className="max-w-screen-xl  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center" id="Event">
       <div className="flex flex-col w-full my-16">
         <ScrollAnimationWrapper>
           <motion.h3

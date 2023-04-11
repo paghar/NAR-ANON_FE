@@ -1,8 +1,9 @@
 import Footer from "./Footer";
 import Header from "./Header";
+import {IMenuItem} from "../../data/interface";
 
 interface IProps{
-  menuItems:string[] 
+  menuItems:IMenuItem[] 
   children:any
   subscribeClick:()=>void
 }

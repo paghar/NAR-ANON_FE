@@ -66,7 +66,7 @@ const Tabs = ({tabs}: IProps) => {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-5xl ">{currentTab?.context}</div>
+      <div className="mx-auto w-full max-w-5xl p-4">{currentTab?.context}</div>
     </>
   );
 };

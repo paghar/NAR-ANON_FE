@@ -5,9 +5,10 @@ import ButtonOutline from "../misc/ButtonOutline";
 import LogoVPN from "../../../public/assets/Logo.svg";
 import {useRouter} from "next/router";
 import {useTranslation} from "next-i18next";
+import {IMenuItem} from "../../data/interface";
 
 interface IProps {
-  menuItems: string[];
+  menuItems: IMenuItem[];
   subscribeClick: () => void;
 }
 
@@ -33,18 +34,19 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
       <LinkScroll
         key={`${item}${index}`}
         activeClass="active"
-        to={item}
+        to={item.hrefText}       
         spy={true}
+        offset={-100}
         smooth={true}
         duration={1000}
         onSetActive={() => {
-          setActiveLink(item);
+          setActiveLink(item.hrefText);
         }}
         className={`${style} ${
-          activeLink === item ? activeLinkStyle : linkStyle
+          activeLink === item.hrefText ? activeLinkStyle : linkStyle
         }`}
       >
-        {item}
+        {item.text}
       </LinkScroll>
     ));
   };
@@ -57,9 +59,13 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
         }`}
       >
         <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
+
           <div className="col-start-1 col-end-2 flex items-center">
-            <LogoVPN className="w-12 h-12" />
+            <Link href="/">
+              <LogoVPN className="w-12 h-12" />
+            </Link>           
           </div>
+
           <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500  items-center">
             {renderMenuItems(
               "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative",
@@ -67,24 +73,27 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
               "text-black-500 hover:text-orange-500 a"
             )}
           </ul>
+
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
             <Link href={{pathname}} locale={"de"}>
-              <span className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all">
-                Deutsch
+              <span className="text-black-600 mx-1 sm:mx-2 capitalize tracking-wide hover:text-orange-500 transition-all">
+                { t("language.deutsch")}
               </span>
             </Link>
             <span>/</span>
             <Link href={{pathname}} locale={"fa"}>
-              <span className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all">
-                فارسی
+              <span className="text-black-600 mx-1 sm:mx-2 capitalize tracking-wide hover:text-orange-500 transition-all">
+                { t("language.farsi")}
               </span>
             </Link>
             <ButtonOutline type="button" onClick={subscribeClick}>
-              {t("membership")}
+              { t("membership.membership")}
             </ButtonOutline>
           </div>
+
         </nav>
       </header>
+
       {/* Mobile Navigation */}
       <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 sm:px-8 shadow-t ">
         <div className="bg-white-500 sm:px-3">
@@ -98,6 +107,7 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
         </div>
       </nav>
       {/* End Mobile Navigation */}
+      
     </>
   );
 };
