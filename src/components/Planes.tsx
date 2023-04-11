@@ -6,6 +6,8 @@ import ButtonPrimary from "./misc/ButtonPrimary";
 import Event from "./Event/Event";
 import Project from "./Project";
 import {IPlan} from "@/data/interface";
+import {useTranslation} from "next-i18next";
+
 
 interface IProps {
   eventTitle: string;

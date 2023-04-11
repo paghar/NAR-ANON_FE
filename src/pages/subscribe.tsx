@@ -1,12 +1,17 @@
 import React, {useMemo} from "react";
+import {GetStaticPropsContext} from "next";
+
 import ButtonPrimary from "@/components/misc/ButtonPrimary";
 import TextBox from "@/components/misc/TextBox";
+import CheckBox from "@/components/misc/CheckBox";
+
 import ScrollAnimationWrapper from "@/components/Layout/ScrollAnimationWrapper";
 import {motion} from "framer-motion";
 import getScrollAnimation from "@/utils/getScrollAnimation";
+
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {GetStaticPropsContext} from "next";
 import {useTranslation} from "next-i18next";
+
 
 const subscribe = () => {
 
@@ -101,24 +106,10 @@ const subscribe = () => {
 
             <div className="flex my-4 mx-6">
               <div className="flex items-center h-5">
-                <input 
-                  id="helper-checkbox" 
-                  aria-describedby="helper-checkbox-text" 
-                  type="checkbox" 
+                <CheckBox
                   value="" 
-                  className="
-                      w-4 h-4 
-                      m-2
-                      text-blue-600 
-                      bg-gray-100 
-                      border-gray-300 
-                      rounded 
-                      focus:ring-blue-500 
-                      dark:focus:ring-blue-600 
-                      dark:ring-offset-gray-800 
-                      focus:ring-2 
-                      dark:bg-gray-700 
-                      dark:border-gray-600"
+                  id="condition"
+                  onChange={()=>null} 
                 />
               </div>
               <div className="ml-2 text-sm">

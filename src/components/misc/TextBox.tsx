@@ -20,20 +20,20 @@ const TextBox = ({id,type,rows,placeholder,value,onChange}: ITextBoxProps) => {
       placeholder={placeholder}
       onChange={onChange}
       className="form-control block
-       w-full
-       px-3
-       py-1.5
-       text-base
-       font-normal
-       text-gray-400
-       bg-white bg-clip-padding
-       border border-solid border-gray-400
-       rounded
-       transition
-       ease-in-out
-       mb-6
-       mx-6
-       focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"         
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-400
+        bg-white bg-clip-padding
+        border border-solid border-gray-400
+        rounded
+        transition
+        ease-in-out
+        mb-6
+        mx-6
+        focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none"         
     />
     : type === "textarea" ? 
       <textarea
@@ -43,21 +43,21 @@ const TextBox = ({id,type,rows,placeholder,value,onChange}: ITextBoxProps) => {
         value={value}
         onChange={onChange}
         className="
-       form-control
-       block
-       w-full
-       px-3
-       py-1.5
-       text-base
-       font-normal
-       text-gray-400
-       bg-white bg-clip-padding
-       border border-solid border-gray-400
-       rounded
-       transition
-       ease-in-out
-       m-0                  
-       focus:text-gray-400 focus:bg-white focus:border-orange-500 focus:outline-none"
+          form-control
+          block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-400
+          bg-white bg-clip-padding
+          border border-solid border-gray-400
+          rounded
+          transition
+          ease-in-out
+          m-0                  
+          focus:text-gray-400 focus:bg-white focus:border-orange-500 focus:outline-none"
       />
       : null;
 
