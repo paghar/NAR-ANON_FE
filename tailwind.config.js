@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/**/*.{js,ts,jsx,tsx}',
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     boxShadow: {
@@ -38,6 +38,10 @@ module.exports = {
         400: "#AFB5C0",
         500: "#DDDDDD",
       },
+      red:{
+        300:"#ff4d4d",
+        500:"#e60000",
+      }
     },
     extend: {},
   },

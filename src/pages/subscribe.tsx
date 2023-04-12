@@ -12,37 +12,83 @@ import getScrollAnimation from "@/utils/getScrollAnimation";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
 
+import {useForm, Controller} from "react-hook-form";
+import PhoneInput, {isValidPhoneNumber} from "react-phone-number-input";
+import {useRouter} from "next/router";
+
 
 const subscribe = () => {
 
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   const {t} = useTranslation("common");
+  const {locale} = useRouter();
 
+  const {control, handleSubmit, formState: {errors}} = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      job:"",
+      address:"",
+      postalCode:"",
+      telephon:"",
+      email:"",
+      condition:"",
+      reasonText:""
+    }
+  });
+  const onSubmit = data => console.log(data);
+ 
   return (
     <div className="max-w-screen-xl mt-36 mb-4 px-8 xl:px-16 mx-auto"> 
       <ScrollAnimationWrapper>
         <motion.div className="" variants={scrollAnimation}>
           
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
 
             <div className="flex form-group">
-              <TextBox 
-                id="name" 
-                type="input"
-                placeholder={t("membership.name")??"Name"}
-                value="" 
-                onChange={()=>null} 
+
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                  maxLength: 30,
+                }}
+                render={({field: {onChange, value}}) => (
+                  <TextBox 
+                    id="firstName" 
+                    type="input"
+                    placeholder={t("membership.name")??"Name"}
+                    value={value}
+                    onChange={onChange} 
+                  />
+                )}
+                name="firstName"
               />
-              <TextBox 
-                id="family"  
-                type="input"
-                placeholder={t("membership.family")??"Familie"} 
-                value="" 
-                onChange={()=>null} 
-              />             
+              {errors.firstName && <span className="text-red-500 text-lg">*</span>}
+
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                  maxLength: 30,
+                }}
+                render={({field: {onChange, value}}) => (
+                  <TextBox 
+                    id="lastName"  
+                    type="input"
+                    placeholder={t("membership.family")??"Familie"} 
+                    value={value}
+                    onChange={onChange} 
+                  />    
+                )}
+                name="lastName"
+              />
+              {errors.firstName && <span className="text-red-500 text-lg">*</span>}          
+             
             </div>
 
             <div className="flex form-group">
+
               <TextBox 
                 id="brithday"
                 type="input"
@@ -50,67 +96,167 @@ const subscribe = () => {
                 value="" 
                 onChange={()=>null} 
               />
-              <TextBox 
-                id="job"
-                type="input"
-                placeholder={t("membership.job")??"Arbeit"}
-                value="" 
-                onChange={()=>null} 
-              />               
-            </div>         
+
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                  maxLength: 30,
+                }}
+                render={({field: {onChange, value}}) => (
+                  <TextBox 
+                    id="job"  
+                    type="input"
+                    placeholder={t("membership.job")??"Arbeit"} 
+                    value={value}
+                    onChange={onChange} 
+                  />    
+                )}
+                name="job"
+              />
+              {errors.job && <span className="text-red-500 text-lg">*</span>}  
+
+            </div>     
 
             <div className="flex form-group">
-              <TextBox 
-                id="address"
-                type="input"
-                placeholder={t("membership.address")??"Adresse"}
-                value="" 
-                onChange={()=>null} 
+
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                  maxLength: 30,
+                }}
+                render={({field: {onChange, value}}) => (
+                  <TextBox 
+                    id="address"  
+                    type="input"
+                    placeholder={t("membership.address")??"Adresse"}
+                    value={value}
+                    onChange={onChange} 
+                  />    
+                )}
+                name="address"
               />
-              <TextBox 
-                id="postalCode"
-                type="input"
-                placeholder={t("membership.postal-code")??"Postleitzahl"}
-                value="" 
-                onChange={()=>null} 
-              />              
+              {errors.address && <span className="text-red-500 text-lg">*</span>}  
+
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                  maxLength: 30,
+                }}
+                render={({field: {onChange, value}}) => (
+                  <TextBox 
+                    id="postalCode"  
+                    type="input"
+                    placeholder={t("membership.postal-code")??"Postleitzahl"}
+                    value={value}
+                    onChange={onChange} 
+                  />    
+                )}
+                name="postalCode"
+              />
+              {errors.postalCode && <span className="text-red-500 text-lg">*</span>}              
+                      
             </div>   
 
             <div className="flex form-group">
-              <TextBox 
-                id="telephon"
-                type="input"
-                placeholder={t("membership.phone")??"Telefon"}
-                value="" 
-                onChange={()=>null} 
+
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                  maxLength: 30,
+                  validate: (value) => isValidPhoneNumber(value)
+                }}
+                render={({field: {onChange, value}}) => (
+                  <PhoneInput
+                    id="telephon"
+                    value={value}
+                    onChange={onChange}
+                    defaultCountry={locale === "fa" ? "IR" : "DE"}
+                    placeholder={t("membership.phone") ?? "Telefon"}
+                    className="form-control block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-400
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-400
+                    rounded
+                    transition
+                    ease-in-out
+                    mb-6
+                    mx-6    
+                    focus:text-gray-400 focus:bg-white-300 focus:border-orange-500 focus:outline-none
+                   "                    
+                  />                   
+                )}
+                name="telephon"
               />
-              <TextBox 
-                id="email"
-                type="input"
-                placeholder={t("membership.email-address")??"E-Mail-Addresse"}
-                value="" 
-                onChange={()=>null} 
-              />           
+              {errors.telephon && <span className="text-red-500 text-lg">*</span>}  
+
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                  maxLength: 30,
+                }}
+                render={({field: {onChange, value}}) => (
+                  <TextBox 
+                    id="email"  
+                    type="input"
+                    placeholder={t("membership.email-address")??"E-Mail-Addresse"}
+                    value={value}
+                    onChange={onChange} 
+                  />    
+                )}
+                name="email"
+              />
+              {errors.email && <span className="text-red-500 text-lg">*</span>}  
+
+                  
             </div>
 
-            <div className="form-group mb-6 mx-6">
-              <TextBox 
-                id="reasonText"
-                type="textarea"
-                placeholder={t("membership.request-reason")??"Anfragegrund"}
-                value="" 
-                rows={5}
-                onChange={()=>null} 
-              />                
+            <div className="flex form-group">
+              <Controller
+                control={control}
+                rules={{
+                  required: true,                 
+                }}
+                render={({field: {onChange, value}}) => (
+                  <TextBox 
+                    id="reasonText"  
+                    type="textarea"
+                    rows={8}
+                    placeholder={t("membership.request-reason")??"Anfragegrund"}
+                    value={value}
+                    onChange={onChange} 
+                  />    
+                )}
+                name="reasonText"
+              />
+              {errors.reasonText && <span className="text-red-500 text-lg">*</span>}  
+
             </div>
 
             <div className="flex my-4 mx-6">
-              <div className="flex items-center h-5">
-                <CheckBox
-                  value="" 
-                  id="condition"
-                  onChange={()=>null} 
-                />
+              <div className="flex items-center h-5">                
+                <Controller
+                  name="condition"
+                  control={control}
+                  rules={{required: true}}
+                  render={({field: {onChange, value}}) => (
+                    <CheckBox
+                      value={value}
+                      id="condition"
+                      onChange={onChange} 
+                    />
+                  )}
+                /> 
+                {errors.condition && <span className="text-red-500 text-lg">*</span>}                 
               </div>
               <div className="ml-2 text-sm">
                 <label  className="font-medium text-gray-900 dark:text-gray-300">
@@ -125,7 +271,7 @@ const subscribe = () => {
             </div>
 
             <div className="flex justify-end mx-6">
-              <ButtonPrimary type="button" onClick={() => null}>
+              <ButtonPrimary type="submit" onClick={() => null}>
                 {t("button.send")??"Schicken"}
               </ButtonPrimary>
             </div>           
