@@ -56,7 +56,8 @@ const TextBox = ({id,type,rows,placeholder,value,onChange}: ITextBoxProps) => {
           rounded
           transition
           ease-in-out
-          m-0                  
+          mb-6
+          mx-6               
           focus:text-gray-400 focus:bg-white focus:border-orange-500 focus:outline-none"
       />
       : null;

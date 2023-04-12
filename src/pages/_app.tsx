@@ -6,6 +6,8 @@ import SeoHead from "@/components/SeoHead";
 
 import "@/styles/globals.css";
 import "@/styles/slick.css";
+import "react-phone-number-input/style.css";
+
 import {useEffect} from "react";
 
 function App({Component, pageProps}: AppProps) {
