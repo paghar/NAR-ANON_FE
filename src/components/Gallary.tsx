@@ -1,12 +1,19 @@
 import React from "react";
 import ButtonOutline from "./misc/ButtonOutline";
 import {useTranslation} from "next-i18next";
+import {useRouter} from "next/router";
 
 const Gallary = () => {
   const {t} = useTranslation("common");
+  const {push} = useRouter();
+
+  const showMoreClick = () => {
+    push("/gallary");
+  };
 
   return (
     <div className="flex flex-col justify-center items-center my-10" dir="ltr" id="Gallery">
+
       <div className="xl:w-1/2 w-11/12">
         <h1 role="heading" className="text-6xl font-bold 2xl:leading-10 leading-0 text-center text-gray-800">
           {t("gallary.gallary-title")}
@@ -15,7 +22,9 @@ const Gallary = () => {
           {t("gallary.gallary-des")}
         </h2>
       </div>
+
       <div className="2xl:px-20 lg:px-12 px-4 flex flex-wrap items-start mt-4">
+
         <div className="mt-24">
           <div className="flex items-end">
             <img
@@ -96,9 +105,10 @@ const Gallary = () => {
             />
           </div>
         </div>
+        
       </div>
 
-      <ButtonOutline type="button" onClick={() => null}>
+      <ButtonOutline type="button" onClick={showMoreClick}>
         {t("button.more-picture")}
       </ButtonOutline>
     </div>
