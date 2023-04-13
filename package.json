@@ -23,10 +23,12 @@
     "react-hook-form": "^7.43.9",
     "react-i18next": "^12.2.0",
     "react-phone-number-input": "^3.2.19",
+    "react-photo-album": "^2.0.4",
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "yet-another-react-lightbox": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",

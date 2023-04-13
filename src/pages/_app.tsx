@@ -6,7 +6,11 @@ import SeoHead from "@/components/SeoHead";
 
 import "@/styles/globals.css";
 import "@/styles/slick.css";
+
 import "react-phone-number-input/style.css";
+
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 import {useEffect} from "react";
 
