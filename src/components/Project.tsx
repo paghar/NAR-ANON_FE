@@ -1,5 +1,13 @@
-import React from "react";
+import React, {useMemo} from "react";
 import {IPlan} from "../data/interface";
+import ButtonOutline from "./misc/ButtonOutline";
+import Card from "./Card";
+import {useTranslation} from "next-i18next";
+import {useRouter} from "next/router";
+
+import getScrollAnimation from "../utils/getScrollAnimation";
+import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import {motion} from "framer-motion";
 
 interface IProps {
   projectTitle: string;
@@ -8,37 +16,67 @@ interface IProps {
 }
 
 const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
+
+  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+
+  const {t} = useTranslation("common");
+  const {push} = useRouter();
+
+  const showMoreClick = () => {  
+    console.log("fetch more");  
+    
+  };
+
+  const readMore = () =>{
+    push("/plane");
+  };
+
   return (
     <div className="flex flex-col items-center"  id="Project">
+
       {/* :TITLE CONTAINER */}
-      <div className="max-w-2xl text-center">
-        <h2 className="text-2xl sm:text-4xl  tracking-wide">
-          <span className="text-black-600">{projectTitle}</span>
-        </h2>
-        <p className="mt-5 text-sm text-black-600 font-medium">{projectDescription}</p>
-      </div>
+      <ScrollAnimationWrapper>
+        <motion.h3
+          variants={scrollAnimation}
+          className="max-w-2xl text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-normal mx-auto"
+        >
+          {projectTitle}
+        </motion.h3>
+        <motion.p
+          variants={scrollAnimation}
+          className="leading-normal mx-auto mb-2 mt-4 w-10/12 sm:w-7/12 lg:w-6/12"
+        >
+          {projectDescription}
+        </motion.p>
+      </ScrollAnimationWrapper>
 
-      {/* :SCHEDULE */}
-      <div className="mt-10 max-w-screen-xl  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full ">
-        <ul className="flex flex-col space-y-5" aria-label="schedule events">
-          {projectItems.map(({id, attributes}) => (
-            <li
-              key={id}
-              className="group w-full block py-3 px-4 border-2 border-gray-100 rounded-md overflow-hidden hover:border-orange-500"
-            >
-              {/* ::Header */}
-              <div className="flex flex-col sm:flex-row sm:space-x-10">
-                <p className="text-base text-gray-700 font-bold uppercase">{attributes.title}</p>
-              </div>
+      {/* :SCHEDULE */}     
 
-              {/* ::Details */}
-              <div className="pt-0 h-0 flex flex-col justify-between opacity-0 transition-all duration-150 ease-in transform group-hover:pt-4 group-hover:h-28 group-hover:opacity-100">
-                <p className="text-xs text-gray-700 text-justify">{attributes.description}</p>
+      <ScrollAnimationWrapper>
+        <motion.div variants={scrollAnimation}>
+
+          <div className="flex flex-wrap mt-4" aria-label="schedule events">
+            {projectItems.map(({id, attributes}) => (
+              <div className="w-2/5 m-2 border-2 border-gray-100" key= {id}>
+                <Card             
+                  date="2023"
+                  thumbnail={attributes.thumbnail}
+                  title={attributes.title}
+                  description={attributes.description}
+                  btnText={t("button.read-info")}
+                  readMore={readMore}
+                />
               </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+            ))}
+          </div>         
+
+        </motion.div>
+      </ScrollAnimationWrapper>     
+
+      <ButtonOutline type="button" addClass="w-1/2 m-4" onClick={showMoreClick}>
+        {t("button.read-info")}
+      </ButtonOutline>       
+         
     </div>
   );
 };

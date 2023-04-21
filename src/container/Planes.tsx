@@ -29,10 +29,10 @@ const PlanesContainer = () => {
   return (
     <Planes
       eventTitle={t("plan.event-title")}
-      eventDescription={t("plan.project-des")}
+      eventDescription={t("plan.event-des")}
       eventItems={events}
-      projectTitle={t("plan.event-title")}
-      projectDescription={t("plan.event-des")}
+      projectTitle={t("plan.project-title")}
+      projectDescription={t("plan.project-des")}
       projectItems={projects}
       subscribeClick={subscribeClick}
     />
