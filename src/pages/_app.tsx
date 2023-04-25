@@ -1,5 +1,5 @@
-import {AppProps} from "next/app";
-import {appWithTranslation, useTranslation} from "next-i18next";
+import { AppProps } from "next/app";
+import { appWithTranslation, useTranslation } from "next-i18next";
 
 import Layout from "../container/Layout";
 import SeoHead from "@/components/SeoHead";
@@ -12,24 +12,29 @@ import "react-phone-number-input/style.css";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
-import {useEffect} from "react";
+import { useEffect } from "react";
+import { QueryClientProvider, QueryClient } from "react-query";
 
-function App({Component, pageProps}: AppProps) {
+const queryClient = new QueryClient();
+
+function App({ Component, pageProps }: AppProps) {
   const {
     t,
-    i18n: {dir, language}
+    i18n: { dir, language }
   } = useTranslation("common");
 
   useEffect(() => {
     document.dir = dir();
   }, [language]);
-  
+
   return (
     <>
-      <SeoHead title={t("site-name")} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <QueryClientProvider client={queryClient}>
+        <SeoHead title={t("site-name")} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </QueryClientProvider>
     </>
   );
 }

@@ -3,12 +3,11 @@ import EventSlider from "./EventSlider";
 import {motion} from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-import {IEventItem} from "@/data/interface";
 
 interface IProps {
   eventTitle: string;
   eventDescription: string;
-  eventItems: IEventItem[];
+  eventItems: any[];
 }
 
 const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {

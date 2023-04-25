@@ -43,7 +43,11 @@ module.exports = {
         500:"#e60000",
       }
     },
-    extend: {},
+    extend: {
+      screens: {
+        'xs': '480px',
+      },
+    },
   },
   variants: {
     extend: {

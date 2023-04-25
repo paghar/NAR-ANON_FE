@@ -1,4 +1,4 @@
-import Gallary from "../components/Gallary";
+import Gallary from "../components/Gallery";
 import PlanesContainer from "../container/Planes";
 import Hero from "../container/Hero";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";

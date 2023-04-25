@@ -5,7 +5,23 @@ const nextConfig = {
   reactStrictMode: true,
   i18n,
   images: {
-    domains: ["localhost"]
+    // domains: ["localhost","i.ibb.co"],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '1337',
+        pathname: '/**',
+      }
+      // {
+      //   protocol: 'https',
+      //   hostname: 'i.ibb.co',
+       
+      // },
+    ],
+  },  
+  env: {
+    PUBLIC_API_URL: process.env.PUBLIC_API_URL,
   }
 };
 
