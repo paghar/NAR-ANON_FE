@@ -50,7 +50,8 @@
     },
     "button":{
         "more-picture":"More Picture",
-        "send":"send"
+        "send":"send",
+        "read-info":"Read Info"
     },
     "contactUs":{
         "contactUs":"Contact Us",

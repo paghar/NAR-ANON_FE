@@ -30,8 +30,8 @@ const EventSlider = ({eventItems}: IProps) => {
                 src={attributes.thumbnail}
                 height={200}
                 width={200}
-                alt="Icon People"
-              />
+                alt=""
+              />              
               <h1 className="mt-5 text-left">{attributes.title}</h1>
               <p className="mt-5 text-left">“{attributes.description}”.</p>
               <ButtonOutline type="button" onClick={() => null}>
