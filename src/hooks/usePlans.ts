@@ -41,9 +41,10 @@ interface PlansProps {
   locale?: string ;
   filters?: string;
   pagination: string;
+  enabled?:boolean;
 }
-const usePlans = ({ locale = "de", filters, pagination }: PlansProps) => {
-  return useQuery(["plans",filters, pagination,locale], () => fetchPlans(locale, filters, pagination));
+const usePlans = ({ locale = "de", filters, pagination ,enabled=true}: PlansProps) => {
+  return useQuery(["plans",filters, pagination,locale], () => fetchPlans(locale, filters, pagination),{enabled});
 };
 
 export { fetchPlans, usePlans };

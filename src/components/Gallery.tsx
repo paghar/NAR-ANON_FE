@@ -7,7 +7,6 @@ import Link from "next/link";
 
 const Gallery = () => {
   const { t } = useTranslation("common");
-  const { push } = useRouter();
 
   const { data: galleriesData } = useGalleries({
     filters: "filters[banner][$eq]=true",
