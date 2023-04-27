@@ -409,6 +409,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tailwindcss/line-clamp@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.npmjs.org/@tailwindcss/line-clamp/-/line-clamp-0.4.4.tgz"
+  integrity sha512-5U6SY5z8N42VtrCrKlsTAA35gy2VSyYtHWCsg1H87NU1SXnEfekTVlrga9fzUDrrHcGi2Lb5KenUWb4lRQT5/g==
+
 "@tailwindcss/typography@^0.5.9":
   version "0.5.9"
   resolved "https://registry.npmjs.org/@tailwindcss/typography/-/typography-0.5.9.tgz"
@@ -2994,7 +2999,7 @@ synckit@^0.8.4:
     "@pkgr/utils" "^2.3.1"
     tslib "^2.5.0"
 
-tailwindcss@^3.2.7, "tailwindcss@>=3.0.0 || insiders":
+tailwindcss@^3.2.7, "tailwindcss@>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1", "tailwindcss@>=3.0.0 || insiders":
   version "3.2.7"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.7.tgz"
   integrity sha512-B6DLqJzc21x7wntlH/GsZwEXTBttVSl1FtCzC8WP4oBc/NKef7kaax5jeihkkCEWc831/5NDJ9gRNDK6NEioQQ==

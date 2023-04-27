@@ -1,7 +1,6 @@
 import Planes from "@/components/Planes";
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
-import {getPlans} from "@/services/apis";
 import {IPlan} from "@/data/interface";
 import {useTranslation} from "next-i18next";
 
@@ -18,12 +17,12 @@ const PlanesContainer = () => {
   };
 
   useEffect(() => {
-    getPlans(locale, "event").then((data) => {
-      setEvents(data);
-    });
-    getPlans(locale, "project").then((data) => {
-      setProjects(data);
-    });
+    // getPlans(locale, "event").then((data) => {
+    //   setEvents(data);
+    // });
+    // getPlans(locale, "project").then((data) => {
+    //   setProjects(data);
+    // });
   }, []);
 
   return (

@@ -21,6 +21,8 @@ export interface IGallery{
     banner:boolean;
     createdAt: string;
     updatedAt: string;
+    width:number;
+    height:number;
   }
 
 }
