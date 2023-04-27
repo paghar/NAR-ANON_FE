@@ -13,22 +13,19 @@ export interface IPlan {
     locale: "de" | "fa";
   };
 }
-export interface IEventItem {
-  id: number;
-  attributes: {
-    title: string;
-    image: string;
-    description: string;
-    content: string;
-    thumbnail: string;
-    type: "event" | "project";
-    slug: string;
+
+export interface IGallery{
+  id:number;
+  attributes:{
+    image:string;
+    banner:boolean;
     createdAt: string;
     updatedAt: string;
-    locale: "de" | "fa";
-  };
-}
+    width:number;
+    height:number;
+  }
 
+}
 export interface IProjectItem {
   name: string;
   details: string;

@@ -43,12 +43,18 @@ module.exports = {
         500:"#e60000",
       }
     },
-    extend: {},
+    extend: {
+      screens: {
+        'xs': '480px',
+      },
+    },
   },
   variants: {
     extend: {
       boxShadow: ["active", "hover"],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 };

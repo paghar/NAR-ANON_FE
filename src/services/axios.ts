@@ -9,21 +9,8 @@ const requestOnFullFilled = (config: InternalAxiosRequestConfig) => {
 
 const requestOnRejected = (error: AxiosError) => Promise.reject(error);
 
-const responseOnFullFilled = (response: AxiosResponse) => {
-  if (response.statusText === "OK" && response.config.url?.includes("plans")) {
-    response.data.data = response.data?.data.map((plan: any) => {
-      const thumbnail = plan?.attributes?.thumbnail.data;
+const responseOnFullFilled = (response: AxiosResponse) =>  response
 
-      plan.attributes.thumbnail = `http://localhost:1337${
-        !!thumbnail.length && thumbnail[0].attributes.url
-      }`;
-
-      return plan;
-    });
-  }
-
-  return response;
-};
 
 const responseOnRejected = (error: AxiosError) => {
   throw error.response;

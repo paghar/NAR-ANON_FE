@@ -3,12 +3,11 @@ import EventSlider from "./EventSlider";
 import {motion} from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-import {IEventItem} from "@/data/interface";
 
 interface IProps {
   eventTitle: string;
   eventDescription: string;
-  eventItems: IEventItem[];
+  eventItems: any[];
 }
 
 const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
@@ -17,10 +16,11 @@ const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
   return (
     <div className="max-w-screen-xl  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center" id="Event">
       <div className="flex flex-col w-full my-16">
+        
         <ScrollAnimationWrapper>
           <motion.h3
             variants={scrollAnimation}
-            className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-normal w-9/12 sm: lg:w-4/12 mx-auto"
+            className="max-w-2xl text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-normal mx-auto"
           >
             {eventTitle}
           </motion.h3>
@@ -37,6 +37,7 @@ const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
             <EventSlider eventItems={eventItems} />
           </motion.div>
         </ScrollAnimationWrapper>
+
       </div>
     </div>
   );

@@ -1,38 +1,39 @@
+import { useRouter } from "next/router"
+import { useTranslation } from "next-i18next";
 import Planes from "@/components/Planes";
-import {useRouter} from "next/router";
-import {useEffect, useState} from "react";
-import {getPlans} from "@/services/apis";
-import {IPlan} from "@/data/interface";
-import {useTranslation} from "next-i18next";
-
+import { usePlans } from "@/hooks/usePlans";
 
 const PlanesContainer = () => {
-  const [events, setEvents] = useState<IPlan[]>([]);
-  const [projects, setProjects] = useState<IPlan[]>([]);
-  const {locale, push} = useRouter();
+  const { locale, push } = useRouter();
 
-  const {t} = useTranslation("common");
+  const { t } = useTranslation("common");
+
+  const { data: eventsData } = usePlans({
+    locale,
+    filters: "filters[type][$eq]=event",
+    pagination: "pagination[start]=0&pagination[limit]=6"
+  });
+  const events = eventsData?.data ?? [];
+
+  const { data: projectsData } = usePlans({
+    locale,
+    filters: "filters[type][$eq]=project",
+    pagination: "pagination[start]=0&pagination[limit]=6"
+  });
+  const projects = projectsData?.data ?? [];
+  
 
   const subscribeClick = () => {
     push("/subscribe");
   };
 
-  useEffect(() => {
-    getPlans(locale, "event").then((data) => {
-      setEvents(data);
-    });
-    getPlans(locale, "project").then((data) => {
-      setProjects(data);
-    });
-  }, []);
-
   return (
     <Planes
       eventTitle={t("plan.event-title")}
-      eventDescription={t("plan.project-des")}
+      eventDescription={t("plan.event-des")}
       eventItems={events}
-      projectTitle={t("plan.event-title")}
-      projectDescription={t("plan.event-des")}
+      projectTitle={t("plan.project-title")}
+      projectDescription={t("plan.project-des")}
       projectItems={projects}
       subscribeClick={subscribeClick}
     />
