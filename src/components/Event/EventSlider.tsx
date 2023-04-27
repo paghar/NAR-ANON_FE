@@ -1,18 +1,22 @@
 import {useState} from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 import Slider from "react-slick";
 import ArrowBack from "../../../public/assets/Icon/eva_arrow-back-fill.svg";
 import ArrowNext from "../../../public/assets/Icon/eva_arrow-next-fill.svg";
 import ButtonOutline from "../misc/ButtonOutline";
-import {IEventItem} from "@/data/interface";
-import {settings} from "../../data/constants/sliderSettings";
+import {settings} from "@/data/constants/sliderSettings";
+import { IPlan } from "@/data/interface";
 
 interface IProps {
-  eventItems: IEventItem[];
+  eventItems: IPlan[];
 }
 
 const EventSlider = ({eventItems}: IProps) => {
   const [sliderRef, setSliderRef] = useState<any>();
+
+  const {push}=useRouter()
 
   return (
     <>
@@ -34,7 +38,7 @@ const EventSlider = ({eventItems}: IProps) => {
               />              
               <h1 className="mt-5 text-left">{attributes.title}</h1>
               <p className="mt-5 text-left">“{attributes.description}”.</p>
-              <ButtonOutline type="button" onClick={() => null}>
+              <ButtonOutline type="button" onClick={() => push(`/plan/${attributes.slug}`)}>
                 Read More
               </ButtonOutline>
             </div>

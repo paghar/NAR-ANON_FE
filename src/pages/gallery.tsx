@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/router";
@@ -25,16 +25,14 @@ const gallary = () => {
 
   const { data: plansData } = usePlans({
     locale,
-    type: "all",
     pagination: `pagination[start]=0&pagination[limit]=${pageLimit}`
   });
-  
+
   const plans = plansData?.data ?? [];
   const total = plansData?.meta.pagination.total ?? 0;
 
   const { data: galleries } = useGalleries({
     locale,
-    type: "all",
     filters: `filters\[plan\][slug][$contains]=${planSlug}`
   });
 
@@ -73,19 +71,19 @@ const gallary = () => {
   return (
     <div className="flex max-w-screen-xl mt-36 mb-4 px-8 xl:px-16 mx-auto">
       <div className="flex flex-col w-auto mx-4">
-          {plans?.map(({ id, attributes }) => (
-            <ButtonOutline
-              key={id}
-              id={id + ""}
-              type="button"
-              addClass={`mb-2 text-[14px] !px-6  line-clamp-1 ${
-                attributes.slug === planSlug ? " !bg-orange-500 text-white-500 " : ""
-              }`}
-              onClick={() => setPlanSlug(attributes.slug)}
-            >
-              {attributes.title}
-            </ButtonOutline>
-          ))}
+        {plans?.map(({ id, attributes }) => (
+          <ButtonOutline
+            key={id}
+            id={id + ""}
+            type="button"
+            addClass={`mb-2 text-[14px] !px-6  line-clamp-1 ${
+              attributes.slug === planSlug ? " !bg-orange-500 text-white-500 " : ""
+            }`}
+            onClick={() => setPlanSlug(attributes.slug)}
+          >
+            {attributes.title}
+          </ButtonOutline>
+        ))}
         {total > pageLimit && (
           <button type="button" onClick={() => setPageLimit((prev) => prev + 10)}>
             load more
@@ -106,7 +104,7 @@ const gallary = () => {
           onClick={({ index }) => setIndex(index)}
         />
         <Lightbox
-          slides={slides||[]}
+          slides={slides || []}
           open={index >= 0}
           index={index}
           close={() => setIndex(-1)}

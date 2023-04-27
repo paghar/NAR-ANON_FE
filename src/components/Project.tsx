@@ -1,13 +1,14 @@
-import React, {useMemo} from "react";
-import {IPlan} from "../data/interface";
+import React, { useMemo } from "react";
+import { IPlan } from "../data/interface";
 import ButtonOutline from "./misc/ButtonOutline";
 import Card from "./Card";
-import {useTranslation} from "next-i18next";
-import {useRouter} from "next/router";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface IProps {
   projectTitle: string;
@@ -15,25 +16,18 @@ interface IProps {
   projectItems: IPlan[];
 }
 
-const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
-
+const Project = ({ projectTitle, projectDescription, projectItems }: IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
-  const {t} = useTranslation("common");
-  const {push} = useRouter();
+  const { t } = useTranslation("common");
+  const { push } = useRouter();
 
-  const showMoreClick = () => {  
-    console.log("fetch more");  
-    
-  };
-
-  const readMore = () =>{
+  const readMore = () => {
     push("/plane");
   };
 
   return (
-    <div className="flex flex-col items-center"  id="Project">
-
+    <div className="flex flex-col items-center" id="Project">
       {/* :TITLE CONTAINER */}
       <ScrollAnimationWrapper>
         <motion.h3
@@ -50,33 +44,32 @@ const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
         </motion.p>
       </ScrollAnimationWrapper>
 
-      {/* :SCHEDULE */}     
+      {/* :SCHEDULE */}
 
       <ScrollAnimationWrapper>
         <motion.div variants={scrollAnimation}>
-
           <div className="flex flex-wrap mt-4" aria-label="schedule events">
-            {projectItems.map(({id, attributes}) => (
-              <div className="w-2/5 m-2 border-2 border-gray-100" key= {id}>
-                <Card             
+            {projectItems.map(({ id, attributes }) => (
+              <div className="w-2/5 m-2 border-2 border-gray-100" key={id}>
+                <Card
                   date="2023"
                   thumbnail={attributes.thumbnail}
                   title={attributes.title}
                   description={attributes.description}
                   btnText={t("button.read-info")}
-                  readMore={readMore}
+                  readMore={()=>push(`/plan/${attributes.slug}`)}
                 />
               </div>
             ))}
-          </div>         
-
+          </div>
         </motion.div>
-      </ScrollAnimationWrapper>     
+      </ScrollAnimationWrapper>
 
-      <ButtonOutline type="button" addClass="w-1/2 m-4" onClick={showMoreClick}>
-        {t("button.read-info")}
-      </ButtonOutline>       
-         
+      <Link href="/plans/project">
+        <ButtonOutline type="button" onClick={() => null}>
+          {t("button.read-info")}
+        </ButtonOutline>
+      </Link>
     </div>
   );
 };

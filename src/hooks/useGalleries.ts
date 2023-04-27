@@ -2,19 +2,10 @@ import api from "@/services/axios";
 import { IGallery } from "@/data/interface";
 import { useQuery } from "react-query";
 
-const fetchGalleries = async (
-  locale: string,
-  banner: boolean,
-  type: string|undefined,filters:string
-): Promise<IGallery[]> => {
-  const res = await api.get(
-    `galleries?populate=image${
-      // type !== "all" ? `&filters[banner][$eq]=${banner}` : ""
-      `&${filters}`
-    }&locale=${locale}`
-  );
+const fetchGalleries = async (locale: string, filters: string,pagination:string|undefined): Promise<IGallery[]> => {
+  const res = await api.get(`galleries?populate=image${`&${pagination}`}${`&${filters}`}&locale=${locale}`);
 
-  if (!!res.data.data.length) {
+  if (res.statusText === "OK") {
     res.data.data = res.data?.data.map((gallery: any) => {
       const image = gallery?.attributes?.image.data;
 
@@ -28,13 +19,12 @@ const fetchGalleries = async (
   return res?.data.data;
 };
 interface GalleriesProps {
-  locale: string | undefined;
-  banner?: boolean;
-  type?: string;
-  filters:string;
+  locale?: string ;
+  filters: string;
+  pagination?:string;
 }
-const useGalleries = ({ locale = "de", banner = false, type ,filters}: GalleriesProps) => {
-  return useQuery(["galleries",filters], () => fetchGalleries(locale, banner, type,filters));
+const useGalleries = ({ locale = "de", filters ,pagination}: GalleriesProps) => {
+  return useQuery(["galleries", filters,pagination,locale], () => fetchGalleries(locale, filters,pagination));
 };
 
 export { fetchGalleries, useGalleries };
