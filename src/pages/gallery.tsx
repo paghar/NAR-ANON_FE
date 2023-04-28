@@ -4,6 +4,7 @@ import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+import ButtonUnderline from "@/components/misc/ButtonUnderline";
 import ButtonOutline from "@/components/misc/ButtonOutline";
 import { usePlans } from "@/hooks/usePlans";
 import { useGalleries } from "@/hooks/useGalleries";
@@ -69,30 +70,28 @@ const gallary = () => {
   }));
 
   return (
-    <div className="flex max-w-screen-xl mt-36 mb-4 px-8 xl:px-16 mx-auto">
-      <div className="flex flex-col w-auto mx-4">
+    <div className="flex  mt-36 mb-4 px-8 xl:px-16 mx-auto">
+      <div className="flex flex-col w-1/5  mx-4">
         {plans?.map(({ id, attributes }) => (
-          <ButtonOutline
+          <ButtonUnderline
             key={id}
             id={id + ""}
             type="button"
-            addClass={`mb-2 text-[14px] !px-6  line-clamp-1 ${
-              attributes.slug === planSlug ? " !bg-orange-500 text-white-500 " : ""
-            }`}
+            addClass={`mb-8`}
             onClick={() => setPlanSlug(attributes.slug)}
           >
             {attributes.title}
-          </ButtonOutline>
+          </ButtonUnderline>
         ))}
         {total > pageLimit && (
-          <button type="button" onClick={() => setPageLimit((prev) => prev + 10)}>
+          <ButtonOutline type="button" onClick={() => setPageLimit((prev) => prev + 10)}>
             load more
-          </button>
+          </ButtonOutline>
         )}
         {total <= pageLimit && pageLimit > 10 && (
-          <button type="button" onClick={() => setPageLimit(10)}>
+          <ButtonOutline type="button" onClick={() => setPageLimit(10)}>
             close
-          </button>
+          </ButtonOutline>
         )}
       </div>
 
