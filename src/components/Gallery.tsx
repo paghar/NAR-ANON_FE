@@ -1,13 +1,11 @@
 import React from "react";
 import ButtonOutline from "./misc/ButtonOutline";
 import {useTranslation} from "next-i18next";
-import {useRouter} from "next/router";
 import {useGalleries} from "@/hooks/useGalleries";
 import Link from "next/link";
 
 const Gallery = () => {
   const {t} = useTranslation("common");
-  const {push} = useRouter();
 
   const {data: galleriesData} = useGalleries({
     filters: "filters[banner][$eq]=true",

@@ -22,9 +22,6 @@ const Project = ({ projectTitle, projectDescription, projectItems }: IProps) => 
   const { t } = useTranslation("common");
   const { push } = useRouter();
 
-  const readMore = () => {
-    push("/plane");
-  };
 
   return (
     <div className="flex flex-col items-center" id="Project">
