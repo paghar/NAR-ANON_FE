@@ -1,15 +1,15 @@
 {
     "site-name":"Iranischer Kulturverein",
     "navbar":{
-        "about":"About",
-        "gallery":"Gallery ",
-        "project":"Project",
-        "event":"Event",
-        "contact-us":"Contact Us"       
+        "about":"Über uns",
+        "gallery":"Gallarie",
+        "project":"Projekte",
+        "event":"Aktuell",
+        "contact-us":"Kontakt"       
     },
     "language":{
         "deutsch":"Deutsch",
-        "farsi" : "Farsi"
+        "farsi" : "فارسی"
     },
     "community":{
         "title":"Iranischer Kulturverein Sachsen e.V..",
@@ -46,7 +46,7 @@
         "email-address":"Email Address",
         "request-reason":"Request Reason",
         "condition-title":"I agree with the terms and conditions.",
-        "condition-context":"Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        "condition-context":"Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.senden Sie uns bitte eine Nachricht."
     },
     "button":{
         "more-picture":"More Picture",
@@ -55,7 +55,9 @@
     },
     "contactUs":{
         "contactUs":"Contact Us",
-        "contactUs-dec":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!",
+        "contactUs-dec":"<p>Wenn Sie sich für unsere Tätigkeiten interessieren,wenn Sie möchten mit uns zusammenarbeiten,wenn Sie Fragen oder Anregungen haben,senden Sie uns bitte eine Nachricht.</p>",
+        "contactUs-help-text":"<p>Wir freuen uns, wenn Sie die Arbeit unseres Vereins mit Ihrer Spende unterstützen.</p><p>Unser Spendekonto:</p>",
+        "contactUs-account":"<p><b>IBAN:</b> DE36 8509 5004 7810 1810 06</p><p><b>BIC:</b> GENODEF1MEI</p>",
         "contactUs-name":"Name",
         "contactUs-email":"E-mail",
         "contactUs-message":"Message"

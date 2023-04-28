@@ -32,10 +32,11 @@ const Footer = () => {
 
             {/* Description */}
             <div className="grow-0 shrink-0 basis-auto mb-6 md:mb-0 w-full md:w-6/12 px-3 lg:px-6">
+              
               <h2 className="text-3xl text-black-600 font-bold mb-6">{t("contactUs.contactUs")}</h2>
-              <p className="text-black-500 mb-6">
-                {t("contactUs.contactUs-dec")}
-              </p>
+              <div className="text-black-500 mb-6" dangerouslySetInnerHTML={{__html:t("contactUs.contactUs-dec")}}></div>
+              <div className="text-black-500 mb-6" dangerouslySetInnerHTML={{__html:t("contactUs.contactUs-help-text")}}></div>
+              <div className="text-black-500 mb-6" dangerouslySetInnerHTML={{__html:t("contactUs.contactUs-account")}}></div>          
               <p className="text-black-500 mb-2">{t("community.address")}</p>
               <p className="text-black-500 mb-2">{t("community.phone")}</p>
               <p className="text-black-500 mb-2">{t("community.email")}</p>
