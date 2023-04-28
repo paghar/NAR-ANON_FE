@@ -1,14 +1,13 @@
 import React from "react";
 import ButtonOutline from "./misc/ButtonOutline";
-import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
-import { useGalleries } from "@/hooks/useGalleries";
+import {useTranslation} from "next-i18next";
+import {useGalleries} from "@/hooks/useGalleries";
 import Link from "next/link";
 
 const Gallery = () => {
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
 
-  const { data: galleriesData } = useGalleries({
+  const {data: galleriesData} = useGalleries({
     filters: "filters[banner][$eq]=true",
     pagination: "pagination[start]=0&pagination[limit]=14"
   });
@@ -42,7 +41,11 @@ const Gallery = () => {
             />
           </div>
           <div className="flex items-center justify-end my-6">
-            <img src={galleries[2]?.attributes?.image || ""} alt="guy smiling" />
+            <img 
+              src={galleries[2]?.attributes?.image || ""} 
+              alt="guy smiling"
+              className="w-64 h-56 rounded-lg object-cover"
+            />
           </div>
           <div className="flex items-start">
             <img
