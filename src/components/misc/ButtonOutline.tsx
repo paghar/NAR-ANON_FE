@@ -17,8 +17,7 @@ const ButtonOutline = ({id, type, onClick,addClass, children}: IBtnProps) => {
         outline-none rounded-l-full rounded-r-full capitalize
         hover:bg-orange-500 hover:text-white-500 
         transition-all hover:shadow-orange ${addClass}`
-      }
-         
+      }         
       type={type}
       onClick={onClick}
     >
