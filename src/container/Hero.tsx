@@ -14,7 +14,7 @@ const HeroContainer = () => {
 
 
   return(
-    <Hero members={members} tabs={tabs} />
+    <Hero  tabs={tabs} />
   );
 };
 

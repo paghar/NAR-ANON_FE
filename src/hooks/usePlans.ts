@@ -1,5 +1,6 @@
 import { IPlan } from "@/data/interface";
 import api from "@/services/axios";
+import { getImageLink } from "@/utils/getImageLink";
 import { useQuery } from "react-query";
 
 interface PlansResponse {
@@ -23,15 +24,7 @@ const fetchPlans = async (
   );
 
   if (res.statusText === "OK") {
-    res.data.data = res.data?.data.map((plan: any) => {
-      const thumbnail = plan?.attributes?.thumbnail.data;
-
-      plan.attributes.thumbnail = `${process.env.PUBLIC_API_URL}${
-        !!thumbnail?.length && thumbnail[0].attributes.url
-      }`;
-
-      return plan;
-    });
+    res.data.data =getImageLink(res.data.data,'thumbnail')
   }
 
   return res?.data;
