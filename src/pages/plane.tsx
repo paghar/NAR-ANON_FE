@@ -4,8 +4,6 @@ import {GetStaticPropsContext} from "next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 const plane = () =>{  
-
-
   return(
     <div className="flex flex-col max-w-screen-xl mt-36 mb-4 px-8 xl:px-16 mx-auto">
 

@@ -14,17 +14,16 @@ export interface IPlan {
   };
 }
 
-export interface IGallery{
-  id:number;
-  attributes:{
-    image:string;
-    banner:boolean;
+export interface IGallery {
+  id: number;
+  attributes: {
+    image: string;
+    banner: boolean;
     createdAt: string;
     updatedAt: string;
-    width:number;
-    height:number;
-  }
-
+    width: number;
+    height: number;
+  };
 }
 export interface IProjectItem {
   name: string;
@@ -33,10 +32,25 @@ export interface IProjectItem {
 
 export interface IMember {
   id: number;
-  name: string;
-  postion: string;
-  description: string;
-  imageURL: string;
+  attributes: {
+    name: string;
+    description: string;
+    image: string;
+    createdAt: string;
+    updatedAt: string;
+    role: string;
+    socials: {
+      data:ISocial[];
+    }
+  };
+}
+interface ISocial {
+    id:number;
+    attributes:{
+      name: string;
+      link: string;
+      icon: string;
+    }
 }
 
 export interface ITab {
@@ -45,6 +59,6 @@ export interface ITab {
 }
 
 export interface IMenuItem {
-  text:string,
-  hrefText:string,
+  text: string;
+  hrefText: string;
 }
