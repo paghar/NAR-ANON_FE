@@ -36,7 +36,7 @@ const subscribe = () => {
       reasonText:""
     }
   });
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data:any) => console.log(data);
  
   return (
     <div className="max-w-screen-xl mt-36 mb-4 px-8 xl:px-16 mx-auto"> 
