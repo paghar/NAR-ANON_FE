@@ -1,5 +1,3 @@
-import React from "react";
-
 import ButtonPrimary from "../misc/ButtonPrimary";
 import TextBox from "../misc/TextBox";
 
@@ -14,12 +12,13 @@ import * as yup from "yup";
 import { useMutation } from "react-query";
 
 import api from "@/services/axios";
+import { toastMessage } from "@/utils/ToastMessage";
 
 const schema = yup
   .object({
-    name: yup.string().required(),
-    email: yup.string().email().required(),
-    message: yup.string().required()
+    name: yup.string().required("errors.name-required"),
+    email: yup.string().email().required("errors.email-required"),
+    message: yup.string().required("errors.message-required")
   })
   .required();
 type FormData = yup.InferType<typeof schema>;
@@ -30,7 +29,8 @@ const Footer = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm<FormData>({
     defaultValues: {
       name: "",
@@ -40,20 +40,21 @@ const Footer = () => {
     resolver: yupResolver(schema)
   });
 
-  const mutation = useMutation({
-    mutationFn: (newMessage: {data:FormData}) => {
+  const addMessage = useMutation({
+    mutationFn: (newMessage: { data: FormData }) => {
       return api.post("/messages", newMessage);
     },
-    onSuccess: (message) => {
-      console.log(message);
+    onSuccess: () => {
+      toastMessage(t("message-registered"), "#4CAF50", 2000);
+      reset();
     },
-    onError: (error) => {
-      console.log(error);
+    onError: () => {
+      toastMessage(t("registration-failed"), "#d3010ad9", 2000);
     }
   });
 
   const onSubmit = (data: FormData) => {
-    mutation.mutate({data:{ name: data.name, email: data.email, message: data.message }});
+    addMessage.mutate({ data: { name: data.name, email: data.email, message: data.message } });
   };
 
   return (
@@ -115,7 +116,7 @@ const Footer = () => {
                     name="name"
                   />
                   {errors.name && (
-                    <span className="text-red-500 text-lg">{errors.name.message}</span>
+                    <span className="text-red-500 text-lg">{t(errors.name.message!)}</span>
                   )}
                 </div>
 
@@ -138,7 +139,7 @@ const Footer = () => {
                     name="email"
                   />
                   {errors.email && (
-                    <span className="text-red-500 text-lg">{errors.email.message}</span>
+                    <span className="text-red-500 text-lg">{t(errors.email.message!)}</span>
                   )}
                 </div>
 
@@ -161,7 +162,7 @@ const Footer = () => {
                     name="message"
                   />
                   {errors.message && (
-                    <span className="text-red-500 text-lg">{errors.message.message}</span>
+                    <span className="text-red-500 text-lg">{t(errors.message.message!)}</span>
                   )}
                 </div>
 

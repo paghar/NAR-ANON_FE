@@ -46,8 +46,25 @@
         "email-address":"Email Address",
         "request-reason":"Request Reason",
         "condition-title":"I agree with the terms and conditions.",
-        "condition-context":"Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.senden Sie uns bitte eine Nachricht."
+        "condition-context":"Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.senden Sie uns bitte eine Nachricht.",
+        "message-registered":"Your message has been registered successfully",
+        "registration-failed":"Couldn't submit your message"
     },
+    "errors":{
+        "name-required": "name is required",
+        "first-name-required": "first name is required",
+        "last-name-required": "last name is required",
+        "message-required": "message is required",
+        "job-required": "job is required",
+        "address-required": "address is required",
+        "postal-code-required": "postal code is required",
+        "birth-date-required": "birth date is required",
+        "email-required": "email is required",
+        "phone-required": "phone is required",
+        "condition-required": "condition is required",
+        "reason-required": "reason is required",
+        "phone-validation":"Phone number is not valid"
+      },
     "button":{
         "more-picture":"More Picture",
         "send":"send",
