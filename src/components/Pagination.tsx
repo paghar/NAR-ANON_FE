@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { useRouter } from "next/router";
 
 const DOTS = "...";
 

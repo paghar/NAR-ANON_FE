@@ -26,6 +26,7 @@
     "react-hook-form": "^7.43.9",
     "react-hot-toast": "^2.4.1",
     "react-i18next": "^12.2.0",
+    "react-markdown": "^8.0.7",
     "react-phone-number-input": "^3.2.19",
     "react-photo-album": "^2.0.4",
     "react-query": "^3.39.3",

@@ -16,6 +16,7 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import GalleryAlbum from "@/components/GalleryAlbum";
 
 const gallary = () => {
   const [index, setIndex] = useState(-1);
@@ -96,19 +97,7 @@ const gallary = () => {
       </div>
 
       <div className="w-10/12">
-        <PhotoAlbum
-          photos={photos || []}
-          layout="rows"
-          targetRowHeight={150}
-          onClick={({ index }) => setIndex(index)}
-        />
-        <Lightbox
-          slides={slides || []}
-          open={index >= 0}
-          index={index}
-          close={() => setIndex(-1)}
-          plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
-        />
+        <GalleryAlbum galleries={galleries ?? []} />
       </div>
     </div>
   );
