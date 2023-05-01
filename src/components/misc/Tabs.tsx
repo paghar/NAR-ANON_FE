@@ -63,7 +63,7 @@ const Tabs = ({ tabs }: IProps) => {
         </div>
       </div>
       <div
-        className="text-black-500 my-6 max-w-5xl mx-auto"
+        className="text-black-500 my-6 max-w-5xl mx-auto max-h-80 overflow-auto"
         dangerouslySetInnerHTML={{ __html: t(currentTab?.context || "") }}
       ></div>
 
