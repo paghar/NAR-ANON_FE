@@ -1,12 +1,15 @@
-import {ITab} from "@/data/interface";
-import React, {useState} from "react";
+import { ITab } from "@/data/interface";
+import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
 
 interface IProps {
   tabs: ITab[];
 }
 
-const Tabs = ({tabs}: IProps) => {
+const Tabs = ({ tabs }: IProps) => {
   const [currentTab, setCurrentTab] = useState(tabs[0]);
+
+  const { t } = useTranslation("home");
 
   return (
     <>
@@ -19,17 +22,11 @@ const Tabs = ({tabs}: IProps) => {
           <select
             name="current-tab"
             id="current-tab"
-            defaultValue={
-              tabs.find((tab) => tab.title === currentTab.title)?.title
-            }
+            defaultValue={tabs.find((tab) => tab.title === currentTab.title)?.title}
             className="form-select w-full sm:w-auto block border-none text-sm text-gray-500 font-semibold cursor-pointer focus:ring-0"
           >
             {tabs.map((tab) => (
-              <option
-                key={tab.title}
-                value={tab.title}
-                onClick={() => setCurrentTab(tab)}
-              >
+              <option key={tab.title} value={tab.title} onClick={() => setCurrentTab(tab)}>
                 {tab.title}
               </option>
             ))}
@@ -46,17 +43,17 @@ const Tabs = ({tabs}: IProps) => {
                     key={tab.title}
                     className={`flex border-b-2 text-base 
                       ${
-                  tab.title === currentTab.title
-                    ? "border-orange-500 text-orange-500"
-                    : "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"
-                  }`}
+                        tab.title === currentTab.title
+                          ? "border-orange-500 text-orange-500"
+                          : "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"
+                      }`}
                   >
                     <button
                       type="button"
                       className="px-2 pb-5 inline-flex items-center font-semibold"
                       onClick={() => setCurrentTab(tab)}
                     >
-                      {tab.title}
+                      {t(tab.title||'')}
                     </button>
                   </li>
                 );
@@ -65,8 +62,11 @@ const Tabs = ({tabs}: IProps) => {
           </nav>
         </div>
       </div>
+      <div
+        className="text-black-500 my-6"
+        dangerouslySetInnerHTML={{ __html: t(currentTab?.context || "") }}
+      ></div>
 
-      <div className="mx-auto w-full max-w-5xl p-4">{currentTab?.context}</div>
     </>
   );
 };
