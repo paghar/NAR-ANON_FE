@@ -57,7 +57,7 @@ const Hero = ({ tabs }: IProps) => {
       {/* About Us description */}
       <ScrollAnimationWrapper>
         <motion.div>
-          <div className="h-64 ">
+          <div>
             <Tabs tabs={tabs} />
           </div>
         </motion.div>

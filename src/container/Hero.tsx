@@ -7,9 +7,9 @@ const HeroContainer = () => {
   const {t} = useTranslation("common");
 
   const tabs = [
-    {title:t("community.about-us-title"),context:t("community.about-us-context")},
-    {title:t("community.vision-mission-title"),context:t("community.vision-mission")},
-    {title:t("community.history-title"),context:t("community.history")},
+    {title:t("union-title"),context:t("union-description")},
+    {title:t("partners-and-sponsors-title"),context:t("partners-and-sponsors-description")},
+    {title:t("statute-title"),context:t("statute-description")},
   ];
 
 
