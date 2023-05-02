@@ -21,17 +21,18 @@ function App({ Component, pageProps }: AppProps) {
   const {
     t,
     i18n: { dir, language }
-  } = useTranslation("common");
+  } = useTranslation("common")
 
-  useEffect(() => {
+  useEffect(() => {    
     document.dir = dir();
+    document.body.className = language;
   }, [language]);
 
   return (
     <>
       <QueryClientProvider client={queryClient}>
         <SeoHead title={t("site-name")} />
-        <Layout>
+        <Layout >
           <Component {...pageProps} />
           <Toaster
             containerStyle={{ bottom: "12%" }}
