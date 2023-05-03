@@ -33,7 +33,7 @@ const Planes = ({
 
   return (
     <div className="bg-gradient-to-b from-white-300 to-white-500 py-14">
-      <div className="px-6 sm:px-8 lg:px-16 mx-auto flex flex-col text-center justify-center"       
+      <div className="px-6 sm:px-8 xl:px-16 mx-auto flex flex-col text-center justify-center max-w-screen-xl "       
       >
         {/* Projects */}
         <Project

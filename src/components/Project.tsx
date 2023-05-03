@@ -29,7 +29,7 @@ const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
     <div className="flex flex-col items-center justify-center" id="Project">   
 
       {/* :TITLE CONTAINER */}
-      <div className="xl:w-1/2 w-11/12 mb-8">       
+      <div className="w-10/12 md:w-7/12 lg:w-1/2 mb-8">       
         <ScrollAnimationWrapper>
           <motion.h1
             variants={scrollAnimation}
@@ -49,9 +49,9 @@ const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
       {/* :SCHEDULE */}
       <ScrollAnimationWrapper>
         <motion.div variants={scrollAnimation}>
-          <div className="flex flex-wrap mt-4 items-center justify-center" aria-label="schedule events">
+          <div className="flex flex-wrap gap-2 mt-4 items-center justify-between px-3" aria-label="schedule events">
             {projectItems.map(({id, attributes}) => (
-              <div className="w-2/5 m-2 border-2 border-gray-100" key={id}>
+              <div className="w-[49%] h-60  border-2 border-gray-100" key={id}>
                 <Card
                   date="2023"
                   thumbnail={attributes.thumbnail}

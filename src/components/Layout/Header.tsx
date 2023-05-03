@@ -1,23 +1,23 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import {Link as LinkScroll} from "react-scroll";
+import { Link as LinkScroll, scroller } from "react-scroll";
 import ButtonOutline from "../misc/ButtonOutline";
 import LogoVPN from "../../../public/assets/Logo.svg";
-import {useRouter} from "next/router";
-import {useTranslation} from "next-i18next";
-import {IMenuItem} from "../../data/interface";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import { IMenuItem } from "../../data/interface";
 
 interface IProps {
   menuItems: IMenuItem[];
   subscribeClick: () => void;
 }
 
-const Header = ({menuItems, subscribeClick}: IProps) => {
+const Header = ({ menuItems, subscribeClick }: IProps) => {
   const [activeLink, setActiveLink] = useState("");
   const [scrollActive, setScrollActive] = useState(false);
 
-  const {pathname} = useRouter();
-  const {t} = useTranslation("common");
+  const { pathname, push } = useRouter();
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -25,16 +25,23 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
     });
   }, []);
 
-  const renderMenuItems = (
-    style: string,
-    activeLinkStyle: string,
-    linkStyle: string
-  ) => {
+  const handleScroll = (elem: string) => {
+    if (pathname !== "/" && elem !== "Contact") {
+      push("/").then(() => {
+        scroller.scrollTo(elem, {
+          duration: 1000,
+          smooth: true,
+          offset: true
+        });
+      });
+    }
+  };
+  const renderMenuItems = (style: string, activeLinkStyle: string, linkStyle: string) => {
     return menuItems.map((item, index) => (
       <LinkScroll
         key={`${item}${index}`}
         activeClass="active"
-        to={item.hrefText}       
+        to={item.hrefText}
         spy={true}
         offset={-100}
         smooth={true}
@@ -42,9 +49,8 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
         onSetActive={() => {
           setActiveLink(item.hrefText);
         }}
-        className={`${style} ${
-          activeLink === item.hrefText ? activeLinkStyle : linkStyle
-        }`}
+        className={`${style} ${activeLink === item.hrefText ? activeLinkStyle : linkStyle}`}
+        onClick={() => handleScroll(item.hrefText)}
       >
         {item.text}
       </LinkScroll>
@@ -59,11 +65,10 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
         }`}
       >
         <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
-
           <div className="col-start-1 col-end-2 flex items-center">
             <Link href="/">
               <LogoVPN className="w-12 h-12" />
-            </Link>           
+            </Link>
           </div>
 
           <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500  items-center">
@@ -75,22 +80,21 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
           </ul>
 
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <Link href={{pathname}} locale={"de"}>
+            <Link href={{ pathname }} locale={"de"}>
               <span className="text-black-600 mx-1 sm:mx-2 capitalize tracking-wide hover:text-orange-500 transition-all">
-                { t("language.deutsch")}
+                {t("language.deutsch")}
               </span>
             </Link>
             <span>/</span>
-            <Link href={{pathname}} locale={"fa"}>
+            <Link href={{ pathname }} locale={"fa"}>
               <span className="text-black-600 mx-1 sm:mx-2 capitalize tracking-wide hover:text-orange-500 transition-all">
-                { t("language.farsi")}
+                {t("language.farsi")}
               </span>
             </Link>
             <ButtonOutline type="button" onClick={subscribeClick}>
-              { t("membership.membership")}
+              {t("membership.membership")}
             </ButtonOutline>
           </div>
-
         </nav>
       </header>
 
@@ -107,7 +111,6 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
         </div>
       </nav>
       {/* End Mobile Navigation */}
-      
     </>
   );
 };

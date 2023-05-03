@@ -69,7 +69,8 @@
     "button":{
         "more-picture":"عکس های بیشتر",
         "send":"ارسال",
-        "read-info":"اطلاعات بیشتر"
+        "read-info":"اطلاعات بیشتر",
+        "more-events":"رویدادهای بیشتر"
     },
     "contactUs":{
         "contactUs":"تماس با ما",

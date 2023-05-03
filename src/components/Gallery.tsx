@@ -21,10 +21,10 @@ const Gallery = () => {
   const galleries = galleriesData ?? [];
 
   return (
-    <div className="flex flex-col justify-center items-center my-10" dir="ltr" id="Gallery">
+    <div className="flex flex-col justify-center items-center my-10 max-w-screen-xl mx-auto " dir="ltr" id="Gallery">
 
       {/* :TITLE CONTAINER */}
-      <div className="xl:w-1/2 w-11/12 mb-8">       
+      <div className="w-10/12 md:w-7/12 lg:w-1/2 mb-8">       
         <ScrollAnimationWrapper>
           <motion.h1
             variants={scrollAnimation}

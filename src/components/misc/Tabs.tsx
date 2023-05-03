@@ -13,7 +13,7 @@ const Tabs = ({ tabs }: IProps) => {
 
   return (
     <>
-      <div className="mx-auto w-full max-w-5xl sm:border-b-2  border-gray-100">
+      <div className="mx-auto w-full  sm:border-b-2  border-gray-100">
         {/* :SMALL DEVICES */}
         <div className="mx-auto max-w-md sm:hidden rounded-lg border border-gray-100 overflow-hidden">
           <label htmlFor="current-tab" className="sr-only">
@@ -62,8 +62,8 @@ const Tabs = ({ tabs }: IProps) => {
           </nav>
         </div>
       </div>
-      <div
-        className="text-black-500 my-6 max-w-5xl mx-auto max-h-80 overflow-auto"
+      <div 
+        className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar"
         dangerouslySetInnerHTML={{ __html: t(currentTab?.context || "") }}
       ></div>
 

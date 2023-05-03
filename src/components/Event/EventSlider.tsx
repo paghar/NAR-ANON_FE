@@ -24,20 +24,20 @@ const EventSlider = ({eventItems}: IProps) => {
         {...settings}
         arrows={false}
         ref={setSliderRef}
-        className="flex items-stretch justify-items-stretch"
+        className="flex gap-4 items-stretch justify-items-stretch"
       >
         {eventItems?.map(({id, attributes}) => (
           <div className="px-3 flex items-stretch" key={id}>
             <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col">
-              <Image
+              <img
                 className="items-center"
                 src={attributes.thumbnail}
-                height={200}
-                width={200}
-                alt=""
+                // height={200}
+                // width={200}
+                alt={attributes.title}
               />              
-              <h1 className="mt-5 text-left">{attributes.title}</h1>
-              <p className="mt-5 text-left">“{attributes.description}”.</p>
+              <h1 className="mt-5 text-left line-clamp-2 h-12">{attributes.title}</h1>
+              <p className="mt-5 text-left line-clamp-6 h-36 mb-4">“{attributes.description}”.</p>
               <ButtonOutline type="button" onClick={() => push(`/plan/${attributes.slug}`)}>
                 Read More
               </ButtonOutline>
