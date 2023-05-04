@@ -68,7 +68,8 @@
     "button":{
         "more-picture":"More Picture",
         "send":"send",
-        "read-info":"Read Info"
+        "read-info":"Read Info",
+        "more-events":"More Events"
     },
     "contactUs":{
         "contactUs":"Contact Us",

@@ -1,6 +1,6 @@
 import {GetStaticPropsContext} from "next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import Gallary from "../components/Gallery";
+import Gallery from "../components/Gallery";
 import PlanesContainer from "../container/Planes";
 import Hero from "../container/Hero";
 
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Gallary />
+      <Gallery />
       <PlanesContainer />
     </>
   );

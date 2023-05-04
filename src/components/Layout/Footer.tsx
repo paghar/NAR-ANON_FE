@@ -59,7 +59,7 @@ const Footer = () => {
 
   return (
     <div className="bg-white-300 pt-32 pb-20" id="Contact">
-      <div className="container my-24 px-6 mx-auto">
+      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 my-24  mx-auto">
         <section className="text-gray-800">
           <div className="flex flex-wrap">
             {/* Description */}

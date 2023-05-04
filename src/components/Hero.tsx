@@ -57,7 +57,7 @@ const Hero = ({ tabs }: IProps) => {
       {/* About Us description */}
       <ScrollAnimationWrapper>
         <motion.div>
-          <div className=" ">
+          <div >
             <Tabs tabs={tabs} />
           </div>
         </motion.div>
@@ -65,7 +65,7 @@ const Hero = ({ tabs }: IProps) => {
 
       {/* Member */}
       <div className="relative w-full h-full flex">
-        <ScrollAnimationWrapper viewAmount={0.3} className="rounded-lg w-full grid grid-flow-row sm:grid-flow-row grid-cols-1 sm:grid-cols-3 py-9 bg-white-500 z-10">
+        <ScrollAnimationWrapper viewAmount={0.2} className="rounded-lg w-full grid grid-flow-row sm:grid-flow-row grid-cols-1 sm:grid-cols-3 py-9 bg-white-500 z-10">
           {members?.map(({ id, attributes }, index) => (
             <motion.div
               className="flex items-center justify-start sm:justify-center py-4 sm:py-6 w-8/12 px-4 sm:w-auto mx-auto sm:mx-0"
@@ -81,7 +81,7 @@ const Hero = ({ tabs }: IProps) => {
                 />
                 <h1 className="text-lg text-gray-700"> {attributes.name} </h1>
                 <h3 className="text-sm text-gray-400 "> {attributes.role} </h3>
-                <p className="text-xs text-gray-400 mt-4">{attributes.description}</p>
+                <p className="text-xs text-gray-400 mt-4 h-[98px] overflow-y-auto custom-scrollbar">{attributes.description}</p>
                 <div className="flex justify-center gap-2 mt-3">
                   {attributes?.socials.data?.map(({ id, attributes }) => (
                     <a key={id} href={attributes.link} target="_blank" rel="noreferrer">

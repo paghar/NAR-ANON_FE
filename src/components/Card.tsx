@@ -11,7 +11,7 @@ interface IProps{
 
 const Card = ({date,thumbnail,title,description,btnText,readMore}:IProps) => {
   return(
-    <article className="flex bg-white transition hover:shadow-xl">
+    <article className="flex bg-white transition hover:shadow-xl h-full">
 
       <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
         <time
@@ -35,12 +35,12 @@ const Card = ({date,thumbnail,title,description,btnText,readMore}:IProps) => {
       <div className="flex flex-1 flex-col justify-between">
         <div className="border-l border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
           <a href="#">
-            <h3 className="font-bold uppercase text-gray-900">
+            <h3 className="font-bold uppercase text-gray-900 line-clamp-2 h-12">
               {title}
             </h3>
           </a>
 
-          <p className="mt-2 text-sm leading-relaxed text-gray-700 line-clamp-3">
+          <p className="mt-2 text-sm leading-relaxed text-gray-700 line-clamp-4">
             {description}
           </p>
         </div>
