@@ -1,20 +1,20 @@
 import Card from "@/components/Card";
-import { usePlans } from "@/hooks/usePlans";
-import { GetServerSidePropsContext } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-import { useState } from "react";
+import {usePlans} from "@/hooks/usePlans";
+import {GetServerSidePropsContext} from "next";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useRouter} from "next/router";
+import {useTranslation} from "next-i18next";
+import {useState} from "react";
 import Pagination from "@/components/Pagination";
 
 export default function Plans() {
   const [page, setPage] = useState(1);
-  const { locale, query, push, isReady } = useRouter();
+  const {locale, query, push, isReady} = useRouter();
   const slug = !!query?.slug?.length ? query.slug[0] : "";
 
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
 
-  const { data: plansData } = usePlans({
+  const {data: plansData} = usePlans({
     locale,
     filters: `filters[type][$eq]=${slug}`,
     pagination: `pagination[page]=${page}&pagination[pageSize]=12`,
@@ -31,7 +31,7 @@ export default function Plans() {
         <button onClick={() => push("/plans/project")}>projects</button>
       </div>
       <div className="flex flex-wrap mt-4 justify-center" aria-label="schedule events">
-        {plans.map(({ id, attributes }) => (
+        {plans.map(({id, attributes}) => (
           <div className="w-2/5 m-2 border-2 border-gray-100" key={id}>
             <Card
               date="2023"
@@ -46,15 +46,20 @@ export default function Plans() {
       </div>
       {/* pagination */}
       <div className="mt-8">
-        <Pagination currentPage={page} perPage={12} totalCount={total} onClick={(currentPage)=>setPage(currentPage)}/>
+        <Pagination
+          currentPage={page}
+          perPage={12}
+          totalCount={total}
+          onClick={(currentPage) => setPage(currentPage)}
+        />
       </div>
     </div>
   );
 }
 
-export async function getServerSideProps({ locale }: GetServerSidePropsContext) {
-  return {
-    props: {
+export async function getServerSideProps({locale}: GetServerSidePropsContext) {
+  return{
+    props:{
       ...(await serverSideTranslations(locale ?? "de", ["common"]))
     }
   };

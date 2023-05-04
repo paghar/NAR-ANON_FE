@@ -5,19 +5,19 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import { IGallery } from "@/data/interface";
-import { useState } from "react";
+import {IGallery} from "@/data/interface";
+import {useState} from "react";
 
 interface Props {
   galleries: IGallery[];
 }
 
-const GalleryAlbum: React.FC<Props> = ({ galleries }) => {
+const GalleryAlbum: React.FC<Props> = ({galleries}) => {
   const [index, setIndex] = useState(-1);
 
   const breakpoints = [3840, 2400, 1080, 640, 384, 256, 128, 96, 64, 48];
 
-  const photos = galleries?.map(({ id, attributes }: IGallery) => {
+  const photos = galleries?.map(({attributes}: IGallery) => {
     const width = breakpoints[0];
     const height = (+attributes.height / +attributes.width) * width;
 
@@ -26,17 +26,17 @@ const GalleryAlbum: React.FC<Props> = ({ galleries }) => {
       width,
       height,
       images: breakpoints.map((breakpoint) => {
-        const height = Math.round((+attributes.height / +attributes.width) * breakpoint);
+        const imageHeight = Math.round((+attributes.height / +attributes.width) * breakpoint);
         return {
           src: attributes.image,
           width: breakpoint,
-          height
+          height:imageHeight
         };
       })
     };
   });
 
-  const slides = photos?.map(({ src, width, height, images }) => ({
+  const slides = photos?.map(({src, width, height, images}) => ({
     src,
     width,
     height,
@@ -53,7 +53,7 @@ const GalleryAlbum: React.FC<Props> = ({ galleries }) => {
         photos={photos || []}
         layout="rows"
         targetRowHeight={150}
-        onClick={({ index }) => setIndex(index)}
+        onClick={({index}) => setIndex(index)}
       />
       <Lightbox
         slides={slides || []}

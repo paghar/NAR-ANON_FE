@@ -1,13 +1,12 @@
 import {useState} from "react";
-import Image from "next/image";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 
 import Slider from "react-slick";
 import ArrowBack from "../../../public/assets/Icon/eva_arrow-back-fill.svg";
 import ArrowNext from "../../../public/assets/Icon/eva_arrow-next-fill.svg";
 import ButtonOutline from "../misc/ButtonOutline";
 import {settings} from "@/data/constants/sliderSettings";
-import { IPlan } from "@/data/interface";
+import {IPlan} from "@/data/interface";
 
 interface IProps {
   eventItems: IPlan[];
@@ -16,7 +15,7 @@ interface IProps {
 const EventSlider = ({eventItems}: IProps) => {
   const [sliderRef, setSliderRef] = useState<any>();
 
-  const {push}=useRouter()
+  const {push}=useRouter();
 
   return (
     <>

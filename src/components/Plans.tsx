@@ -19,7 +19,7 @@ interface IProps {
   subscribeClick: () => void;
 }
 
-const Planes = ({
+const Plans = ({
   eventTitle,
   eventDescription,
   eventItems,
@@ -75,4 +75,4 @@ const Planes = ({
   );
 };
 
-export default Planes;
+export default Plans;

@@ -1,15 +1,15 @@
-import { ITab } from "@/data/interface";
-import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
+import {useState} from "react";
+import {ITab} from "@/data/interface";
+import {useTranslation} from "next-i18next";
 
 interface IProps {
   tabs: ITab[];
 }
 
-const Tabs = ({ tabs }: IProps) => {
+const Tabs = ({tabs}: IProps) => {
   const [currentTab, setCurrentTab] = useState(tabs[0]);
 
-  const { t } = useTranslation("home");
+  const {t} = useTranslation("home");
 
   return (
     <>
@@ -42,18 +42,14 @@ const Tabs = ({ tabs }: IProps) => {
                   <li
                     key={tab.title}
                     className={`flex border-b-2 text-base 
-                      ${
-                        tab.title === currentTab.title
-                          ? "border-orange-500 text-orange-500"
-                          : "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"
-                      }`}
+                      ${tab.title === currentTab.title ? "border-orange-500 text-orange-500": "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"}`}
                   >
                     <button
                       type="button"
                       className="px-2 pb-5 inline-flex items-center font-semibold"
                       onClick={() => setCurrentTab(tab)}
                     >
-                      {t(tab.title||'')}
+                      {t(tab.title || "")}
                     </button>
                   </li>
                 );
@@ -62,11 +58,10 @@ const Tabs = ({ tabs }: IProps) => {
           </nav>
         </div>
       </div>
-      <div 
+      <div
         className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar"
-        dangerouslySetInnerHTML={{ __html: t(currentTab?.context || "") }}
+        dangerouslySetInnerHTML={{__html: t(currentTab?.context || "")}}
       ></div>
-
     </>
   );
 };

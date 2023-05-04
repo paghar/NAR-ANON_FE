@@ -1,7 +1,7 @@
-import { IPlan } from "@/data/interface";
+import {IPlan} from "@/data/interface";
 import api from "@/services/axios";
-import { getImageLink } from "@/utils/getImageLink";
-import { useQuery } from "react-query";
+import {getImageLink} from "@/utils/getImageLink";
+import {useQuery} from "react-query";
 
 interface PlansResponse {
   data: IPlan[] ;
@@ -21,8 +21,8 @@ const fetchPlans = async (
   slug: string | undefined
 ): Promise<PlansResponse> => {
   const res = await api.get(
-    `plans${slug ? "/" + slug : ""}?populate=thumbnail&${pagination}${
-      filters ? "&" + filters : ""
+    `plans${slug ? `/${slug}` : ""}?populate=thumbnail&${pagination}${
+      filters ? `&${filters}` : ""
     }&locale=${locale}`
   );
 
@@ -45,12 +45,12 @@ interface PlansProps {
   enabled?: boolean;
   slug?: string;
 }
-const usePlans = ({ locale = "de", filters, pagination, enabled = true, slug }: PlansProps) => {
+const usePlans = ({locale = "de", filters, pagination, enabled = true, slug}: PlansProps) => {
   return useQuery(
     ["plans", filters, pagination, locale, slug],
     () => fetchPlans(locale, filters, pagination, slug),
-    { enabled }
+    {enabled}
   );
 };
 
-export { fetchPlans, usePlans };
+export {fetchPlans, usePlans};

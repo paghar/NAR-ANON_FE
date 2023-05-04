@@ -1,6 +1,12 @@
+import { getImageLink } from "@/utils/getImageLink";
 import axios, {AxiosError, InternalAxiosRequestConfig, AxiosResponse} from "axios";
 
-const baseURL = "http://localhost:1337/api/";
+let baseURL = "http://127.0.0.1:1337/api/";
+
+
+// if (process.env.NEXT_PUBLIC_API_URL) {
+//   baseURL = process.env.NEXT_PUBLIC_API_URL + "/api/";
+// }
 
 const requestOnFullFilled = (config: InternalAxiosRequestConfig) => {
   config.baseURL = baseURL;
@@ -9,11 +15,11 @@ const requestOnFullFilled = (config: InternalAxiosRequestConfig) => {
 
 const requestOnRejected = (error: AxiosError) => Promise.reject(error);
 
-const responseOnFullFilled = (response: AxiosResponse) =>  response
+const responseOnFullFilled = (response: AxiosResponse) =>  response;
 
 
 const responseOnRejected = (error: AxiosError) => {
-  throw error.response;
+  throw error;
 };
 
 axios.interceptors.request.use(requestOnFullFilled, requestOnRejected);

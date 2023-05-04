@@ -1,7 +1,7 @@
 import api from "@/services/axios";
-import { IGallery } from "@/data/interface";
-import { useQuery } from "react-query";
-import { getImageLink } from "@/utils/getImageLink";
+import {IGallery} from "@/data/interface";
+import {useQuery} from "react-query";
+import {getImageLink} from "@/utils/getImageLink";
 
 const fetchGalleries = async (
   locale: string,
@@ -13,7 +13,7 @@ const fetchGalleries = async (
   );
 
   if (res.statusText === "OK") {
-    res.data.data = getImageLink(res.data.data,'image')
+    res.data.data = getImageLink(res.data.data,"image");
   }
 
   return res?.data.data;
@@ -23,10 +23,10 @@ interface GalleriesProps {
   filters: string;
   pagination?: string;
 }
-const useGalleries = ({ locale = "de", filters, pagination }: GalleriesProps) => {
+const useGalleries = ({locale = "de", filters, pagination}: GalleriesProps) => {
   return useQuery(["galleries", filters, pagination, locale], () =>
     fetchGalleries(locale, filters, pagination)
   );
 };
 
-export { fetchGalleries, useGalleries };
+export {fetchGalleries, useGalleries};
