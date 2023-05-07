@@ -1,11 +1,11 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 import EventSlider from "./EventSlider";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
 import Link from "next/link";
 import ButtonOutline from "../misc/ButtonOutline";
-import { useTranslation } from "next-i18next";
+import {useTranslation} from "next-i18next";
 
 interface IProps {
   eventTitle: string;
@@ -13,7 +13,7 @@ interface IProps {
   eventItems: any[];
 }
 
-const Event = ({ eventTitle, eventDescription, eventItems }: IProps) => {
+const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   const {t} = useTranslation("common");
 

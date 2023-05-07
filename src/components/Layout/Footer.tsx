@@ -5,14 +5,14 @@ import Facebook from "../../../public/assets/Icon/facebook.svg";
 import Twitter from "../../../public/assets/Icon/twitter.svg";
 import Instagram from "../../../public/assets/Icon/instagram.svg";
 
-import { useTranslation } from "next-i18next";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import {useTranslation} from "next-i18next";
+import {useForm, Controller} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useMutation } from "react-query";
+import {useMutation} from "react-query";
 
 import api from "@/services/axios";
-import { toastMessage } from "@/utils/ToastMessage";
+import {toastMessage} from "@/utils/ToastMessage";
 
 const schema = yup
   .object({
@@ -24,12 +24,12 @@ const schema = yup
 type FormData = yup.InferType<typeof schema>;
 
 const Footer = () => {
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
 
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState:{errors},
     reset
   } = useForm<FormData>({
     defaultValues: {
@@ -41,7 +41,7 @@ const Footer = () => {
   });
 
   const addMessage = useMutation({
-    mutationFn: (newMessage: { data: FormData }) => {
+    mutationFn: (newMessage:{data: FormData}) => {
       return api.post("/messages", newMessage);
     },
     onSuccess: () => {
@@ -54,12 +54,12 @@ const Footer = () => {
   });
 
   const onSubmit = (data: FormData) => {
-    addMessage.mutate({ data: { name: data.name, email: data.email, message: data.message } });
+    addMessage.mutate({data: {name: data.name, email: data.email, message: data.message}});
   };
 
   return (
     <div className="bg-white-300 pt-32 pb-20" id="Contact">
-      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 my-24  mx-auto">
+      <div className="max-w-screen-xl px-6 sm:px-8 lg:px-16 my-24 mx-auto">
         <section className="text-gray-800">
           <div className="flex flex-wrap">
             {/* Description */}
@@ -67,15 +67,15 @@ const Footer = () => {
               <h2 className="text-3xl text-black-600 font-bold mb-6">{t("contactUs.contactUs")}</h2>
               <div
                 className="text-black-500 mb-6"
-                dangerouslySetInnerHTML={{ __html: t("contactUs.contactUs-dec") }}
+                dangerouslySetInnerHTML={{__html: t("contactUs.contactUs-dec")}}
               ></div>
               <div
                 className="text-black-500 mb-6"
-                dangerouslySetInnerHTML={{ __html: t("contactUs.contactUs-help-text") }}
+                dangerouslySetInnerHTML={{__html: t("contactUs.contactUs-help-text")}}
               ></div>
               <div
                 className="text-black-500 mb-6"
-                dangerouslySetInnerHTML={{ __html: t("contactUs.contactUs-account") }}
+                dangerouslySetInnerHTML={{__html: t("contactUs.contactUs-account")}}
               ></div>
               <p className="text-black-500 mb-2">{t("community.address")}</p>
               <p className="text-black-500 mb-2">{t("community.phone")}</p>
@@ -104,7 +104,7 @@ const Footer = () => {
                       required: true,
                       maxLength: 30
                     }}
-                    render={({ field: { onChange, value } }) => (
+                    render={({field:{onChange, value}}) => (
                       <TextBox
                         id="name"
                         type="input"
@@ -127,7 +127,7 @@ const Footer = () => {
                       required: true,
                       maxLength: 30
                     }}
-                    render={({ field: { onChange, value } }) => (
+                    render={({field:{onChange, value}}) => (
                       <TextBox
                         id="firstName"
                         type="input"
@@ -149,7 +149,7 @@ const Footer = () => {
                     rules={{
                       required: true
                     }}
-                    render={({ field: { onChange, value } }) => (
+                    render={({field:{onChange, value}}) => (
                       <TextBox
                         id="reasonText"
                         type="textarea"

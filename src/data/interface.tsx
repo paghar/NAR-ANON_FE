@@ -29,7 +29,14 @@ export interface IProjectItem {
   name: string;
   details: string;
 }
-
+interface ISocial {
+  id: number;
+  attributes: {
+    name: string;
+    link: string;
+    icon: string;
+  };
+}
 export interface IMember {
   id: number;
   attributes: {
@@ -40,17 +47,9 @@ export interface IMember {
     updatedAt: string;
     role: string;
     socials: {
-      data:ISocial[];
-    }
+      data: ISocial[];
+    };
   };
-}
-interface ISocial {
-    id:number;
-    attributes:{
-      name: string;
-      link: string;
-      icon: string;
-    }
 }
 
 export interface ITab {

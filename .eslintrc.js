@@ -83,8 +83,7 @@ module.exports = {
       "classes": true,
       "variables": true,
     }],
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error", {"ignoreTypeValueShadow": true}],
+    
   },
   "settings": {
     "react": {

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import {useMemo} from "react";
 
 const DOTS = "...";
 
@@ -8,12 +8,12 @@ type Props = {
   perPage: number;
   onClick: (currenPage: number) => void;
 };
-const Pagination: React.FC<Props> = ({ currentPage, totalCount, perPage, onClick }) => {
+const Pagination: React.FC<Props> = ({currentPage, totalCount, perPage, onClick}) => {
   const totalPageCount = Math.ceil(totalCount / perPage);
 
   const range = (start: number, end: number) => {
     let length = end - start + 1;
-    return Array.from({ length }, (_, idx) => idx + start);
+    return Array.from({length}, (_, idx) => idx + start);
   };
 
   const paginationRange = useMemo(() => {

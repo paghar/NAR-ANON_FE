@@ -1,24 +1,24 @@
 import GalleryAlbum from "@/components/GalleryAlbum";
-import { useGalleries } from "@/hooks/useGalleries";
-import { usePlans } from "@/hooks/usePlans";
-import { GetServerSidePropsContext } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
+import {useGalleries} from "@/hooks/useGalleries";
+import {usePlans} from "@/hooks/usePlans";
+import {GetServerSidePropsContext} from "next";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useRouter} from "next/router";
 import ReactMarkdown from "react-markdown";
 
 export default function Plan() {
-  const { locale, query } = useRouter();
+  const {locale, query} = useRouter();
   const slug = !!query?.slug?.length ? query.slug[0] : "";
 
-  const { data: planData } = usePlans({
+  const {data: planData} = usePlans({
     locale,
     pagination: `pagination[start]=0&pagination[limit]=0`,
     slug
   });
   const plan: any = planData?.data ?? {};
-  const { attributes } = plan;
+  const {attributes} = plan;
 
-  const { data: galleries } = useGalleries({
+  const {data: galleries} = useGalleries({
     locale,
     filters: `filters\[plan\][slug][$contains]=${slug}`
   });
@@ -39,7 +39,7 @@ export default function Plan() {
   );
 }
 
-export async function getServerSideProps({ locale }: GetServerSidePropsContext) {
+export async function getServerSideProps({locale}: GetServerSidePropsContext) {
   return {
     props: {
       ...(await serverSideTranslations(locale ?? "de", ["common"]))

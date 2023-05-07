@@ -1,31 +1,31 @@
-import { useMemo } from "react";
-import { GetStaticPropsContext } from "next";
+import {useMemo} from "react";
+import {GetStaticPropsContext} from "next";
 
 import ButtonPrimary from "@/components/misc/ButtonPrimary";
 import TextBox from "@/components/misc/TextBox";
 import CheckBox from "@/components/misc/CheckBox";
 
 import ScrollAnimationWrapper from "@/components/Layout/ScrollAnimationWrapper";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import getScrollAnimation from "@/utils/getScrollAnimation";
 
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useTranslation} from "next-i18next";
 
-import { useForm, Controller } from "react-hook-form";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
-import { useRouter } from "next/router";
+import {useForm, Controller} from "react-hook-form";
+import PhoneInput,{isValidPhoneNumber} from "react-phone-number-input";
+import {useRouter} from "next/router";
 
-import { yupResolver } from "@hookform/resolvers/yup";
+import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useMutation } from "react-query";
+import {useMutation} from "react-query";
 import DatePicker from "react-date-picker";
 
 import api from "@/services/axios";
-import { toastMessage } from "@/utils/ToastMessage";
+import {toastMessage} from "@/utils/ToastMessage";
 
-import 'react-date-picker/dist/DatePicker.css';
-import 'react-calendar/dist/Calendar.css';
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 
 
 const phoneRegEx =
@@ -33,38 +33,38 @@ const phoneRegEx =
 
 const schema = yup
   .object({
-    firstName: yup.string().required('errors.first-name-required'),
-    lastName: yup.string().required('errors.last-name-required'),
-    job: yup.string().required('errors.job-required'),
-    address: yup.string().required('errors.address-required'),
-    postalCode: yup.string().required('errors.postalCode-required'),
-    birthday: yup.string().required('errors.birthday-required'),
-    telephone: yup.string().matches(phoneRegEx, "errors.phone-validation").required('errors.phone-required'),
-    email: yup.string().email().required('errors.email-required'),
-    condition: yup.string().required('errors.condition-required'),
-    reason: yup.string().required('errors.reason-required')
+    firstName: yup.string().required("errors.first-name-required"),
+    lastName: yup.string().required("errors.last-name-required"),
+    job: yup.string().required("errors.job-required"),
+    address: yup.string().required("errors.address-required"),
+    postalCode: yup.string().required("errors.postalCode-required"),
+    birthday: yup.string().required("errors.birthday-required"),
+    telephone: yup.string().matches(phoneRegEx, "errors.phone-validation").required("errors.phone-required"),
+    email: yup.string().email().required("errors.email-required"),
+    condition: yup.string().required("errors.condition-required"),
+    reason: yup.string().required("errors.reason-required")
   })
   .required();
 type FormData = yup.InferType<typeof schema>;
 
 const subscribe = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-  const { t } = useTranslation("common");
-  const { locale } = useRouter();
+  const {t} = useTranslation("common");
+  const {locale} = useRouter();
 
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState:{errors},
     reset
   } = useForm<FormData>({
-    defaultValues: {
+    defaultValues:{
       firstName: "",
       lastName: "",
       job: "",
       address: "",
       birthday: "",
-      postalCode: '',
+      postalCode: "",
       telephone: "",
       email: "",
       condition: "",
@@ -73,21 +73,21 @@ const subscribe = () => {
     resolver: yupResolver(schema)
   });
   const addMember = useMutation({
-    mutationFn: (newMember: { data: Omit<FormData,'condition'>  }) => {
+    mutationFn: (newMember:{data: Omit<FormData,"condition">}) =>{
       return api.post("/memberships ", newMember);
     },
-    onSuccess: () => {
-      toastMessage(t("message-registered"),"#4CAF50", 2000)
-      reset()
+    onSuccess: () =>{
+      toastMessage(t("message-registered"),"#4CAF50", 2000);
+      reset();
     },
-    onError: () => {
-      toastMessage(t("registration-failed"), "#d3010ad9", 2000)
+    onError: () =>{
+      toastMessage(t("registration-failed"), "#d3010ad9", 2000);
     }
   });
 
   const onSubmit = (data: FormData) => {    
     addMember.mutate({
-      data: {
+      data:{
         firstName:data.firstName,
         lastName:data.lastName,
         job:data.job,
@@ -113,7 +113,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <TextBox
                     id="firstName"
                     type="input"
@@ -132,7 +132,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <TextBox
                     id="lastName"
                     type="input"
@@ -154,7 +154,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <DatePicker className='w-full mx-6 mb-6' value={value} onChange={onChange} />
                 )}
                 name="birthday"
@@ -167,7 +167,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <TextBox
                     id="job"
                     type="input"
@@ -188,7 +188,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <TextBox
                     id="address"
                     type="input"
@@ -207,7 +207,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <TextBox
                     id="postalCode"
                     type="input"
@@ -227,9 +227,9 @@ const subscribe = () => {
                 rules={{
                   required: true,
                   maxLength: 30,
-                  validate: (value) => isValidPhoneNumber(value||'')
+                  validate: (value) => isValidPhoneNumber(value||"")
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <PhoneInput
                     id="telephone"
                     value={value}
@@ -264,7 +264,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <TextBox
                     id="email"
                     type="input"
@@ -284,7 +284,7 @@ const subscribe = () => {
                 rules={{
                   required: true
                 }}
-                render={({ field: { onChange, value } }) => (
+                render={({field:{onChange, value}}) => (
                   <TextBox
                     id="reason"
                     type="textarea"
@@ -304,8 +304,8 @@ const subscribe = () => {
                 <Controller
                   name="condition"
                   control={control}
-                  rules={{ required: true }}
-                  render={({ field: { onChange, value } }) => (
+                  rules={{required: true}}
+                  render={({field:{onChange, value}}) => (
                     <CheckBox value={value} id="condition" onChange={onChange} />
                   )}
                 />
@@ -336,7 +336,7 @@ const subscribe = () => {
   );
 };
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getStaticProps({locale}: GetStaticPropsContext) {
   return {
     props: {
       ...(await serverSideTranslations(locale ?? "de", ["common"]))
