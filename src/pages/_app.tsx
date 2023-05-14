@@ -13,6 +13,7 @@ import "@/styles/slick.css";
 import "react-phone-number-input/style.css";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 
 
 const queryClient = new QueryClient();
@@ -29,7 +30,7 @@ function App({ Component, pageProps }: AppProps) {
   }, [language]);
 
   return (
-    <>
+    <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <SeoHead title={t("site-name")} />
         <Layout >
@@ -47,7 +48,7 @@ function App({ Component, pageProps }: AppProps) {
           />
         </Layout>
       </QueryClientProvider>
-    </>
+    </ErrorBoundary>
   );
 }
 
