@@ -19,7 +19,6 @@ const Gallery = () => {
     pagination: "pagination[start]=0&pagination[limit]=14"
   });
   const galleries = galleriesData ?? [];
-  
 
   return (
     <div className="flex flex-col justify-center items-center my-10 max-w-screen-xl mx-auto " dir="ltr" id="Gallery">

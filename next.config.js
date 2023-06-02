@@ -12,12 +12,12 @@ const nextConfig = {
         hostname: 'localhost',
         port: '1337',
         pathname: '/**',
-      }
-      // {
-      //   protocol: 'https',
-      //   hostname: 'i.ibb.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.irankultursachsen.com',
        
-      // },
+      },
     ],
   },  
   env: {

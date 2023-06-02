@@ -1,12 +1,10 @@
-import { getImageLink } from "@/utils/getImageLink";
 import axios, {AxiosError, InternalAxiosRequestConfig, AxiosResponse} from "axios";
 
-let baseURL = "http://127.0.0.1:1337/api/";
+let baseURL = "https://api.irankultursachsen.com/api/";
 
-
-// if (process.env.NEXT_PUBLIC_API_URL) {
-//   baseURL = process.env.NEXT_PUBLIC_API_URL + "/api/";
-// }
+ if (process.env.NEXT_PUBLIC_API_URL) {
+   baseURL = process.env.NEXT_PUBLIC_API_URL + "/api/";
+ }
 
 const requestOnFullFilled = (config: InternalAxiosRequestConfig) => {
   config.baseURL = baseURL;

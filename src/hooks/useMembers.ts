@@ -8,7 +8,7 @@ const fetchMembers = async (locale: string): Promise<IMember[]> => {
     `members?populate=*&pagination[start]=0&pagination[limit]=20&locale=${locale}`
   );
 
-  if (res.statusText === "OK") {
+  if (res.status === 200) {
     res.data.data = getImageLink(res.data.data, "image");
   }
 

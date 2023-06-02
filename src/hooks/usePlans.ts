@@ -26,11 +26,11 @@ const fetchPlans = async (
     }&locale=${locale}`
   );
 
-  if (res.statusText === "OK" && !slug) {
+  if (res.status === 200 && !slug) {
     res.data.data = getImageLink(res.data.data, "thumbnail");
   }
 
-  if (res.statusText === "OK" && slug) {
+  if (res.status === 200 && slug) {
     const [data] = getImageLink([res.data.data], "thumbnail");
     res.data.data = data;
   }
