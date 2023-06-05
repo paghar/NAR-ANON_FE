@@ -2,9 +2,9 @@ import axios, {AxiosError, InternalAxiosRequestConfig, AxiosResponse} from "axio
 
 let baseURL = "https://api.irankultursachsen.com/api/";
 
- if (process.env.NEXT_PUBLIC_API_URL) {
-   baseURL = process.env.NEXT_PUBLIC_API_URL + "/api/";
- }
+if (process.env.NEXT_PUBLIC_API_URL) {
+  baseURL = `${process.env.NEXT_PUBLIC_API_URL}/api/`;
+}
 
 const requestOnFullFilled = (config: InternalAxiosRequestConfig) => {
   config.baseURL = baseURL;

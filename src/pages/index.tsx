@@ -27,11 +27,11 @@ export async function getStaticProps({locale}: GetStaticPropsContext) {
   const galleryPagination = "pagination[start]=0&pagination[limit]=14";
 
 
-  await queryClient.prefetchQuery(["plans", eventFilters, pagination, locale??'de', undefined], () =>
+  await queryClient.prefetchQuery(["plans", eventFilters, pagination, locale??"de", undefined], () =>
     fetchPlans(locale ?? "de", eventFilters, pagination, undefined)
   );
 
-  await queryClient.prefetchQuery(["plans", projectFilters,pagination, locale??'de', undefined], () =>
+  await queryClient.prefetchQuery(["plans", projectFilters,pagination, locale??"de", undefined], () =>
     fetchPlans(locale ?? "de", projectFilters, pagination, undefined)
   );
 
@@ -40,7 +40,7 @@ export async function getStaticProps({locale}: GetStaticPropsContext) {
   );
 
   return {
-    revalidate: 60 * 60 * 24, // 24H
+    revalidate: 60 * 60 * 12, // 12H
     props: {
       dehydratedState:JSON.parse(JSON.stringify(dehydrate(queryClient))),
       ...(await serverSideTranslations(locale ?? "de", ["common", "home"]))
