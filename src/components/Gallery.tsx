@@ -7,14 +7,17 @@ import Link from "next/link";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import {motion} from "framer-motion";
+import {useRouter} from "next/router";
 
 
 const Gallery = () => {
 
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   const {t} = useTranslation("common");
+  const {locale} = useRouter();
 
   const {data: galleriesData} = useGalleries({
+    locale,
     filters: "filters[banner][$eq]=true",
     pagination: "pagination[start]=0&pagination[limit]=14"
   });
