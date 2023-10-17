@@ -1,23 +1,23 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import {Link as LinkScroll, scroller} from "react-scroll";
+import { Link as LinkScroll, scroller } from "react-scroll";
 import ButtonOutline from "../misc/ButtonOutline";
 import LogoVPN from "../../../public/assets/Logo.svg";
-import {useRouter} from "next/router";
-import {useTranslation} from "next-i18next";
-import {IMenuItem} from "../../data/interface";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import { IMenuItem } from "../../data/interface";
 
 interface IProps {
   menuItems: IMenuItem[];
   subscribeClick: () => void;
 }
 
-const Header = ({menuItems, subscribeClick}: IProps) => {
+const Header = ({ menuItems, subscribeClick }: IProps) => {
   const [activeLink, setActiveLink] = useState("");
   const [scrollActive, setScrollActive] = useState(false);
 
-  const {pathname, push} = useRouter();
-  const {t} = useTranslation("common");
+  const { pathname, push } = useRouter();
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -80,13 +80,13 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
           </ul>
 
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <Link href={{pathname}} locale={"de"}>
+            <Link href={{ pathname }} locale={"en"}>
               <span className="text-black-600 mx-1 sm:mx-2 capitalize tracking-wide hover:text-orange-500 transition-all">
-                {t("language.deutsch")}
+                {t("language.english")}
               </span>
             </Link>
             <span>/</span>
-            <Link href={{pathname}} locale={"fa"}>
+            <Link href={{ pathname }} locale={"fa"}>
               <span className="text-black-600 mx-1 sm:mx-2 capitalize tracking-wide hover:text-orange-500 transition-all">
                 {t("language.farsi")}
               </span>
