@@ -1,0 +1,83 @@
+{
+  "site-name": "Iranian Cominunity",
+  "navbar": {
+    "about": "About Us",
+    "gallery": "Gallery",
+    "project": "Projects",
+    "event": "Events",
+    "contact-us": "Contact Us"
+  },
+  "language": {
+    "english": "English",
+    "farsi": "فارسی"
+  },
+  "community": {
+    "title": "Iranischer Kulturverein Sachsen e.V..",
+    "address": "address: Lingneralle 3, 01069 Dresden",
+    "phone": "Tel.: 0351-83383495",
+    "email": "E-Mail: semino@t-online.de",
+    "about-us-title": "About Us",
+    "about-us-context": "About Us Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! ",
+    "vision-mission-title": "Vision Mission",
+    "vision-mission": "Vision and Mission Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!",
+    "history-title": "History",
+    "history": "Our History Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"
+  },
+  "gallery": {
+    "gallery-title": "Gallery",
+    "gallery-des": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"
+  },
+  "plan": {
+    "project-title": "Project List",
+    "project-des": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!",
+    "event-title": "Event List",
+    "event-des": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, alias exercitationem id ut quod voluptates est.Veritatis distinctio quam cumque!"
+  },
+  "membership": {
+    "membership": "Subscription",
+    "membership-des": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "name": "Name",
+    "family": "Last Name",
+    "brithday": "Brithday",
+    "job": "Job",
+    "address": "Address",
+    "postal-code": "Postal Code",
+    "phone": "Phone",
+    "email-address": "Email Address",
+    "request-reason": "Request Reason",
+    "condition-title": "I agree with the terms and conditions.",
+    "condition-context": "Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.senden Sie uns bitte eine Nachricht.",
+    "message-registered": "Your message has been registered successfully",
+    "registration-failed": "Couldn't submit your message"
+  },
+  "errors": {
+    "name-required": "name is required",
+    "first-name-required": "first name is required",
+    "last-name-required": "last name is required",
+    "message-required": "message is required",
+    "job-required": "job is required",
+    "address-required": "address is required",
+    "postal-code-required": "postal code is required",
+    "birth-date-required": "birth date is required",
+    "email-required": "email is required",
+    "phone-required": "phone is required",
+    "condition-required": "condition is required",
+    "reason-required": "reason is required",
+    "phone-validation": "Phone number is not valid"
+  },
+  "button": {
+    "more-picture": "More Picture",
+    "send": "send",
+    "read-info": "Read Info",
+    "more-events": "More Events"
+  },
+  "contactUs": {
+    "contactUs": "Contact Us",
+    "contactUs-dec": "<p>Wenn Sie sich für unsere Tätigkeiten interessieren,wenn Sie möchten mit uns zusammenarbeiten,wenn Sie Fragen oder Anregungen haben,senden Sie uns bitte eine Nachricht.</p>",
+    "contactUs-help-text": "<p>Wir freuen uns, wenn Sie die Arbeit unseres Vereins mit Ihrer Spende unterstützen.</p><p>Unser Spendekonto:</p>",
+    "contactUs-account": "<p><b>IBAN:</b> DE36 8509 5004 7810 1810 06</p><p><b>BIC:</b> GENODEF1MEI</p>",
+    "contactUs-name": "Name",
+    "contactUs-email": "E-mail",
+    "contactUs-message": "Message"
+  }
+}
