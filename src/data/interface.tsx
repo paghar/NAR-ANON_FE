@@ -10,7 +10,7 @@ export interface IPlan {
     slug: string;
     createdAt: string;
     updatedAt: string;
-    locale: "de" | "fa";
+    locale: "en" | "fa";
   };
 }
 

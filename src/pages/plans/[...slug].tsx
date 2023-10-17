@@ -58,9 +58,9 @@ export default function Plans() {
 }
 
 export async function getServerSideProps({locale}: GetServerSidePropsContext) {
-  return{
-    props:{
-      ...(await serverSideTranslations(locale ?? "de", ["common"]))
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "fa", ["common"]))
     }
   };
 }

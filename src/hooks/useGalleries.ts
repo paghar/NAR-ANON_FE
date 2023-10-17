@@ -24,7 +24,7 @@ interface GalleriesProps {
   filters: string;
   pagination?: string;
 }
-const useGalleries = ({locale = "de", filters, pagination}: GalleriesProps) => {
+const useGalleries = ({locale = "en", filters, pagination}: GalleriesProps) => {
   return useQuery(["galleries", filters, pagination, locale], () =>
     fetchGalleries(locale, filters, pagination)
   );
