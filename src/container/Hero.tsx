@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import {members} from "../data/constants/members";
 import {useTranslation} from "next-i18next";
 
 const HeroContainer = () => {
