@@ -66,8 +66,8 @@ const gallary = () => {
 
 export async function getStaticProps({locale}: GetStaticPropsContext) {
   return {
-    props:{
-      ...(await serverSideTranslations(locale ?? "de", ["common"]))
+    props: {
+      ...(await serverSideTranslations(locale ?? "fa", ["common"]))
     }
   };
 }

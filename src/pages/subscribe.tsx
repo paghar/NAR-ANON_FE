@@ -13,7 +13,7 @@ import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
 
 import {useForm, Controller} from "react-hook-form";
-import PhoneInput,{isValidPhoneNumber} from "react-phone-number-input";
+import PhoneInput, {isValidPhoneNumber} from "react-phone-number-input";
 import {useRouter} from "next/router";
 
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -27,7 +27,6 @@ import {toastMessage} from "@/utils/ToastMessage";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 
-
 const phoneRegEx =
   /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
 
@@ -39,7 +38,10 @@ const schema = yup
     address: yup.string().required("errors.address-required"),
     postalCode: yup.string().required("errors.postalCode-required"),
     birthday: yup.string().required("errors.birthday-required"),
-    telephone: yup.string().matches(phoneRegEx, "errors.phone-validation").required("errors.phone-required"),
+    telephone: yup
+      .string()
+      .matches(phoneRegEx, "errors.phone-validation")
+      .required("errors.phone-required"),
     email: yup.string().email().required("errors.email-required"),
     condition: yup.string().required("errors.condition-required"),
     reason: yup.string().required("errors.reason-required")
@@ -55,10 +57,10 @@ const subscribe = () => {
   const {
     control,
     handleSubmit,
-    formState:{errors},
+    formState: {errors},
     reset
   } = useForm<FormData>({
-    defaultValues:{
+    defaultValues: {
       firstName: "",
       lastName: "",
       job: "",
@@ -73,30 +75,30 @@ const subscribe = () => {
     resolver: yupResolver(schema)
   });
   const addMember = useMutation({
-    mutationFn: (newMember:{data: Omit<FormData,"condition">}) =>{
+    mutationFn: (newMember: {data: Omit<FormData, "condition">}) => {
       return api.post("/memberships ", newMember);
     },
-    onSuccess: () =>{
-      toastMessage(t("message-registered"),"#4CAF50", 2000);
+    onSuccess: () => {
+      toastMessage(t("message-registered"), "#4CAF50", 2000);
       reset();
     },
-    onError: () =>{
+    onError: () => {
       toastMessage(t("registration-failed"), "#d3010ad9", 2000);
     }
   });
 
-  const onSubmit = (data: FormData) => {    
+  const onSubmit = (data: FormData) => {
     addMember.mutate({
-      data:{
-        firstName:data.firstName,
-        lastName:data.lastName,
-        job:data.job,
-        address:data.address,
-        birthday:data.birthday,
-        postalCode:data.postalCode,
-        telephone:data.telephone,
-        email:data.email,
-        reason:data.reason
+      data: {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        job: data.job,
+        address: data.address,
+        birthday: data.birthday,
+        postalCode: data.postalCode,
+        telephone: data.telephone,
+        email: data.email,
+        reason: data.reason
       }
     });
   };
@@ -113,7 +115,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({field:{onChange, value}}) => (
+                render={({field: {onChange, value}}) => (
                   <TextBox
                     id="firstName"
                     type="input"
@@ -124,7 +126,9 @@ const subscribe = () => {
                 )}
                 name="firstName"
               />
-              {errors.firstName && <span className="text-red-500 text-lg">{t(errors.firstName.message!)}</span>}
+              {errors.firstName && (
+                <span className="text-red-500 text-lg">{t(errors.firstName.message!)}</span>
+              )}
 
               <Controller
                 control={control}
@@ -132,7 +136,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({field:{onChange, value}}) => (
+                render={({field: {onChange, value}}) => (
                   <TextBox
                     id="lastName"
                     type="input"
@@ -143,10 +147,26 @@ const subscribe = () => {
                 )}
                 name="lastName"
               />
-              {errors.lastName && <span className="text-red-500 text-lg">{t(errors.lastName.message!)}</span>}
+              {errors.lastName && (
+                <span className="text-red-500 text-lg">{t(errors.lastName.message!)}</span>
+              )}
             </div>
 
             <div className="flex form-group">
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                  maxLength: 30
+                }}
+                render={({field: {onChange, value}}) => (
+                  <DatePicker className="w-full mx-6 mb-6" value={value} onChange={onChange} />
+                )}
+                name="birthday"
+              />
+              {errors.birthday && (
+                <span className="text-red-500 text-lg">{t(errors.birthday.message!)}</span>
+              )}
 
               <Controller
                 control={control}
@@ -154,20 +174,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({field:{onChange, value}}) => (
-                  <DatePicker className='w-full mx-6 mb-6' value={value} onChange={onChange} />
-                )}
-                name="birthday"
-              />
-              {errors.birthday && <span className="text-red-500 text-lg">{t(errors.birthday.message!)}</span>}
-              
-              <Controller
-                control={control}
-                rules={{
-                  required: true,
-                  maxLength: 30
-                }}
-                render={({field:{onChange, value}}) => (
+                render={({field: {onChange, value}}) => (
                   <TextBox
                     id="job"
                     type="input"
@@ -188,7 +195,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({field:{onChange, value}}) => (
+                render={({field: {onChange, value}}) => (
                   <TextBox
                     id="address"
                     type="input"
@@ -199,7 +206,9 @@ const subscribe = () => {
                 )}
                 name="address"
               />
-              {errors.address && <span className="text-red-500 text-lg">{t(errors.address.message!)}</span>}
+              {errors.address && (
+                <span className="text-red-500 text-lg">{t(errors.address.message!)}</span>
+              )}
 
               <Controller
                 control={control}
@@ -207,7 +216,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({field:{onChange, value}}) => (
+                render={({field: {onChange, value}}) => (
                   <TextBox
                     id="postalCode"
                     type="input"
@@ -218,7 +227,9 @@ const subscribe = () => {
                 )}
                 name="postalCode"
               />
-              {errors.postalCode && <span className="text-red-500 text-lg">{t(errors.postalCode.message!)}</span>}
+              {errors.postalCode && (
+                <span className="text-red-500 text-lg">{t(errors.postalCode.message!)}</span>
+              )}
             </div>
 
             <div className="flex form-group">
@@ -227,14 +238,14 @@ const subscribe = () => {
                 rules={{
                   required: true,
                   maxLength: 30,
-                  validate: (value) => isValidPhoneNumber(value||"")
+                  validate: (value) => isValidPhoneNumber(value || "")
                 }}
-                render={({field:{onChange, value}}) => (
+                render={({field: {onChange, value}}) => (
                   <PhoneInput
                     id="telephone"
                     value={value}
                     onChange={onChange}
-                    defaultCountry={locale === "fa" ? "IR" : "DE"}
+                    defaultCountry={locale === "fa" ? "IR" : "GB"}
                     placeholder={t("membership.phone") ?? "Telefon"}
                     className="form-control block
                     w-full
@@ -256,7 +267,9 @@ const subscribe = () => {
                 )}
                 name="telephone"
               />
-              {errors.telephone && <span className="text-red-500 text-lg">{t(errors.telephone.message!)}</span>}
+              {errors.telephone && (
+                <span className="text-red-500 text-lg">{t(errors.telephone.message!)}</span>
+              )}
 
               <Controller
                 control={control}
@@ -264,7 +277,7 @@ const subscribe = () => {
                   required: true,
                   maxLength: 30
                 }}
-                render={({field:{onChange, value}}) => (
+                render={({field: {onChange, value}}) => (
                   <TextBox
                     id="email"
                     type="input"
@@ -275,7 +288,9 @@ const subscribe = () => {
                 )}
                 name="email"
               />
-              {errors.email && <span className="text-red-500 text-lg">{t(errors.email.message!)}</span>}
+              {errors.email && (
+                <span className="text-red-500 text-lg">{t(errors.email.message!)}</span>
+              )}
             </div>
 
             <div className="flex form-group">
@@ -284,7 +299,7 @@ const subscribe = () => {
                 rules={{
                   required: true
                 }}
-                render={({field:{onChange, value}}) => (
+                render={({field: {onChange, value}}) => (
                   <TextBox
                     id="reason"
                     type="textarea"
@@ -296,7 +311,9 @@ const subscribe = () => {
                 )}
                 name="reason"
               />
-              {errors.reason && <span className="text-red-500 text-lg">{t(errors.reason.message!)}</span>}
+              {errors.reason && (
+                <span className="text-red-500 text-lg">{t(errors.reason.message!)}</span>
+              )}
             </div>
 
             <div className="flex my-4 mx-6">
@@ -305,11 +322,13 @@ const subscribe = () => {
                   name="condition"
                   control={control}
                   rules={{required: true}}
-                  render={({field:{onChange, value}}) => (
+                  render={({field: {onChange, value}}) => (
                     <CheckBox value={value} id="condition" onChange={onChange} />
                   )}
                 />
-                {errors.condition && <span className="text-red-500 text-lg">{t(errors.condition.message!)}</span>}
+                {errors.condition && (
+                  <span className="text-red-500 text-lg">{t(errors.condition.message!)}</span>
+                )}
               </div>
               <div className="ml-2 text-sm">
                 <label className="font-medium text-gray-900 dark:text-gray-300">
@@ -339,7 +358,7 @@ const subscribe = () => {
 export async function getStaticProps({locale}: GetStaticPropsContext) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "de", ["common"]))
+      ...(await serverSideTranslations(locale ?? "fa", ["common"]))
     }
   };
 }

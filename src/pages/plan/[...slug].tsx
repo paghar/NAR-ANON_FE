@@ -42,7 +42,7 @@ export default function Plan() {
 export async function getServerSideProps({locale}: GetServerSidePropsContext) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "de", ["common"]))
+      ...(await serverSideTranslations(locale ?? "fa", ["common"]))
     }
   };
 }

@@ -17,7 +17,7 @@ const fetchMembers = async (locale: string): Promise<IMember[]> => {
 interface MembersProps {
   locale?: string;
 }
-const useMembers = ({locale = "de"}: MembersProps) => {
+const useMembers = ({locale = "fa"}: MembersProps) => {
   return useQuery(["galleries", locale], () => fetchMembers(locale));
 };
 

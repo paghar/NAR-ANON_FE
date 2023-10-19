@@ -45,7 +45,7 @@ interface PlansProps {
   enabled?: boolean;
   slug?: string;
 }
-const usePlans = ({locale = "de", filters, pagination, enabled = true, slug}: PlansProps) => {
+const usePlans = ({locale = "fa", filters, pagination, enabled = true, slug}: PlansProps) => {
   return useQuery(
     ["plans", filters, pagination, locale, slug],
     () => fetchPlans(locale, filters, pagination, slug),
