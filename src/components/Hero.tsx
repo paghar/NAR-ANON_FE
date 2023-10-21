@@ -4,21 +4,17 @@ import {motion} from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import Tabs from "./misc/Tabs";
-import {ITab} from "@/data/interface";
-import {useTranslation} from "next-i18next";
-import {useMembers} from "@/hooks/useMembers";
-import {useRouter} from "next/router";
+import {useInfos} from "@/context/communityInfo";
+import {useEffect} from "react";
+import Markdown from "react-markdown";
 
-interface IProps {
-  tabs: ITab[];
-}
+const Hero = () => {
+  const scrollAnimation = useMemo(() => getScrollAnimation(), []);  
+  const infos = useInfos();
 
-const Hero = ({tabs}: IProps) => {
-  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
-  const {t} = useTranslation("common");
-
-  const {locale} = useRouter();
-  const {data: members} = useMembers({locale});
+  useEffect(()=>{
+    console.log(infos?.banner?.context??"");
+  });
 
   return (
     <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="About">
@@ -30,19 +26,17 @@ const Hero = ({tabs}: IProps) => {
         >
           <div className=" flex flex-col justify-center items-start row-start-2 sm:row-start-1">
             <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-black-600 leading-normal">
-              <strong>{t("community.title")}</strong>.
-            </h1>
-            <p className="text-black-500 mt-4 mb-6">
-              <span className="block">{t("community.address")}</span>
-              <span className="block">{t("community.phone")}</span>
-              <span className="block">{t("community.email")}</span>
-            </p>
+              <strong>
+                <Markdown>{infos?.aboutTitle?.title}</Markdown>               
+              </strong>
+            </h1>      
+            <Markdown className="text-black-500 mt-4 mb-6">{infos?.aboutTitle?.context}</Markdown>               
           </div>
 
           <div className="flex w-full">
             <motion.div className="h-full w-full" variants={scrollAnimation}>
               <Image
-                src="/assets/iran.png"
+                src={infos?.banner?.context??""}
                 alt="home"
                 quality={100}
                 width={612}
@@ -58,7 +52,7 @@ const Hero = ({tabs}: IProps) => {
       <ScrollAnimationWrapper>
         <motion.div>
           <div>
-            <Tabs tabs={tabs} />
+            <Tabs tabs={infos.aboutTab} />
           </div>
         </motion.div>
       </ScrollAnimationWrapper>
@@ -71,7 +65,7 @@ const Hero = ({tabs}: IProps) => {
             custom={{duration: 2}}
             variants={scrollAnimation}
           >
-            {members?.map(({id, attributes}) => (
+            {infos?.member?.map(({id, attributes}) => (
               <div
                 className="flex items-center justify-start sm:justify-center py-4 sm:py-6 w-8/12 px-4 sm:w-auto mx-auto sm:mx-0"
                 key={id}
@@ -86,9 +80,10 @@ const Hero = ({tabs}: IProps) => {
                   ) : null}
                   <h1 className="text-lg text-gray-700"> {attributes.name} </h1>
                   <h3 className="text-sm text-gray-400 "> {attributes.role} </h3>
-                  <p className="text-xs text-gray-400 mt-4 h-[98px] overflow-y-auto custom-scrollbar">
-                    {attributes.description}
-                  </p>
+                  <Markdown className="text-xs text-gray-400 mt-4 h-[98px] overflow-y-auto custom-scrollbar">                    
+                    {attributes.description}                  
+                  </Markdown>   
+                  
                   <div className="flex justify-center gap-2 mt-3">
                     {attributes?.socials.data?.map(({id, attributes}) => (
                       <a key={id} href={attributes.link} target="_blank" rel="noreferrer">

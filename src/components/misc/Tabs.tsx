@@ -1,9 +1,10 @@
 import {useState} from "react";
-import {ITab} from "@/data/interface";
+import {IInfoItem} from "@/data/interface";
 import {useTranslation} from "next-i18next";
+import Markdown from "react-markdown";
 
 interface IProps {
-  tabs: ITab[];
+  tabs: IInfoItem[];
 }
 
 const Tabs = ({tabs}: IProps) => {
@@ -58,10 +59,10 @@ const Tabs = ({tabs}: IProps) => {
           </nav>
         </div>
       </div>
-      <div
-        className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar"
-        dangerouslySetInnerHTML={{__html: t(currentTab?.context || "")}}
-      ></div>
+     
+      <Markdown className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar">{currentTab?.context}</Markdown>
+        
+   
     </>
   );
 };

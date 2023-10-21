@@ -1,3 +1,42 @@
+export interface IInfoItem {
+  title?: string;
+  context?: string;
+  image?:string;
+}
+
+interface ISocial {
+  id: number;
+  attributes: {
+    name: string;
+    link: string;
+    icon: string;
+  };
+}
+
+export interface IMember {
+  id: number;
+  attributes: {
+    name: string;
+    description: string;
+    image: string;
+    createdAt: string;
+    updatedAt: string;
+    role: string;
+    socials: {
+      data: ISocial[];
+    };
+  };
+}
+
+export interface InitialStateProps {
+  aboutTitle: IInfoItem,
+  aboutTab: IInfoItem[], 
+  contact:IInfoItem,
+  banner:IInfoItem,
+  logo:IInfoItem,
+  member:IMember[],
+}
+
 export interface IPlan {
   id: number;
   attributes: {
@@ -28,33 +67,6 @@ export interface IGallery {
 export interface IProjectItem {
   name: string;
   details: string;
-}
-interface ISocial {
-  id: number;
-  attributes: {
-    name: string;
-    link: string;
-    icon: string;
-  };
-}
-export interface IMember {
-  id: number;
-  attributes: {
-    name: string;
-    description: string;
-    image: string;
-    createdAt: string;
-    updatedAt: string;
-    role: string;
-    socials: {
-      data: ISocial[];
-    };
-  };
-}
-
-export interface ITab {
-  title?: string;
-  context?: string;
 }
 
 export interface IMenuItem {
