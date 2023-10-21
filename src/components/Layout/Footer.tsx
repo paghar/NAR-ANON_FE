@@ -7,6 +7,7 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {useMutation} from "react-query";
 import {useInfos} from "@/context/communityInfo";
+import Markdown from "react-markdown";
 
 import api from "@/services/axios";
 import {toastMessage} from "@/utils/ToastMessage";
@@ -63,10 +64,7 @@ const Footer = () => {
             {/* Description */}
             <div className="grow-0 shrink-0 basis-auto mb-6 md:mb-0 w-full md:w-6/12 px-3 lg:px-6">
               <h2 className="text-3xl text-black-600 font-bold mb-6">{t("contactUs.contactUs")}</h2>
-              <div
-                className="text-black-500 mb-6"
-                dangerouslySetInnerHTML={{__html:infos?.contact?.context ?? ""}}
-              />
+              <Markdown className="text-black-500 mb-6">{infos?.contact?.context ?? ""}</Markdown>             
             </div>
 
             {/* Form Element */}
