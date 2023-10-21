@@ -13,7 +13,7 @@ const Layout = ({menuItems,children,subscribeClick}: IProps) => {
     <>
       <Header menuItems={menuItems} subscribeClick={subscribeClick} />
       {children}
-      <Footer />
+      <Footer/>
     </>
   );
 };

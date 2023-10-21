@@ -1,15 +1,12 @@
 import ButtonPrimary from "../misc/ButtonPrimary";
 import TextBox from "../misc/TextBox";
 
-import Facebook from "../../../public/assets/Icon/facebook.svg";
-import Twitter from "../../../public/assets/Icon/twitter.svg";
-import Instagram from "../../../public/assets/Icon/instagram.svg";
-
 import {useTranslation} from "next-i18next";
 import {useForm, Controller} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {useMutation} from "react-query";
+import {useInfos} from "@/context/communityInfo";
 
 import api from "@/services/axios";
 import {toastMessage} from "@/utils/ToastMessage";
@@ -25,6 +22,7 @@ type FormData = yup.InferType<typeof schema>;
 
 const Footer = () => {
   const {t} = useTranslation("common");
+  const infos = useInfos();
 
   const {
     control,
@@ -67,31 +65,8 @@ const Footer = () => {
               <h2 className="text-3xl text-black-600 font-bold mb-6">{t("contactUs.contactUs")}</h2>
               <div
                 className="text-black-500 mb-6"
-                dangerouslySetInnerHTML={{__html: t("contactUs.contactUs-dec")}}
-              ></div>
-              <div
-                className="text-black-500 mb-6"
-                dangerouslySetInnerHTML={{__html: t("contactUs.contactUs-help-text")}}
-              ></div>
-              <div
-                className="text-black-500 mb-6"
-                dangerouslySetInnerHTML={{__html: t("contactUs.contactUs-account")}}
-              ></div>
-              <p className="text-black-500 mb-2">{t("community.address")}</p>
-              <p className="text-black-500 mb-2">{t("community.phone")}</p>
-              <p className="text-black-500 mb-2">{t("community.email")}</p>
-
-              <div className="flex w-full mt-2 mb-8 -mx-2">
-                <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-                  <Facebook className="h-6 w-6" />
-                </div>
-                <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-                  <Twitter className="h-6 w-6" />
-                </div>
-                <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-                  <Instagram className="h-6 w-6" />
-                </div>
-              </div>
+                dangerouslySetInnerHTML={{__html:infos?.contact?.context ?? ""}}
+              />
             </div>
 
             {/* Form Element */}

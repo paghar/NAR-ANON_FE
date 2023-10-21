@@ -1,20 +1,12 @@
 import {GetStaticPropsContext} from "next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import Gallery from "../components/Gallery";
-import PlanesContainer from "../container/Plans";
-import Hero from "../container/Hero";
+import Landing from "@/container/Landing";
 import {QueryClient, dehydrate} from "react-query";
 import {fetchPlans} from "@/hooks/usePlans";
 import {fetchGalleries} from "@/hooks/useGalleries";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <Gallery />
-      <PlanesContainer />
-    </>
-  );
+  return (<Landing/>);
 }
 
 export async function getStaticProps({locale}: GetStaticPropsContext) {

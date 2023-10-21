@@ -1,9 +1,9 @@
 import {useState} from "react";
-import {ITab} from "@/data/interface";
+import {IInfoItem} from "@/data/interface";
 import {useTranslation} from "next-i18next";
 
 interface IProps {
-  tabs: ITab[];
+  tabs: IInfoItem[];
 }
 
 const Tabs = ({tabs}: IProps) => {
@@ -60,7 +60,7 @@ const Tabs = ({tabs}: IProps) => {
       </div>
       <div
         className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar"
-        dangerouslySetInnerHTML={{__html: t(currentTab?.context || "")}}
+        dangerouslySetInnerHTML={{__html: t(currentTab?.context)}}
       ></div>
     </>
   );
