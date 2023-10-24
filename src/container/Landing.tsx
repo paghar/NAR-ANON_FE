@@ -50,8 +50,6 @@ const Landing = (()=>{
       imageLogo.push({title:item.attributes.title,context:item.attributes.image});
     } 
   });
-
-  console.log(imageLogo);
  
   useEffect(()=>{  
     dispatch({
