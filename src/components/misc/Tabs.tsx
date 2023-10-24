@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {IInfoItem} from "@/data/interface";
 import {useTranslation} from "next-i18next";
 import Markdown from "react-markdown";
@@ -12,6 +12,10 @@ const Tabs = ({tabs}: IProps) => {
 
   const {t} = useTranslation("home");
 
+  useEffect(()=>{
+    setCurrentTab(tabs[0]);
+  },[tabs]);
+
   return (
     <>
       <div className="mx-auto w-full  sm:border-b-2  border-gray-100">
@@ -23,7 +27,7 @@ const Tabs = ({tabs}: IProps) => {
           <select
             name="current-tab"
             id="current-tab"
-            defaultValue={tabs.find((tab) => tab.title === currentTab.title)?.title}
+            defaultValue={tabs.find((tab) => tab?.title === currentTab?.title)?.title}
             className="form-select w-full sm:w-auto block border-none text-sm text-gray-500 font-semibold cursor-pointer focus:ring-0"
           >
             {tabs.map((tab) => (
@@ -43,7 +47,7 @@ const Tabs = ({tabs}: IProps) => {
                   <li
                     key={tab.title}
                     className={`flex border-b-2 text-base 
-                      ${tab.title === currentTab.title ? "border-orange-500 text-orange-500": "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"}`}
+                      ${tab?.title === currentTab?.title ? "border-orange-500 text-orange-500": "border-transparent text-gray-400 hover:text-gray-400 hover:border-gray-400"}`}
                   >
                     <button
                       type="button"
@@ -60,7 +64,7 @@ const Tabs = ({tabs}: IProps) => {
         </div>
       </div>
      
-      <Markdown className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar">{currentTab?.context}</Markdown>
+      <Markdown className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar">{currentTab?.context??""}</Markdown>
         
    
     </>

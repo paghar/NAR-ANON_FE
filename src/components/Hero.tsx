@@ -5,17 +5,12 @@ import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import Tabs from "./misc/Tabs";
 import {useInfos} from "@/context/communityInfo";
-import {useEffect} from "react";
 import Markdown from "react-markdown";
+import {InitialStateProps} from "@/data/interface";
 
 const Hero = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);  
-  const infos = useInfos();
-
-  useEffect(()=>{
-    console.log(infos?.banner?.context??"");
-  });
-
+  const infos:InitialStateProps = useInfos();
   return (
     <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="About">
       {/* First Part */}
@@ -27,10 +22,10 @@ const Hero = () => {
           <div className=" flex flex-col justify-center items-start row-start-2 sm:row-start-1">
             <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-black-600 leading-normal">
               <strong>
-                <Markdown>{infos?.aboutTitle?.title}</Markdown>               
+                <Markdown>{infos?.aboutTitle?.title??""}</Markdown>               
               </strong>
             </h1>      
-            <Markdown className="text-black-500 mt-4 mb-6">{infos?.aboutTitle?.context}</Markdown>               
+            <Markdown className="text-black-500 mt-4 mb-6">{infos?.aboutTitle?.context??""}</Markdown>               
           </div>
 
           <div className="flex w-full">

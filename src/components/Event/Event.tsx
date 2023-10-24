@@ -20,7 +20,7 @@ const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
   return (
     <div className=" flex flex-col w-full text-center justify-center mt-10" id="Event" >
       {/* :TITLE CONTAINER */}
-      <div className="w-10/12 md:w-7/12 lg:w-1/2 mb-8 mx-auto">
+      <div className="w-10/12 md:w-7/12 lg:w-1/2 mb-16 mx-auto">
         <ScrollAnimationWrapper>
           <motion.h3
             variants={scrollAnimation}
@@ -28,12 +28,12 @@ const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
           >
             {eventTitle}
           </motion.h3>
-          <motion.p
+          {/* <motion.p
             variants={scrollAnimation}
             className="text-base leading-normal text-center text-gray-600 mt-5"
           >
             {eventDescription}
-          </motion.p>
+          </motion.p> */}
         </ScrollAnimationWrapper>
       </div>
 
