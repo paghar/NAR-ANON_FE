@@ -29,7 +29,7 @@ const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
     <div className="flex flex-col items-center justify-center" id="Project">   
 
       {/* :TITLE CONTAINER */}
-      <div className="w-10/12 md:w-7/12 lg:w-1/2 mb-8">       
+      <div className="w-10/12 md:w-7/12 lg:w-1/2 mb-16">       
         <ScrollAnimationWrapper>
           <motion.h1
             variants={scrollAnimation}
@@ -37,12 +37,12 @@ const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
           >
             {projectTitle}
           </motion.h1>
-          <motion.p
+          {/* <motion.p
             variants={scrollAnimation}
             className="text-base leading-normal text-center text-gray-600 mt-5"
           >
             {projectDescription}
-          </motion.p>
+          </motion.p> */}
         </ScrollAnimationWrapper>
       </div>
 

@@ -2,11 +2,12 @@ import {InfoAction} from "./enum";
 import {InitialStateProps} from "./interface";
 
 export const initialState:InitialStateProps = {
-  aboutTitle:[],
+  aboutTitle:{},
   aboutTab: [],    
-  contact: [], 
-  banner:[],
-  logo: [], 
+  contact: {}, 
+  banner:{},
+  logo: {}, 
+  member:[],
 };
 
 export const reducer = (state = initialState, action:any) => {

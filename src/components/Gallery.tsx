@@ -35,12 +35,12 @@ const Gallery = () => {
           >
             {t("gallery.gallery-title")}
           </motion.h1>
-          <motion.p
+          {/* <motion.p
             variants={scrollAnimation}
             className="text-base leading-normal text-center text-gray-600 mt-5"
           >
             {t("gallery.gallery-des")}
-          </motion.p>
+          </motion.p> */}
         </ScrollAnimationWrapper>
       </div>
 

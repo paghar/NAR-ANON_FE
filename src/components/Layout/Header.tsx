@@ -1,11 +1,12 @@
 import {useState, useEffect} from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {Link as LinkScroll, scroller} from "react-scroll";
 import ButtonOutline from "../misc/ButtonOutline";
-import LogoVPN from "../../../public/assets/Logo.svg";
 import {useRouter} from "next/router";
 import {useTranslation} from "next-i18next";
-import {IMenuItem} from "../../data/interface";
+import {IMenuItem, InitialStateProps} from "../../data/interface";
+import {useInfos} from "@/context/communityInfo";
 
 interface IProps {
   menuItems: IMenuItem[];
@@ -19,6 +20,7 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
   const {pathname, push} = useRouter();
   const {t} = useTranslation("common");
 
+  const infos:InitialStateProps = useInfos();
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScrollActive(window.scrollY > 20);
@@ -67,7 +69,13 @@ const Header = ({menuItems, subscribeClick}: IProps) => {
         <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
           <div className="col-start-1 col-end-2 flex items-center">
             <Link href="/">
-              <LogoVPN className="w-12 h-12" />
+              <Image
+                src={infos?.logo?.context??""}
+                alt="home"               
+                quality={100}
+                width={70}
+                height={70}                       
+              />           
             </Link>
           </div>
 
