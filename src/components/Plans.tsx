@@ -7,6 +7,7 @@ import Event from "./Event/Event";
 import Project from "./Project";
 import {IPlan} from "@/data/interface";
 import {useTranslation} from "next-i18next";
+import {useRouter} from "next/router";
 
 
 interface IProps {
@@ -30,6 +31,9 @@ const Plans = ({
 }: IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   const {t} = useTranslation("common");
+  const {locale} = useRouter();
+
+  const textAlign= locale==="fa"?"text-right":"text-left";
 
   return (
     <div className="bg-gradient-to-b from-white-300 to-white-500 py-14">
@@ -54,7 +58,7 @@ const Plans = ({
           <ScrollAnimationWrapper className="relative mt-8 ">
             <motion.div variants={scrollAnimation} custom={{duration: 3}}>
               <div className="absolute rounded-xl  py-8 sm:py-14 px-6 sm:px-12 lg:px-16 w-full flex flex-col sm:flex-row justify-between items-center z-10 bg-white-500">
-                <div className="flex flex-col text-left w-10/12 sm:w-7/12 lg:w-5/12 mb-6 sm:mb-0">
+                <div className={`${textAlign} flex flex-col  w-10/12 sm:w-7/12 lg:w-9/12 mb-6 sm:mb-0`}>
                   <h5 className="text-black-600 text-xl sm:text-2xl lg:text-lg leading-relaxed font-medium">
                     {t("membership.membership-des")}
                   </h5>                  
