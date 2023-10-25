@@ -1,5 +1,4 @@
 export const settings = {
-  dots: true,
   customPaging: function () {
     return (
       <a className="">

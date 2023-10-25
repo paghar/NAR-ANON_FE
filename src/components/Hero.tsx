@@ -53,22 +53,22 @@ const Hero = () => {
       </ScrollAnimationWrapper>
 
       {/* Member */}
-      <div className="relative w-full h-full flex">
+      <div className="relative w-full h-full">
         <ScrollAnimationWrapper viewAmount={0.2}>
           <motion.div
-            className="rounded-lg w-full grid grid-flow-row sm:grid-flow-row grid-cols-1 sm:grid-cols-5 py-9 bg-white-500 z-10"
+            className="rounded-lg flex flex-wrap justify-center gap-6 bg-white-500"
             custom={{duration: 2}}
             variants={scrollAnimation}
           >
             {infos?.member?.map(({id, attributes}) => (
               <div
-                className="flex items-center justify-start sm:justify-center py-4 sm:py-6 w-8/12 px-4 sm:w-auto mx-auto sm:mx-0"
+                className="flex items-center justify-center h-52 w-52 bg-white font-semibold  rounded-3xl border border-gray-100 shadow-lg my-6"
                 key={id}
               >
-                <div className="bg-white font-semibold text-center rounded-3xl border border-gray-100 shadow-lg p-10 max-w-xs">
+                <div className="p-4 text-center">
                   {attributes.image ? (
                     <img
-                      className="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto"
+                      className="mb-3 w-20 h-20 rounded-full shadow-lg mx-auto"
                       src={attributes.image}
                       alt="product designer"
                     />
@@ -76,7 +76,7 @@ const Hero = () => {
                   <h1 className="text-lg text-gray-700"> {attributes.name} </h1>
                   <h3 className="text-sm text-gray-400 "> {attributes.role} </h3>
                   <Markdown className="text-xs text-gray-400 mt-4 h-[98px] overflow-y-auto custom-scrollbar">                    
-                    {attributes.description}                  
+                    {attributes.description} 
                   </Markdown>   
                   
                   <div className="flex justify-center gap-2 mt-3">

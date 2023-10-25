@@ -26,15 +26,13 @@ const EventSlider = ({eventItems}: IProps) => {
         className="flex gap-4 items-stretch justify-items-stretch"
       >
         {eventItems?.map(({id, attributes}) => (
-          <div className="px-3 flex items-stretch" key={id}>
-            <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col">
-              <img
-                className="items-center"
-                src={attributes.thumbnail}
-                // height={200}
-                // width={200}
+          <div className="px-3 flex items-stretch " key={id}>
+            <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col max-h-96 ">
+              {/* <img
+                className="items-center h-1/4 w-full "
+                src={attributes.thumbnail}               
                 alt={attributes.title}
-              />              
+              />               */}
               <h1 className="mt-5 text-left line-clamp-2 h-12">{attributes.title}</h1>
               <p className="mt-5 text-left line-clamp-6 h-36 mb-4">“{attributes.description}”.</p>
               <ButtonOutline type="button" onClick={() => push(`/plan/${attributes.slug}`)}>
@@ -45,7 +43,7 @@ const EventSlider = ({eventItems}: IProps) => {
         ))}
       </Slider>
 
-      <div className="flex w-full items-center justify-end">
+      <div className="flex w-full items-center justify-end ">
         <div className="flex flex-none justify-between w-auto mt-14">
           <div
             className="mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-white
