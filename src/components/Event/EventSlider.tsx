@@ -27,7 +27,7 @@ const EventSlider = ({eventItems}: IProps) => {
       >
         {eventItems?.map(({id, attributes}) => (
           <div className="px-3 flex items-stretch " key={id}>
-            <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col max-h-96 ">
+            <div className="border-2 border-gray-500 hover:border-orange-500 transition-all rounded-lg p-8 flex flex-col h-96 ">
               {/* <img
                 className="items-center h-1/4 w-full "
                 src={attributes.thumbnail}               

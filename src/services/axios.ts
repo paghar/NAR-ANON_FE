@@ -1,6 +1,6 @@
 import axios, {AxiosError, InternalAxiosRequestConfig, AxiosResponse} from "axios";
 
-let baseURL = "https://api.irankultursachsen.com/api/";
+let baseURL = "https://api.irdebtanon.ir/api/";
 
 if (process.env.NEXT_PUBLIC_API_URL) {
   baseURL = `${process.env.NEXT_PUBLIC_API_URL}/api/`;

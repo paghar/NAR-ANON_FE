@@ -52,11 +52,11 @@ const Gallery = () => {
               <div className="flex items-end relative">
                 <img
                   src={galleries[0]?.attributes?.image || ""}                  
-                  className="w-20 h-20 xs:hidden md:block lg:hidden xl:block rounded-lg mr-6 object-cover"
+                  className="w-20 h-20 xs:hidden md:block lg:hidden xl:block rounded-lg mr-6 object-cover"                  
                 />
                 <img
                   src={galleries[1]?.attributes?.image || ""}                 
-                  className="w-36 h-32 xl:w-48 xl:h-36 rounded-lg object-cover"
+                  className="w-32 h-32 xl:w-48 xl:h-36 mr-8 rounded-lg object-cover"
                 />
               </div>
               <div className="flex items-center justify-end my-6">
@@ -72,7 +72,7 @@ const Gallery = () => {
                 />
                 <img
                   src={galleries[4]?.attributes?.image || ""}                 
-                  className="xs:hidden md:block lg:hidden xl:block  w-20 h-20 rounded-lg ml-6 flex-shrink-0 object-cover "
+                  className="xs:hidden md:block lg:hidden xl:block w-20 h-20 rounded-lg ml-6  flex-shrink-0 object-cover "
                 />
               </div>
             </div>
@@ -89,7 +89,7 @@ const Gallery = () => {
                 />
                 <img
                   src={galleries[7]?.attributes?.image || ""}                
-                  className="xs:hidden md:block lg:hidden xl:block w-20 h-20 rounded-lg ml-6 object-cover "
+                  className="xs:hidden md:block lg:hidden xl:block w-20 h-20 rounded-lg ml-4 mr-8 object-cover "
                 />
               </div>
             </div>
