@@ -6,7 +6,7 @@ import {fetchPlans} from "@/hooks/usePlans";
 import {fetchGalleries} from "@/hooks/useGalleries";
 
 export default function Home() {
-  return (<Landing/>);
+  return <Landing />;
 }
 
 export async function getStaticProps({locale}: GetStaticPropsContext) {
@@ -19,24 +19,24 @@ export async function getStaticProps({locale}: GetStaticPropsContext) {
   const galleryPagination = "pagination[start]=0&pagination[limit]=14";
 
   await queryClient.prefetchQuery(
-    ["plans", eventFilters, pagination, locale ?? "en", undefined],
-    () => fetchPlans(locale ?? "en", eventFilters, pagination, undefined)
+    ["plans", eventFilters, pagination, locale ?? "fa", undefined],
+    () => fetchPlans(locale ?? "fa", eventFilters, pagination, undefined)
   );
 
   await queryClient.prefetchQuery(
-    ["plans", projectFilters, pagination, locale ?? "en", undefined],
-    () => fetchPlans(locale ?? "en", projectFilters, pagination, undefined)
+    ["plans", projectFilters, pagination, locale ?? "fa", undefined],
+    () => fetchPlans(locale ?? "fa", projectFilters, pagination, undefined)
   );
 
   await queryClient.prefetchQuery(["galleries", galleryFilters, galleryPagination, locale], () =>
-    fetchGalleries(locale ?? "en", galleryFilters, galleryPagination)
+    fetchGalleries(locale ?? "fa", galleryFilters, galleryPagination)
   );
 
   return {
     revalidate: 60 * 60 * 12, // 12H
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
-      ...(await serverSideTranslations(locale ?? "en", ["common", "home"]))
+      ...(await serverSideTranslations(locale ?? "fa", ["common", "home"]))
     }
   };
 }
