@@ -1,15 +1,12 @@
-import GalleryAlbum from "@/components/GalleryAlbum";
 import Pagination from "@/components/Pagination";
-import {useGalleries} from "@/hooks/useGalleries";
 import {usePlans, useNestedPlans} from "@/hooks/usePlans";
 import {GetServerSidePropsContext} from "next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useRouter} from "next/router";
 import {useState} from "react";
-import ReactMarkdown from "react-markdown";
 
 export function NestedPlans() {
-  const perPage = 2;
+  const perPage = 5;
   const [page, setPage] = useState(1);
   const {locale, query} = useRouter();
   const slug = !!query?.slug?.length ? query.slug[0] : "";
@@ -61,23 +58,9 @@ export default function Plan() {
   const plan: any = planData?.data ?? {};
   const {attributes} = plan;
 
-  const {data: galleries} = useGalleries({
-    locale,
-    filters: `filters\[plan\][slug][$contains]=${slug}`
-  });
-
   return (
     <div className="flex flex-col max-w-screen-xl mt-36 mb-4 px-8 xl:px-16 mx-auto">
       <h2 className="text-5xl font-normal leading-normal mt-0 mb-2">{attributes?.title}</h2>
-
-      <small className="font-normal leading-normal mt-0 mb-4">{attributes?.description}</small>
-      <div>
-        <ReactMarkdown>{attributes?.content}</ReactMarkdown>
-      </div>
-
-      <div>
-        <GalleryAlbum galleries={galleries ?? []} />
-      </div>
 
       <div>
         <NestedPlans />
