@@ -1,7 +1,7 @@
 export interface IInfoItem {
   title?: string;
   context?: string;
-  image?:string;
+  image?: string;
 }
 
 interface ISocial {
@@ -29,12 +29,40 @@ export interface IMember {
 }
 
 export interface InitialStateProps {
-  aboutTitle: IInfoItem,
-  aboutTab: IInfoItem[], 
-  contact:IInfoItem,
-  banner:IInfoItem,
-  logo:IInfoItem,
-  member:IMember[],
+  aboutTitle: IInfoItem;
+  aboutTab: IInfoItem[];
+  contact: IInfoItem;
+  banner: IInfoItem;
+  logo: IInfoItem;
+  member: IMember[];
+}
+
+export interface Audio {
+  id: number;
+  attributes: {
+    name: string;
+    alternativeText: string;
+    caption: string;
+    ext: string;
+    createdAt: string;
+    updatedAt: string;
+  };
+}
+
+export interface NestedPlans {
+  id: number;
+  attributes: {
+    title: string;
+    audio: Audio;
+    description: string;
+    content: string;
+    thumbnail: string;
+    type: "event" | "project";
+    slug: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: "en" | "fa";
+  };
 }
 
 export interface IPlan {
