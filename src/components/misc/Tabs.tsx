@@ -12,9 +12,9 @@ const Tabs = ({tabs}: IProps) => {
 
   const {t} = useTranslation("home");
 
-  useEffect(()=>{
+  useEffect(() => {
     setCurrentTab(tabs[0]);
-  },[tabs]);
+  }, [tabs]);
 
   return (
     <>
@@ -29,9 +29,10 @@ const Tabs = ({tabs}: IProps) => {
             id="current-tab"
             defaultValue={tabs.find((tab) => tab?.title === currentTab?.title)?.title}
             className="form-select w-full sm:w-auto block border-none text-sm text-gray-500 font-semibold cursor-pointer focus:ring-0"
+            onChange={(e: any) => setCurrentTab(tabs[e.target.value])}
           >
-            {tabs.map((tab) => (
-              <option key={tab.title} value={tab.title} onClick={() => setCurrentTab(tab)}>
+            {tabs.map((tab, i) => (
+              <option key={tab.title} value={i}>
                 {tab.title}
               </option>
             ))}
@@ -63,10 +64,10 @@ const Tabs = ({tabs}: IProps) => {
           </nav>
         </div>
       </div>
-     
-      <Markdown className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar">{currentTab?.context??""}</Markdown>
-        
-   
+
+      <Markdown className="text-black-500 my-6  mx-auto max-h-80 overflow-y-auto custom-scrollbar">
+        {currentTab?.context ?? ""}
+      </Markdown>
     </>
   );
 };
