@@ -1,5 +1,5 @@
 
-# NAR-ANON Dynamic LandingPage For NAR-ANON Assiociation and Subgroup Forums.
+# Dynamic LandingPage APP For NAR-ANON Association and Subgroup Forums.
 
  
 ## Demo
@@ -7,10 +7,7 @@
 [Iran Det Anan Association(DT-ANAN)](https://irdebtanon.ir/en)
 
 
-
-
-
-![Logo](/assets/Demo.png)
+![Demo](https://github.com/paghar/IranianCommunity_FE/assets/Demo.png)
 
 
 ## Tech Stack
