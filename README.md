@@ -7,7 +7,7 @@
 [Iran Det Anan Association(DT-ANAN)](https://irdebtanon.ir/en)
 
 
-![Demo](https://github.com/paghar/IranianCommunity_FE/assets/Demo.png)
+![Demo](https://github.com/paghar/IranianCommunity_FE/assets/66066475/c3187284-f990-493e-b1e8-4613294f0cef)
 
 
 ## Tech Stack
