@@ -2,9 +2,16 @@ import {createContext, useContext, useReducer} from "react";
 import {InfoAction} from "@/data/enum";
 import {InitialStateProps} from "@/data/interface";
 
-const InfosContext = createContext(null);
+const InfosContext = createContext<InitialStateProps>({
+  aboutTitle:{title:"",context:""},
+  aboutTab: [{title:"",context:""}],    
+  contact: {title:"",context:""}, 
+  banner:{title:"",context:""},
+  logo: {title:"",context:""}, 
+  member:[],
+});
 
-const InfosDispatchContext = createContext(null);
+const InfosDispatchContext = createContext(undefined as any);
 
 export function useInfos() {
   return useContext(InfosContext);
@@ -67,8 +74,11 @@ export const infoReducer = (infos = initialInfos, action:any) => {
   }
 };
 
+type Props = {
+  children: string | JSX.Element | JSX.Element[],
+}
 
-export function InfoProvider({children}) {
+export function InfoProvider({children}:Props) {
   const [infos, dispatch] = useReducer(
     infoReducer,
     initialInfos

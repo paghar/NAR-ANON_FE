@@ -8,7 +8,6 @@ import ButtonUnderline from "@/components/misc/ButtonUnderline";
 import ButtonOutline from "@/components/misc/ButtonOutline";
 import {usePlans} from "@/hooks/usePlans";
 import {useGalleries} from "@/hooks/useGalleries";
-import {IGallery} from "@/data/interface";
 
 import GalleryAlbum from "@/components/GalleryAlbum";
 

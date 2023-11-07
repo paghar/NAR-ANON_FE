@@ -127,7 +127,7 @@ const subscribe = () => {
                 name="firstName"
               />
               {errors.firstName && (
-                <span className="text-red-500 text-lg">{t(errors.firstName.message!)}</span>
+                <span className="text-red-500 text-lg">{t(errors.firstName.message??"")}</span>
               )}
 
               <Controller
@@ -148,7 +148,7 @@ const subscribe = () => {
                 name="lastName"
               />
               {errors.lastName && (
-                <span className="text-red-500 text-lg">{t(errors.lastName.message!)}</span>
+                <span className="text-red-500 text-lg">{t(errors.lastName.message??"")}</span>
               )}
             </div>
 
@@ -165,7 +165,7 @@ const subscribe = () => {
                 name="birthday"
               />
               {errors.birthday && (
-                <span className="text-red-500 text-lg">{t(errors.birthday.message!)}</span>
+                <span className="text-red-500 text-lg">{t(errors.birthday.message??"")}</span>
               )}
 
               <Controller
@@ -185,7 +185,7 @@ const subscribe = () => {
                 )}
                 name="job"
               />
-              {errors.job && <span className="text-red-500 text-lg">{t(errors.job.message!)}</span>}
+              {errors.job && <span className="text-red-500 text-lg">{t(errors.job.message??"")}</span>}
             </div>
 
             <div className="flex form-group">
@@ -207,7 +207,7 @@ const subscribe = () => {
                 name="address"
               />
               {errors.address && (
-                <span className="text-red-500 text-lg">{t(errors.address.message!)}</span>
+                <span className="text-red-500 text-lg">{t(errors.address.message??"")}</span>
               )}
 
               <Controller
@@ -228,7 +228,7 @@ const subscribe = () => {
                 name="postalCode"
               />
               {errors.postalCode && (
-                <span className="text-red-500 text-lg">{t(errors.postalCode.message!)}</span>
+                <span className="text-red-500 text-lg">{t(errors.postalCode.message??"")}</span>
               )}
             </div>
 
@@ -268,7 +268,7 @@ const subscribe = () => {
                 name="telephone"
               />
               {errors.telephone && (
-                <span className="text-red-500 text-lg">{t(errors.telephone.message!)}</span>
+                <span className="text-red-500 text-lg">{t(errors.telephone.message??"")}</span>
               )}
 
               <Controller
@@ -289,7 +289,7 @@ const subscribe = () => {
                 name="email"
               />
               {errors.email && (
-                <span className="text-red-500 text-lg">{t(errors.email.message!)}</span>
+                <span className="text-red-500 text-lg">{t(errors.email.message??"")}</span>
               )}
             </div>
 
@@ -312,7 +312,7 @@ const subscribe = () => {
                 name="reason"
               />
               {errors.reason && (
-                <span className="text-red-500 text-lg">{t(errors.reason.message!)}</span>
+                <span className="text-red-500 text-lg">{t(errors.reason.message??"")}</span>
               )}
             </div>
 
@@ -327,7 +327,7 @@ const subscribe = () => {
                   )}
                 />
                 {errors.condition && (
-                  <span className="text-red-500 text-lg">{t(errors.condition.message!)}</span>
+                  <span className="text-red-500 text-lg">{t(errors.condition.message??"")}</span>
                 )}
               </div>
               <div className="ml-2 text-sm">
