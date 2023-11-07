@@ -13,7 +13,7 @@ interface IProps {
   eventItems: any[];
 }
 
-const Event = ({eventTitle, eventDescription, eventItems}: IProps) => {
+const Event = ({eventTitle, eventItems}: IProps) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   const {t} = useTranslation("common");
 

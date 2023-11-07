@@ -89,7 +89,7 @@ const Footer = () => {
                     name="name"
                   />
                   {errors.name && (
-                    <span className="text-red-500 text-lg">{t(errors.name.message!)}</span>
+                    <span className="text-red-500 text-lg">{t(errors.name.message??"")}</span>
                   )}
                 </div>
 
@@ -111,9 +111,11 @@ const Footer = () => {
                     )}
                     name="email"
                   />
-                  {errors.email && (
-                    <span className="text-red-500 text-lg">{t(errors.email.message!)}</span>
-                  )}
+                  {
+                    errors.email && (
+                      <span className="text-red-500 text-lg">{t(errors.email.message??"")}</span>
+                    )
+                  }
                 </div>
 
                 <div className="form-group">
@@ -135,7 +137,7 @@ const Footer = () => {
                     name="message"
                   />
                   {errors.message && (
-                    <span className="text-red-500 text-lg">{t(errors.message.message!)}</span>
+                    <span className="text-red-500 text-lg">{t(errors.message.message??"")}</span>
                   )}
                 </div>
 

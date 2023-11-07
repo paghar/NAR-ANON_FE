@@ -19,7 +19,7 @@ interface IProps {
   projectItems: IPlan[];
 }
 
-const Project = ({projectTitle, projectDescription, projectItems}: IProps) => {
+const Project = ({projectTitle, projectItems}: IProps) => {
 
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   const {t} = useTranslation("common");
